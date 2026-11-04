@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mannu Shrestha & Sulav Rana — Wedding & Reception Invitation</title>
+  <!-- Google Fonts: Cormorant Garamond & Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Canvas Confetti for RSVP -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'wedding-red': '#9B1D2C',
+            'wedding-red-dark': '#7A1420',
+            'wedding-red-light': '#FDF2F4',
+            'sage': '#688A68',
+            'sage-dark': '#486848',
+            'sage-light': '#EDF3ED',
+            'sage-border': '#CCD8CC',
+            'warm-white': '#FAFBF9',
+            'charcoal-text': '#232D25',
+            'muted-text': '#5A6B5D'
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Montserrat"', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom gatefold animations and floral textures */
+    body {
+      background-color: #F8FAF8;
+      color: #232D25;
+      font-family: 'Montserrat', sans-serif;
+      overflow-x: hidden;
+    }
+
+    .font-cormorant {
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    /* Gatefold Cover Overlay */
+    #gatefold-cover {
+      perspective: 1600px;
+      transition: opacity 0.8s ease, visibility 0.8s ease;
+    }
+
+    .gate-left {
+      transform-origin: left center;
+      transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    .gate-right {
+      transform-origin: right center;
+      transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    .ribbon-wrapper {
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease;
+    }
+
+    /* Opened state */
+    .gates-opened .gate-left {
+      transform: rotateY(-110deg);
+    }
+    .gates-opened .gate-right {
+      transform: rotateY(110deg);
+    }
+    .gates-opened .ribbon-wrapper {
+      transform: translate(-50%, -50%) scale(0.6);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* Subtle Paper Texture & Border with Sage Tint */
+    .luxury-card {
+      background: #FFFFFF;
+      box-shadow: 0 10px 30px -10px rgba(104, 138, 104, 0.12), 0 2px 6px -1px rgba(0, 0, 0, 0.03);
+      border: 1px solid rgba(104, 138, 104, 0.22);
+    }
+
+    /* Audio wave animation */
+    @keyframes wave {
+      0%, 100% { height: 4px; }
+      50% { height: 16px; }
+    }
+    .sound-bar {
+      animation: wave 1.2s ease-in-out infinite;
+    }
+    .sound-bar:nth-child(2) { animation-delay: 0.2s; }
+    .sound-bar:nth-child(3) { animation-delay: 0.4s; }
+    .sound-bar:nth-child(4) { animation-delay: 0.1s; }
+  </style>
+</head>
+
+<body class="antialiased selection:bg-[#F9E2E5] selection:text-[#9B1D2C]">
+
+  <!-- ============================================== -->
+  <!-- 1. GATEFOLD OPENING HERO (Envelope / Bow View) -->
+  <!-- ============================================== -->
+  <div id="gatefold-cover" class="fixed inset-0 z-50 flex items-center justify-center overflow-hidden bg-stone-900/50 backdrop-blur-sm">
+    <div class="relative w-full h-full max-w-md mx-auto shadow-2xl overflow-hidden flex">
+      
+      <!-- Left Gate Panel -->
+      <div id="left-gate" class="gate-left relative w-1/2 h-full bg-[#FAFBF9] border-r border-[#CCD8CC] shadow-xl flex flex-col justify-between p-6">
+        <!-- Botanical Illustration Top Left (Sage Green & Red Berries) -->
+        <svg class="w-36 h-36 opacity-85 text-[#688A68]" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 20C25 40 45 35 60 25C75 15 90 30 105 15" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+          <path d="M15 15C30 35 50 20 65 38" stroke="currentColor" stroke-width="1" stroke-dasharray="2 3"/>
+          <circle cx="35" cy="32" r="5" fill="#9B1D2C"/>
+          <circle cx="58" cy="24" r="6" fill="#A3BFA3"/>
+          <circle cx="85" cy="20" r="4" fill="#9B1D2C"/>
+          <path d="M5 60C35 55 55 75 75 65" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+          <circle cx="28" cy="58" r="4.5" fill="#A3BFA3"/>
+          <circle cx="62" cy="70" r="5.5" fill="#9B1D2C"/>
+        </svg>
+
+        <div class="text-xs uppercase tracking-[0.3em] text-[#688A68] font-semibold -rotate-90 origin-left ml-2">
+          Save Our Dates
+        </div>
+
+        <!-- Botanical Illustration Bottom Left -->
+        <svg class="w-36 h-36 opacity-85 text-[#688A68] transform rotate-180" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 20C25 40 45 35 60 25C75 15 90 30 105 15" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+          <circle cx="35" cy="32" r="5" fill="#9B1D2C"/>
+          <circle cx="62" cy="23" r="6" fill="#A3BFA3"/>
+        </svg>
+      </div>
+
+      <!-- Right Gate Panel -->
+      <div id="right-gate" class="gate-right relative w-1/2 h-full bg-[#FAFBF9] border-l border-[#CCD8CC] shadow-xl flex flex-col justify-between items-end p-6">
+        <!-- Botanical Illustration Top Right -->
+        <svg class="w-36 h-36 opacity-85 text-[#688A68] transform scale-x-[-1]" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 20C25 40 45 35 60 25C75 15 90 30 105 15" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+          <circle cx="35" cy="32" r="5" fill="#9B1D2C"/>
+          <circle cx="62" cy="23" r="6" fill="#A3BFA3"/>
+        </svg>
+
+        <div class="text-xs uppercase tracking-[0.25em] text-[#9B1D2C] font-semibold rotate-90 origin-right mr-2">
+          Mannu &amp; Sulav
+        </div>
+
+        <!-- Botanical Illustration Bottom Right -->
+        <svg class="w-36 h-36 opacity-85 text-[#688A68] transform rotate-180 scale-x-[-1]" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 20C25 40 45 35 60 25C75 15 90 30 105 15" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+          <circle cx="35" cy="32" r="5" fill="#9B1D2C"/>
+          <circle cx="62" cy="23" r="6" fill="#A3BFA3"/>
+        </svg>
+      </div>
+
+      <!-- Center Bow & Tap to Open Button (Rich Crimson Silk Ribbon) -->
+      <div id="ribbon-center" class="ribbon-wrapper absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 flex flex-col items-center cursor-pointer group">
+        
+        <!-- Elegant Silk Ribbon Bow Graphic in Red -->
+        <div class="relative w-44 h-44 flex items-center justify-center filter drop-shadow-xl transition-transform duration-300 group-hover:scale-105">
+          <svg class="w-full h-full" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Left Wing -->
+            <path d="M100 100 C70 60 25 65 30 95 C35 125 80 110 100 100Z" fill="#9B1D2C" stroke="#7A1420" stroke-width="1.5"/>
+            <path d="M85 92 C65 72 40 75 42 90 C45 106 72 100 85 92Z" fill="#B32535" opacity="0.6"/>
+            <!-- Right Wing -->
+            <path d="M100 100 C130 60 175 65 170 95 C165 125 120 110 100 100Z" fill="#9B1D2C" stroke="#7A1420" stroke-width="1.5"/>
+            <path d="M115 92 C135 72 160 75 158 90 C155 106 128 100 115 92Z" fill="#B32535" opacity="0.6"/>
+            <!-- Left Hanging Ribbon Tails -->
+            <path d="M96 102 C85 130 65 160 55 175 C65 170 85 160 98 110Z" fill="#851623" stroke="#680E18" stroke-width="1"/>
+            <!-- Right Hanging Ribbon Tails -->
+            <path d="M104 102 C115 130 135 160 145 175 C135 170 115 160 102 110Z" fill="#851623" stroke="#680E18" stroke-width="1"/>
+            <!-- Center Knot with Subtle White/Sage Sheen -->
+            <ellipse cx="100" cy="100" rx="14" ry="12" fill="#AD2333" stroke="#7A1420" stroke-width="1.5"/>
+            <ellipse cx="98" cy="97" rx="7" ry="4" fill="#FFFFFF" opacity="0.25"/>
+            <path d="M92 98 Q100 105 108 98" stroke="#680E18" stroke-width="1.2" fill="none"/>
+          </svg>
+        </div>
+
+        <!-- Tap To Open CTA -->
+        <button id="open-btn" class="mt-2 bg-white text-[#9B1D2C] border border-[#9B1D2C]/40 text-xs font-semibold tracking-[0.25em] uppercase py-2.5 px-6 rounded-full shadow-lg group-hover:bg-[#9B1D2C] group-hover:text-white transition-all duration-300">
+          Tap to Open
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ============================================== -->
+  <!-- FLOATING MUSIC TOGGLE BUTTON                   -->
+  <!-- ============================================== -->
+  <div class="fixed bottom-5 right-5 z-40">
+    <button id="music-toggle" aria-label="Toggle ambient music" class="bg-white/95 backdrop-blur-md p-3 rounded-full shadow-lg border border-[#CCD8CC] flex items-center gap-2 hover:bg-[#FAFBF9] transition">
+      <div id="sound-indicator" class="flex items-center gap-0.5 h-4 w-4 justify-center">
+        <!-- Animated bars in festive red -->
+        <span class="w-0.5 bg-[#9B1D2C] h-1.5 rounded-full sound-bar"></span>
+        <span class="w-0.5 bg-[#9B1D2C] h-3.5 rounded-full sound-bar"></span>
+        <span class="w-0.5 bg-[#9B1D2C] h-2 rounded-full sound-bar"></span>
+      </div>
+      <svg id="music-icon-muted" class="w-4 h-4 text-[#688A68] hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+      </svg>
+    </button>
+  </div>
+
+
+  <!-- ============================================== -->
+  <!-- MAIN INVITATION CONTENT CONTAINER              -->
+  <!-- ============================================== -->
+  <main class="w-full max-w-md mx-auto bg-[#F8FAF8] min-h-screen relative pb-20 shadow-xl border-x border-[#CCD8CC]/50">
+
+    <!-- 1. HERO SECTION: SAVE THE DATE -->
+    <header class="relative px-6 pt-16 pb-12 text-center overflow-hidden bg-gradient-to-b from-white via-[#FAFBF9] to-[#F8FAF8]">
+      <!-- Decorative floral frame borders in Sage Green & Red hints -->
+      <div class="absolute -top-10 -left-10 w-44 h-44 text-[#688A68]/20 pointer-events-none">
+        <svg viewBox="0 0 100 100" fill="currentColor">
+          <circle cx="30" cy="30" r="15" fill-opacity="0.35"/>
+          <circle cx="50" cy="20" r="10" fill="#9B1D2C" fill-opacity="0.25"/>
+          <path d="M10,80 Q50,50 80,10" stroke="#688A68" stroke-width="1.2" fill="none"/>
+        </svg>
+      </div>
+      <div class="absolute -top-10 -right-10 w-44 h-44 text-[#688A68]/20 pointer-events-none transform scale-x-[-1]">
+        <svg viewBox="0 0 100 100" fill="currentColor">
+          <circle cx="30" cy="30" r="15" fill-opacity="0.35"/>
+          <circle cx="50" cy="20" r="10" fill="#9B1D2C" fill-opacity="0.25"/>
+          <path d="M10,80 Q50,50 80,10" stroke="#688A68" stroke-width="1.2" fill="none"/>
+        </svg>
+      </div>
+
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EDF3ED] border border-[#CCD8CC] text-[#486848] text-[10px] uppercase tracking-[0.25em] font-semibold mb-4">
+        <span>Save Our Dates</span>
+      </div>
+      
+      <h1 class="font-cormorant text-5xl sm:text-6xl text-[#232D25] font-normal tracking-wide leading-none my-3">
+        Mannu Shrestha
+        <span class="block text-3xl italic text-[#9B1D2C] my-2 font-serif">&amp;</span>
+        Sulav Rana
+      </h1>
+      
+      <p class="font-cormorant italic text-lg text-[#5A6B5D] mt-2">Together with their families, invite you to celebrate their wedding</p>
+      
+      <!-- Red & Sage Divider -->
+      <div class="flex items-center justify-center gap-2 my-4">
+        <div class="w-10 h-[1px] bg-[#688A68]"></div>
+        <div class="w-1.5 h-1.5 rounded-full bg-[#9B1D2C]"></div>
+        <div class="w-10 h-[1px] bg-[#688A68]"></div>
+      </div>
+
+      <!-- Quick Date Badges -->
+      <div class="space-y-1.5 mt-2">
+        <div class="inline-block bg-white px-4 py-1.5 rounded-xl border border-[#CCD8CC] shadow-sm">
+          <p class="text-[11px] tracking-wider text-[#9B1D2C] uppercase font-bold">
+            Reception: November 28, 2026 &bull; Dhulikhel
+          </p>
+        </div>
+        <br>
+        <div class="inline-block bg-white px-4 py-1.5 rounded-xl border border-[#CCD8CC] shadow-sm">
+          <p class="text-[11px] tracking-wider text-[#486848] uppercase font-bold">
+            Wedding Day: December 3, 2026 &bull; Chabahil
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-8">
+        <a href="#rsvp" class="inline-flex items-center gap-2 bg-[#9B1D2C] text-white text-xs uppercase tracking-[0.2em] px-7 py-3.5 rounded-full hover:bg-[#7A1420] transition-all shadow-md active:scale-95">
+          Respond to Invitation
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </a>
+      </div>
+    </header>
+
+
+    <!-- 2. COUNTDOWN TIMER -->
+    <section class="px-6 py-8 text-center">
+      <!-- Section Vignette Icon in Sage Green -->
+      <div class="w-12 h-12 mx-auto mb-2 text-[#9B1D2C] flex items-center justify-center bg-[#FDF2F4] rounded-full border border-[#9B1D2C]/20">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.3" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      </div>
+      <h2 class="font-cormorant text-2xl text-[#232D25] italic mb-1">Counting Down To Our Celebrations</h2>
+      <p class="text-[11px] text-[#5A6B5D] uppercase tracking-wider mb-6">First Event: Reception on Nov 28, 2026</p>
+
+      <div class="grid grid-cols-4 gap-3 max-w-xs mx-auto">
+        <div class="luxury-card rounded-2xl py-3 px-1 text-center">
+          <span id="days" class="font-cormorant text-3xl font-semibold text-[#9B1D2C] block">00</span>
+          <span class="text-[9px] uppercase tracking-wider text-[#5A6B5D] font-medium">Days</span>
+        </div>
+        <div class="luxury-card rounded-2xl py-3 px-1 text-center">
+          <span id="hours" class="font-cormorant text-3xl font-semibold text-[#232D25] block">00</span>
+          <span class="text-[9px] uppercase tracking-wider text-[#5A6B5D] font-medium">Hours</span>
+        </div>
+        <div class="luxury-card rounded-2xl py-3 px-1 text-center">
+          <span id="minutes" class="font-cormorant text-3xl font-semibold text-[#232D25] block">00</span>
+          <span class="text-[9px] uppercase tracking-wider text-[#5A6B5D] font-medium">Minutes</span>
+        </div>
+        <div class="luxury-card rounded-2xl py-3 px-1 text-center">
+          <span id="seconds" class="font-cormorant text-3xl font-semibold text-[#688A68] block">00</span>
+          <span class="text-[9px] uppercase tracking-wider text-[#5A6B5D] font-medium">Seconds</span>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 3. VENUES & CELEBRATIONS (TWO DEDICATED VENUES) -->
+    <section class="px-6 py-6 space-y-6">
+      <div class="text-center">
+        <div class="w-12 h-12 mx-auto mb-2 text-[#486848] flex items-center justify-center bg-[#EDF3ED] rounded-full border border-[#CCD8CC]">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.3" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+          </svg>
+        </div>
+        <h3 class="font-cormorant text-3xl text-[#232D25]">Celebration Venues</h3>
+        <p class="font-cormorant italic text-sm text-[#5A6B5D]">Please join us at both joyous occasions</p>
+      </div>
+
+      <!-- VENUE CARD 1: RECEPTION -->
+      <div class="luxury-card rounded-3xl p-6 text-center relative overflow-hidden">
+        <!-- Event Ribbon Badge -->
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FDF2F4] border border-[#9B1D2C]/30 text-[#9B1D2C] text-[10px] uppercase tracking-widest font-bold mb-3">
+          <span class="w-2 h-2 rounded-full bg-[#9B1D2C]"></span>
+          <span>Reception Celebration</span>
+        </div>
+
+        <h4 class="font-cormorant text-3xl text-[#232D25] font-semibold">Prem Banquet</h4>
+        <p class="text-xs text-[#5A6B5D] mt-1 font-medium">Dhulikhel, Kavrepalanchok, Nepal</p>
+        
+        <div class="mt-4 py-2.5 px-4 bg-[#FAFBF9] rounded-2xl border border-[#CCD8CC] inline-block text-left w-full">
+          <div class="flex items-center justify-between text-xs text-[#232D25] font-medium">
+            <span class="text-[#9B1D2C] font-semibold">Date:</span>
+            <span>Saturday, November 28, 2026</span>
+          </div>
+          <div class="flex items-center justify-between text-xs text-[#232D25] font-medium mt-1">
+            <span class="text-[#688A68] font-semibold">Time:</span>
+            <span>12:00 PM Onwards</span>
+          </div>
+        </div>
+
+        <!-- Stylized Map Preview: Dhulikhel -->
+        <div class="relative w-full h-32 rounded-2xl overflow-hidden mt-5 border border-[#CCD8CC] bg-[#EDF3ED]">
+          <div class="absolute inset-0 opacity-40 bg-[radial-gradient(#688a68_1.5px,transparent_1.5px)] [background-size:14px_14px]"></div>
+          <div class="absolute inset-0 flex flex-col items-center justify-center bg-white/50 p-4">
+            <div class="bg-[#9B1D2C] text-white p-2 rounded-full shadow-lg animate-bounce">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+              </svg>
+            </div>
+            <span class="text-[11px] font-bold text-[#232D25] mt-1.5 bg-white px-3 py-0.5 rounded-full shadow-sm border border-[#CCD8CC]">Prem Banquet &bull; Dhulikhel</span>
+          </div>
+        </div>
+
+        <!-- Action Links -->
+        <div class="grid grid-cols-2 gap-3 mt-4">
+          <a href="https://www.google.com/maps/search/?api=1&query=Prem+Banquet+Dhulikhel" target="_blank" rel="noopener" class="flex items-center justify-center gap-1.5 text-xs font-semibold text-[#9B1D2C] bg-[#FDF2F4] hover:bg-[#F9E2E5] py-2.5 rounded-xl border border-[#9B1D2C]/30 transition">
+            <svg class="w-3.5 h-3.5 text-[#9B1D2C]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            Open in Maps
+          </a>
+          <button id="add-reception-cal-btn" class="flex items-center justify-center gap-1.5 text-xs font-medium text-[#232D25] bg-[#FAFBF9] hover:bg-[#EDF3ED] py-2.5 rounded-xl border border-[#CCD8CC] transition">
+            <svg class="w-3.5 h-3.5 text-[#688A68]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            Add to Cal
+          </button>
+        </div>
+      </div>
+
+
+      <!-- VENUE CARD 2: WEDDING DAY (SMART PALACE CHUCHEPATI CHABAHIL) -->
+      <div class="luxury-card rounded-3xl p-6 text-center relative overflow-hidden">
+        <!-- Event Ribbon Badge -->
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EDF3ED] border border-[#CCD8CC] text-[#486848] text-[10px] uppercase tracking-widest font-bold mb-3">
+          <span class="w-2 h-2 rounded-full bg-[#688A68]"></span>
+          <span>Wedding Day Ceremony</span>
+        </div>
+
+        <h4 class="font-cormorant text-3xl text-[#232D25] font-semibold">Smart Palace</h4>
+        <p class="text-xs text-[#5A6B5D] mt-1 font-medium">Chuchepati, Chabahil, Kathmandu, Nepal</p>
+        
+        <div class="mt-4 py-2.5 px-4 bg-[#FAFBF9] rounded-2xl border border-[#CCD8CC] inline-block text-left w-full">
+          <div class="flex items-center justify-between text-xs text-[#232D25] font-medium">
+            <span class="text-[#9B1D2C] font-semibold">Date:</span>
+            <span>Thursday, December 3, 2026</span>
+          </div>
+          <div class="flex items-center justify-between text-xs text-[#232D25] font-medium mt-1">
+            <span class="text-[#688A68] font-semibold">Time:</span>
+            <span>9:00 AM Onwards</span>
+          </div>
+        </div>
+
+        <!-- Stylized Map Preview: Chuchepati Chabahil -->
+        <div class="relative w-full h-32 rounded-2xl overflow-hidden mt-5 border border-[#CCD8CC] bg-[#EDF3ED]">
+          <div class="absolute inset-0 opacity-40 bg-[radial-gradient(#688a68_1.5px,transparent_1.5px)] [background-size:14px_14px]"></div>
+          <div class="absolute inset-0 flex flex-col items-center justify-center bg-white/50 p-4">
+            <div class="bg-[#486848] text-white p-2 rounded-full shadow-lg animate-bounce">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+              </svg>
+            </div>
+            <span class="text-[11px] font-bold text-[#232D25] mt-1.5 bg-white px-3 py-0.5 rounded-full shadow-sm border border-[#CCD8CC]">Smart Palace &bull; Chabahil</span>
+          </div>
+        </div>
+
+        <!-- Action Links -->
+        <div class="grid grid-cols-2 gap-3 mt-4">
+          <a href="https://www.google.com/maps/search/?api=1&query=Smart+Palace+Chuchepati+Chabahil+Kathmandu" target="_blank" rel="noopener" class="flex items-center justify-center gap-1.5 text-xs font-semibold text-[#486848] bg-[#EDF3ED] hover:bg-[#DDE9DD] py-2.5 rounded-xl border border-[#CCD8CC] transition">
+            <svg class="w-3.5 h-3.5 text-[#486848]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            Open in Maps
+          </a>
+          <button id="add-wedding-cal-btn" class="flex items-center justify-center gap-1.5 text-xs font-medium text-[#232D25] bg-[#FAFBF9] hover:bg-[#EDF3ED] py-2.5 rounded-xl border border-[#CCD8CC] transition">
+            <svg class="w-3.5 h-3.5 text-[#688A68]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            Add to Cal
+          </button>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 4. SCHEDULE / TIMELINE -->
+    <section class="px-6 py-8">
+      <div class="text-center mb-8">
+        <div class="w-10 h-10 mx-auto mb-2 text-[#9B1D2C] flex items-center justify-center bg-[#FDF2F4] rounded-full border border-[#9B1D2C]/20">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.3" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+          </svg>
+        </div>
+        <h3 class="font-cormorant text-3xl text-[#232D25]">Program Schedule</h3>
+        <p class="font-cormorant italic text-sm text-[#5A6B5D]">Events flow of our celebrations</p>
+      </div>
+
+      <!-- Schedule Block 1: Reception -->
+      <div class="mb-6">
+        <div class="inline-block px-3 py-1 bg-[#9B1D2C] text-white text-[10px] uppercase font-bold tracking-wider rounded-lg mb-4 shadow-sm">
+          Part 1: Reception — Nov 28 (Prem Banquet, Dhulikhel)
+        </div>
+        <div class="relative pl-6 space-y-5 before:content-[''] before:absolute before:left-2 before:top-2 before:bottom-2 before:w-[1px] before:bg-[#9B1D2C]/30">
+          <div class="relative group">
+            <div class="absolute -left-[27px] top-1 w-3.5 h-3.5 rounded-full bg-white border-2 border-[#9B1D2C] group-hover:bg-[#9B1D2C] transition"></div>
+            <span class="text-[11px] font-semibold text-[#9B1D2C] uppercase tracking-wider block">12:00 PM</span>
+            <h4 class="font-cormorant text-xl font-medium text-[#232D25]">Guest Welcoming &amp; Reception</h4>
+            <p class="text-xs text-[#5A6B5D] mt-0.5">Welcome drinks and appetizers at Prem Banquet</p>
+          </div>
+          <div class="relative group">
+            <div class="absolute -left-[27px] top-1 w-3.5 h-3.5 rounded-full bg-white border-2 border-[#9B1D2C] group-hover:bg-[#9B1D2C] transition"></div>
+            <span class="text-[11px] font-semibold text-[#9B1D2C] uppercase tracking-wider block">1:00 PM</span>
+            <h4 class="font-cormorant text-xl font-medium text-[#232D25]">Couple Entrance &amp; Stage Greetings</h4>
+            <p class="text-xs text-[#5A6B5D] mt-0.5">Stage photography and blessings with the newly-weds</p>
+          </div>
+          <div class="relative group">
+            <div class="absolute -left-[27px] top-1 w-3.5 h-3.5 rounded-full bg-white border-2 border-[#9B1D2C] group-hover:bg-[#9B1D2C] transition"></div>
+            <span class="text-[11px] font-semibold text-[#9B1D2C] uppercase tracking-wider block">1:30 PM &mdash; 4:30 PM</span>
+            <h4 class="font-cormorant text-xl font-medium text-[#232D25]">Grand Banquet Feast &amp; Music</h4>
+            <p class="text-xs text-[#5A6B5D] mt-0.5">Buffet feast, live celebration, and memorable moments</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Schedule Block 2: Wedding Day -->
+      <div>
+        <div class="inline-block px-3 py-1 bg-[#486848] text-white text-[10px] uppercase font-bold tracking-wider rounded-lg mb-4 shadow-sm">
+          Part 2: Wedding Day — Dec 3 (Smart Palace, Chabahil)
+        </div>
+        <div class="relative pl-6 space-y-5 before:content-[''] before:absolute before:left-2 before:top-2 before:bottom-2 before:w-[1px] before:bg-[#688A68]/40">
+          <div class="relative group">
+            <div class="absolute -left-[27px] top-1 w-3.5 h-3.5 rounded-full bg-white border-2 border-[#688A68] group-hover:bg-[#688A68] transition"></div>
+            <span class="text-[11px] font-semibold text-[#486848] uppercase tracking-wider block">9:00 AM</span>
+            <h4 class="font-cormorant text-xl font-medium text-[#232D25]">Janti Arrival &amp; Swagatam</h4>
+            <p class="text-xs text-[#5A6B5D] mt-0.5">Grand welcome of the groom's procession at Smart Palace</p>
+          </div>
+          <div class="relative group">
+            <div class="absolute -left-[27px] top-1 w-3.5 h-3.5 rounded-full bg-white border-2 border-[#688A68] group-hover:bg-[#688A68] transition"></div>
+            <span class="text-[11px] font-semibold text-[#486848] uppercase tracking-wider block">11:00 AM</span>
+            <h4 class="font-cormorant text-xl font-medium text-[#232D25]">Sacred Lagan &amp; Vows Ceremony</h4>
+            <p class="text-xs text-[#5A6B5D] mt-0.5">Auspicious rituals and holy blessings around the mandap</p>
+          </div>
+          <div class="relative group">
+            <div class="absolute -left-[27px] top-1 w-3.5 h-3.5 rounded-full bg-white border-2 border-[#688A68] group-hover:bg-[#688A68] transition"></div>
+            <span class="text-[11px] font-semibold text-[#486848] uppercase tracking-wider block">1:00 PM</span>
+            <h4 class="font-cormorant text-xl font-medium text-[#232D25]">Wedding Bhoj &amp; Blessings</h4>
+            <p class="text-xs text-[#5A6B5D] mt-0.5">Traditional feast with family, relatives, and dear friends</p>
+          </div>
+          <div class="relative group">
+            <div class="absolute -left-[27px] top-1 w-3.5 h-3.5 rounded-full bg-white border-2 border-[#688A68] group-hover:bg-[#688A68] transition"></div>
+            <span class="text-[11px] font-semibold text-[#486848] uppercase tracking-wider block">4:00 PM</span>
+            <h4 class="font-cormorant text-xl font-medium text-[#232D25]">Doli &amp; Bidaai Ceremony</h4>
+            <p class="text-xs text-[#5A6B5D] mt-0.5">Farewell ritual with hearty blessings for the new journey</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 5. DRESS CODE (RED, WHITE, AND SAGE GREEN) -->
+    <section class="px-6 py-6">
+      <div class="luxury-card rounded-3xl p-6 text-center">
+        <!-- SVG Hanger / Attire icon in Sage Green -->
+        <div class="w-12 h-12 mx-auto mb-2 text-[#486848] flex items-center justify-center bg-[#EDF3ED] rounded-full border border-[#CCD8CC]">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.3" d="M12 3a2 2 0 00-2 2c0 .73.4 1.37 1 1.72V8l-7.7 5.78A2 2 0 005 15.42V19a2 2 0 002 2h10a2 2 0 002-2v-3.58a2 2 0 00-.3-1.64L13 8V6.72c.6-.35 1-.99 1-1.72a2 2 0 00-2-2z"/>
+          </svg>
+        </div>
+
+        <h3 class="font-cormorant text-3xl text-[#232D25]">Dress Code</h3>
+        <p class="font-cormorant italic text-sm text-[#5A6B5D]">Festive &amp; Elegant Attire</p>
+        
+        <p class="text-xs text-[#5A6B5D] mt-3 px-2 leading-relaxed">
+          Traditional Nepali formal or elegant party attire in festive tones of 
+          <strong class="text-[#9B1D2C] font-semibold">Red</strong>, 
+          <strong class="text-[#232D25] font-semibold">Crisp White</strong>, and 
+          <strong class="text-[#486848] font-semibold">Sage Green</strong> is warmly encouraged.
+        </p>
+
+        <!-- Color Palette Swatches -->
+        <div class="flex items-center justify-center gap-3.5 mt-6">
+          <div class="text-center group">
+            <div class="w-10 h-10 rounded-full bg-[#9B1D2C] shadow-md border-2 border-white ring-1 ring-[#9B1D2C]/40 transition-transform group-hover:scale-110"></div>
+            <span class="text-[9px] text-[#5A6B5D] font-medium mt-1 block">Crimson Red</span>
+          </div>
+          <div class="text-center group">
+            <div class="w-10 h-10 rounded-full bg-[#FFFFFF] shadow-md border-2 border-stone-200 ring-1 ring-stone-300 transition-transform group-hover:scale-110"></div>
+            <span class="text-[9px] text-[#5A6B5D] font-medium mt-1 block">Pearl White</span>
+          </div>
+          <div class="text-center group">
+            <div class="w-10 h-10 rounded-full bg-[#688A68] shadow-md border-2 border-white ring-1 ring-[#688A68]/40 transition-transform group-hover:scale-110"></div>
+            <span class="text-[9px] text-[#5A6B5D] font-medium mt-1 block">Sage Green</span>
+          </div>
+          <div class="text-center group">
+            <div class="w-10 h-10 rounded-full bg-[#354E37] shadow-md border-2 border-white ring-1 ring-[#354E37]/40 transition-transform group-hover:scale-110"></div>
+            <span class="text-[9px] text-[#5A6B5D] font-medium mt-1 block">Deep Olive</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 6. ACCOMMODATION & LOCATION INFO -->
+    <section class="px-6 py-6">
+      <div class="text-center mb-6">
+        <div class="w-10 h-10 mx-auto mb-2 text-[#486848] flex items-center justify-center bg-[#EDF3ED] rounded-full border border-[#CCD8CC]">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.3" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+          </svg>
+        </div>
+        <h3 class="font-cormorant text-3xl text-[#232D25]">Travel &amp; Stay</h3>
+        <p class="font-cormorant italic text-sm text-[#5A6B5D]">Comfortable accommodation near our venues</p>
+      </div>
+
+      <div class="space-y-4">
+        <!-- Hotel 1: Near Dhulikhel -->
+        <div class="luxury-card rounded-2xl p-5">
+          <span class="text-[10px] uppercase font-bold text-[#9B1D2C] tracking-wider">Dhulikhel Area &bull; Near Prem Banquet</span>
+          <h4 class="font-cormorant text-xl text-[#232D25] font-semibold mt-0.5">Dhulikhel Resorts &amp; Hotels</h4>
+          <p class="text-xs text-[#5A6B5D] mt-1">Conveniently situated with scenic Himalayan views and easy vehicle access to Prem Banquet.</p>
+          <div class="mt-3 pt-3 border-t border-[#CCD8CC]/40 flex items-center justify-between">
+            <span class="text-xs text-[#232D25] font-medium">Ref: Mannu &amp; Sulav</span>
+            <a href="https://www.google.com/maps/search/?api=1&query=Hotels+in+Dhulikhel" target="_blank" rel="noopener" class="text-xs text-[#9B1D2C] hover:underline font-semibold">View Hotels &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Hotel 2: Near Chabahil, Kathmandu -->
+        <div class="luxury-card rounded-2xl p-5">
+          <span class="text-[10px] uppercase font-bold text-[#486848] tracking-wider">Kathmandu Area &bull; Near Smart Palace</span>
+          <h4 class="font-cormorant text-xl text-[#232D25] font-semibold mt-0.5">Boudha &amp; Chabahil Accommodations</h4>
+          <p class="text-xs text-[#5A6B5D] mt-1">Located within 5-10 minutes of Smart Palace Chuchepati with excellent airport accessibility.</p>
+          <div class="mt-3 pt-3 border-t border-[#CCD8CC]/40 flex items-center justify-between">
+            <span class="text-xs text-[#232D25] font-medium">Ref: Mannu &amp; Sulav</span>
+            <a href="https://www.google.com/maps/search/?api=1&query=Hotels+near+Chabahil+Kathmandu" target="_blank" rel="noopener" class="text-xs text-[#486848] hover:underline font-semibold">View Hotels &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 7. GIFTS / BLESSINGS -->
+    <section class="px-6 py-6">
+      <div class="luxury-card rounded-3xl p-6">
+        <div class="w-10 h-10 mx-auto mb-2 text-[#9B1D2C] flex items-center justify-center bg-[#FDF2F4] rounded-full border border-[#9B1D2C]/20">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.3" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V6a2 2 0 10-2 2h2zm0 0H4a2 2 0 00-2 2v11a2 2 0 002 2h16a2 2 0 002-2V10a2 2 0 00-2-2h-8z" />
+          </svg>
+        </div>
+        
+        <h3 class="font-cormorant text-3xl text-[#232D25] text-center">Gifts &amp; Blessings</h3>
+        <p class="text-xs text-[#5A6B5D] text-center mt-2 leading-relaxed">
+          Your presence, love, and warm blessings are the greatest gifts we could ever ask for. If you wish to bless us with a token of love, you may use the details below.
+        </p>
+
+        <!-- Bank Details Card -->
+        <div class="bg-[#FAFBF9] rounded-2xl p-4 mt-6 border border-[#CCD8CC]">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-bold text-[#232D25] uppercase tracking-wider">Account Details</span>
+            <span class="text-[10px] text-[#486848] bg-white px-2.5 py-0.5 rounded-full border border-[#CCD8CC] font-semibold">Bank / Fonepay</span>
+          </div>
+
+          <div class="space-y-2 text-xs">
+            <div>
+              <span class="text-[#5A6B5D] block text-[10px] uppercase font-semibold">Account Holders</span>
+              <p class="font-medium text-[#232D25]">Mannu Shrestha &amp; Sulav Rana</p>
+            </div>
+            <div>
+              <span class="text-[#5A6B5D] block text-[10px] uppercase font-semibold">Account Number</span>
+              <div class="flex items-center justify-between mt-0.5 bg-white px-3 py-1.5 rounded-lg border border-[#CCD8CC]">
+                <span id="account-number" class="font-mono text-[#232D25] text-xs font-medium">0123-4567-8901-23</span>
+                <button id="copy-btn" class="text-xs text-[#9B1D2C] hover:text-[#7A1420] font-semibold transition flex items-center gap-1">
+                  <span id="copy-text">Copy</span>
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                </button>
+              </div>
+            </div>
+            <div>
+              <span class="text-[#5A6B5D] block text-[10px] uppercase font-semibold">Remarks / Reference</span>
+              <p class="text-[#232D25]">Mannu &amp; Sulav Wedding Gift</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accordion for wishes -->
+        <div class="mt-4 border-t border-[#CCD8CC]/40 pt-3">
+          <button id="toggle-registry-btn" class="w-full flex items-center justify-between text-xs font-semibold text-[#232D25] py-2">
+            <span>A special wish or blessings box</span>
+            <svg id="registry-arrow" class="w-4 h-4 text-[#688A68] transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div id="registry-content" class="hidden text-xs text-[#5A6B5D] space-y-2 mt-2 pl-1 leading-relaxed">
+            <p>&bull; Write us your heartfelt advice and wishes in the RSVP form below for our memory book.</p>
+            <p>&bull; May your prayers and presence illuminate our new chapter together.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- 8. FREQUENTLY ASKED QUESTIONS (FAQ) -->
+    <section class="px-6 py-6">
+      <div class="text-center mb-6">
+        <h3 class="font-cormorant text-3xl text-[#232D25]">Frequently Asked Questions</h3>
+        <p class="font-cormorant italic text-sm text-[#5A6B5D]">Details for your convenience</p>
+      </div>
+
+      <div class="space-y-3" id="faq-container">
+        <!-- FAQ 1 -->
+        <div class="luxury-card rounded-2xl overflow-hidden">
+          <button class="faq-toggle w-full text-left px-5 py-4 flex items-center justify-between text-xs font-semibold text-[#232D25]">
+            <span>Which events should I attend?</span>
+            <svg class="w-4 h-4 text-[#688A68] transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-answer hidden px-5 pb-4 text-xs text-[#5A6B5D] leading-relaxed border-t border-stone-100 pt-2">
+            We would be honored by your gracious presence at both our Reception at Prem Banquet (Nov 28) and our Wedding Ceremony at Smart Palace (Dec 3). Please let us know through the RSVP form below!
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="luxury-card rounded-2xl overflow-hidden">
+          <button class="faq-toggle w-full text-left px-5 py-4 flex items-center justify-between text-xs font-semibold text-[#232D25]">
+            <span>Is parking available at both venues?</span>
+            <svg class="w-4 h-4 text-[#688A68] transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-answer hidden px-5 pb-4 text-xs text-[#5A6B5D] leading-relaxed border-t border-stone-100 pt-2">
+            Yes! Both Prem Banquet in Dhulikhel and Smart Palace in Chuchepati, Chabahil have dedicated spacious parking facilities for both four-wheelers and two-wheelers.
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="luxury-card rounded-2xl overflow-hidden">
+          <button class="faq-toggle w-full text-left px-5 py-4 flex items-center justify-between text-xs font-semibold text-[#232D25]">
+            <span>Are family and children welcome?</span>
+            <svg class="w-4 h-4 text-[#688A68] transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-answer hidden px-5 pb-4 text-xs text-[#5A6B5D] leading-relaxed border-t border-stone-100 pt-2">
+            Absolutely! Our wedding celebrations are joyous occasions meant to be shared with your entire family.
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 9. A NOTE FROM THE COUPLE & WEATHER TIP -->
+    <section class="px-6 py-6">
+      <div class="luxury-card rounded-3xl p-6 text-center bg-gradient-to-b from-white to-[#FAFBF9]">
+        <div class="w-10 h-10 mx-auto mb-2 text-[#9B1D2C] flex items-center justify-center bg-[#FDF2F4] rounded-full border border-[#9B1D2C]/20">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.3" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+          </svg>
+        </div>
+
+        <h3 class="font-cormorant text-2xl text-[#232D25]">A Note From Us</h3>
+        <p class="text-xs text-[#5A6B5D] italic mt-2 leading-relaxed">
+          "As we step into this beautiful lifetime journey together, your blessings, love, and presence mean everything to us and our families. We cannot wait to celebrate with you!"
+        </p>
+
+        <div class="mt-4 p-3.5 bg-[#EDF3ED] rounded-xl border border-[#CCD8CC] text-left">
+          <span class="text-[10px] uppercase font-bold text-[#486848] block">Weather &amp; Comfort Advisory</span>
+          <p class="text-[11px] text-[#5A6B5D] mt-1 leading-normal">
+            Late November in Dhulikhel and early December in Kathmandu bring bright, pleasant sunshine during the day and brisk, cool evenings. A cozy shawl, blazer, or jacket is recommended.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 10. RSVP FORM ("Confirm Your Attendance") -->
+    <section id="rsvp" class="px-6 py-8">
+      <div class="luxury-card rounded-3xl p-6">
+        <div class="w-12 h-12 mx-auto mb-2 text-[#9B1D2C] flex items-center justify-center bg-[#FDF2F4] rounded-full border border-[#9B1D2C]/20">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.3" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+        </div>
+
+        <h3 class="font-cormorant text-3xl text-[#232D25] text-center">Confirm Your Attendance</h3>
+        <p class="font-cormorant italic text-sm text-[#5A6B5D] text-center">Please RSVP to help us prepare our arrangements</p>
+
+        <!-- Feedback alert message placeholder -->
+        <div id="rsvp-success-message" class="hidden mt-4 p-4 rounded-2xl bg-[#EDF3ED] border border-[#688A68] text-center">
+          <p class="font-cormorant text-2xl text-[#232D25] font-bold">Dhanyabad! Thank You!</p>
+          <p class="text-xs text-[#486848] mt-1 font-medium">Your RSVP has been recorded. Mannu &amp; Sulav look forward to celebrating with you!</p>
+        </div>
+
+        <form id="rsvp-form" class="mt-6 space-y-4">
+          <!-- Full Name -->
+          <div>
+            <label class="block text-[11px] font-semibold uppercase tracking-wider text-[#5A6B5D] mb-1">Full Name *</label>
+            <input type="text" required placeholder="Enter your full name" class="w-full text-xs px-3.5 py-3 rounded-xl border border-[#CCD8CC] bg-[#FAFBF9] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#9B1D2C] transition">
+          </div>
+
+          <!-- Contact Number -->
+          <div>
+            <label class="block text-[11px] font-semibold uppercase tracking-wider text-[#5A6B5D] mb-1">Phone / WhatsApp *</label>
+            <input type="tel" required placeholder="Enter your phone number" class="w-full text-xs px-3.5 py-3 rounded-xl border border-[#CCD8CC] bg-[#FAFBF9] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#9B1D2C] transition">
+          </div>
+
+          <!-- Event Choice Radio -->
+          <div>
+            <label class="block text-[11px] font-semibold uppercase tracking-wider text-[#5A6B5D] mb-2">Which events will you attend? *</label>
+            <div class="space-y-2">
+              <label class="flex items-center gap-3 p-3 rounded-xl border border-[#CCD8CC] bg-[#FAFBF9] cursor-pointer hover:bg-white transition">
+                <input type="radio" name="attendance" value="both" checked class="text-[#9B1D2C] focus:ring-[#9B1D2C] accent-[#9B1D2C]">
+                <span class="text-xs text-[#232D25] font-medium">Both Events (Reception &amp; Wedding Day)</span>
+              </label>
+              <label class="flex items-center gap-3 p-3 rounded-xl border border-[#CCD8CC] bg-[#FAFBF9] cursor-pointer hover:bg-white transition">
+                <input type="radio" name="attendance" value="reception" class="text-[#9B1D2C] focus:ring-[#9B1D2C] accent-[#9B1D2C]">
+                <span class="text-xs text-[#232D25] font-medium">Reception Only (Nov 28, Prem Banquet Dhulikhel)</span>
+              </label>
+              <label class="flex items-center gap-3 p-3 rounded-xl border border-[#CCD8CC] bg-[#FAFBF9] cursor-pointer hover:bg-white transition">
+                <input type="radio" name="attendance" value="wedding" class="text-[#9B1D2C] focus:ring-[#9B1D2C] accent-[#9B1D2C]">
+                <span class="text-xs text-[#232D25] font-medium">Wedding Day Only (Dec 3, Smart Palace Chabahil)</span>
+              </label>
+              <label class="flex items-center gap-3 p-3 rounded-xl border border-[#CCD8CC] bg-[#FAFBF9] cursor-pointer hover:bg-white transition">
+                <input type="radio" name="attendance" value="no" class="text-[#9B1D2C] focus:ring-[#9B1D2C] accent-[#9B1D2C]">
+                <span class="text-xs text-[#232D25] font-medium">Warm wishes, but unable to attend</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Guests Count -->
+          <div>
+            <label class="block text-[11px] font-semibold uppercase tracking-wider text-[#5A6B5D] mb-1">Number of Guests</label>
+            <select class="w-full text-xs px-3 py-2.5 rounded-xl border border-[#CCD8CC] bg-[#FAFBF9] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#9B1D2C]">
+              <option value="1">1 Guest</option>
+              <option value="2">2 Guests</option>
+              <option value="3">3 Guests</option>
+              <option value="4+">4+ Family Members</option>
+            </select>
+          </div>
+
+          <!-- Message -->
+          <div>
+            <label class="block text-[11px] font-semibold uppercase tracking-wider text-[#5A6B5D] mb-1">Blessings / Message for Mannu &amp; Sulav</label>
+            <textarea rows="3" placeholder="Leave your heartfelt wishes or note..." class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-[#CCD8CC] bg-[#FAFBF9] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#9B1D2C] transition"></textarea>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="w-full py-3.5 bg-[#9B1D2C] text-white text-xs font-semibold uppercase tracking-[0.2em] rounded-xl shadow-lg hover:bg-[#7A1420] active:scale-[0.99] transition duration-200">
+            Submit RSVP
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="text-center pt-6 pb-12 px-6">
+      <p class="font-cormorant text-2xl text-[#232D25] font-medium">Mannu Shrestha &amp; Sulav Rana</p>
+      <p class="text-[10px] uppercase tracking-widest text-[#9B1D2C] font-semibold mt-1">
+        Nov 28 &amp; Dec 3, 2026 &bull; Dhulikhel &amp; Kathmandu
+      </p>
+      <div class="w-12 h-[1px] bg-[#688A68] mx-auto my-3"></div>
+      <p class="text-[10px] text-[#5A6B5D]">With love and joyous anticipation &hearts;</p>
+    </footer>
+
+  </main>
+
+
+  <!-- ============================================== -->
+  <!-- JAVASCRIPT LOGIC                               -->
+  <!-- ============================================== -->
+  <script>
+    // ----------------------------------------------------
+    // 1. Web Audio Synthesizer (Romantic Ambient Chime)
+    // ----------------------------------------------------
+    let audioCtx = null;
+    let isPlaying = false;
+    let synthInterval = null;
+
+    function initAudio() {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+    }
+
+    // Play a delicate romantic chime note
+    function playChimeNote(freq, delay = 0, duration = 1.6) {
+      if (!audioCtx) return;
+      setTimeout(() => {
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+
+        gain.gain.setValueAtTime(0.001, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.12, audioCtx.currentTime + 0.08);
+        gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
+
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        osc.start();
+        osc.stop(audioCtx.currentTime + duration);
+      }, delay);
+    }
+
+    // Play full opening ceremony arpeggio
+    function playOpeningArpeggio() {
+      initAudio();
+      const chord = [261.63, 329.63, 392.00, 523.25, 659.25, 783.99]; // Gentle chord
+      chord.forEach((freq, idx) => {
+        playChimeNote(freq, idx * 140, 2.0);
+      });
+    }
+
+    // Gentle looping ambient chords
+    function startAmbientMusic() {
+      isPlaying = true;
+      updateMusicUI();
+      const progression = [
+        [261.63, 329.63, 392.00], // C
+        [220.00, 261.63, 329.63], // Am
+        [174.61, 220.00, 261.63], // F
+        [196.00, 246.94, 293.66]  // G
+      ];
+      let step = 0;
+      synthInterval = setInterval(() => {
+        if (!isPlaying) return;
+        const currentChord = progression[step % progression.length];
+        currentChord.forEach((freq, idx) => {
+          playChimeNote(freq * 1.5, idx * 220, 2.8);
+        });
+        step++;
+      }, 2800);
+    }
+
+    function stopAmbientMusic() {
+      isPlaying = false;
+      if (synthInterval) clearInterval(synthInterval);
+      updateMusicUI();
+    }
+
+    function updateMusicUI() {
+      const soundIndicator = document.getElementById('sound-indicator');
+      const musicMutedIcon = document.getElementById('music-icon-muted');
+      if (isPlaying) {
+        soundIndicator.classList.remove('hidden');
+        musicMutedIcon.classList.add('hidden');
+      } else {
+        soundIndicator.classList.add('hidden');
+        musicMutedIcon.classList.remove('hidden');
+      }
+    }
+
+    // ----------------------------------------------------
+    // 2. Gatefold Opening Interaction
+    // ----------------------------------------------------
+    const gatefoldCover = document.getElementById('gatefold-cover');
+    const openBtn = document.getElementById('open-btn');
+    const ribbonCenter = document.getElementById('ribbon-center');
+
+    function openInvitation() {
+      playOpeningArpeggio();
+      gatefoldCover.classList.add('gates-opened');
+
+      // Start looping music after small delay
+      setTimeout(() => {
+        startAmbientMusic();
+      }, 1000);
+
+      // Fade out and remove gatefold from DOM flow so user can scroll freely
+      setTimeout(() => {
+        gatefoldCover.style.opacity = '0';
+        gatefoldCover.style.pointerEvents = 'none';
+        setTimeout(() => {
+          gatefoldCover.style.display = 'none';
+        }, 800);
+      }, 1200);
+    }
+
+    openBtn.addEventListener('click', openInvitation);
+    ribbonCenter.addEventListener('click', openInvitation);
+
+    // Floating audio button toggle
+    document.getElementById('music-toggle').addEventListener('click', () => {
+      initAudio();
+      if (isPlaying) {
+        stopAmbientMusic();
+      } else {
+        startAmbientMusic();
+      }
+    });
+
+    // ----------------------------------------------------
+    // 3. Countdown Timer (Targets Reception: Nov 28, 2026, then Wedding: Dec 3, 2026)
+    // ----------------------------------------------------
+    const receptionTarget = new Date('November 28, 2026 12:00:00').getTime();
+    const weddingTarget = new Date('December 3, 2026 09:00:00').getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      let target = receptionTarget;
+      
+      // If reception has passed, count down to wedding day
+      if (now > receptionTarget && now < weddingTarget) {
+        target = weddingTarget;
+      }
+
+      const diff = target - now;
+
+      if (diff > 0) {
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        document.getElementById('days').textContent = String(days).padStart(2, '0');
+        document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+        document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+        document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+      } else {
+        document.getElementById('days').textContent = '00';
+        document.getElementById('hours').textContent = '00';
+        document.getElementById('minutes').textContent = '00';
+        document.getElementById('seconds').textContent = '00';
+      }
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // ----------------------------------------------------
+    // 4. Calendar .ICS File Downloads
+    // ----------------------------------------------------
+    function downloadCalendarICS(eventTitle, description, location, dtStart, dtEnd, filename) {
+      const icsContent = 
+`BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Mannu and Sulav Wedding//EN
+BEGIN:VEVENT
+SUMMARY:${eventTitle}
+DESCRIPTION:${description}
+LOCATION:${location}
+DTSTART:${dtStart}
+DTEND:${dtEnd}
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR`;
+
+      const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+      const link = document.createElement('a');
+      link.href = window.URL.createObjectURL(blob);
+      link.setAttribute('download', filename);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    // Add Reception to Calendar
+    document.getElementById('add-reception-cal-btn').addEventListener('click', () => {
+      downloadCalendarICS(
+        "Mannu & Sulav's Wedding Reception",
+        "Join Mannu Shrestha and Sulav Rana for their wedding reception celebration at Prem Banquet Dhulikhel.",
+        "Prem Banquet, Dhulikhel, Kavrepalanchok, Nepal",
+        "20261128T061500Z",
+        "20261128T111500Z",
+        "Mannu-Sulav-Reception.ics"
+      );
+    });
+
+    // Add Wedding to Calendar
+    document.getElementById('add-wedding-cal-btn').addEventListener('click', () => {
+      downloadCalendarICS(
+        "Mannu & Sulav's Wedding Ceremony",
+        "Join Mannu Shrestha and Sulav Rana for their auspicious wedding day ceremony (Vivaha) at Smart Palace Chabahil.",
+        "Smart Palace, Chuchepati, Chabahil, Kathmandu, Nepal",
+        "20261203T031500Z",
+        "20261203T111500Z",
+        "Mannu-Sulav-Wedding.ics"
+      );
+    });
+
+    // ----------------------------------------------------
+    // 5. Bank Account Copy Tool
+    // ----------------------------------------------------
+    const copyBtn = document.getElementById('copy-btn');
+    const copyText = document.getElementById('copy-text');
+    const accountNumber = document.getElementById('account-number').innerText;
+
+    copyBtn.addEventListener('click', () => {
+      const tempInput = document.createElement('input');
+      tempInput.value = accountNumber;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand('copy');
+      document.body.removeChild(tempInput);
+
+      copyText.textContent = 'Copied!';
+      setTimeout(() => {
+        copyText.textContent = 'Copy';
+      }, 2000);
+    });
+
+    // ----------------------------------------------------
+    // 6. Accordions (Gifts & FAQs)
+    // ----------------------------------------------------
+    const toggleRegistryBtn = document.getElementById('toggle-registry-btn');
+    const registryContent = document.getElementById('registry-content');
+    const registryArrow = document.getElementById('registry-arrow');
+
+    toggleRegistryBtn.addEventListener('click', () => {
+      registryContent.classList.toggle('hidden');
+      registryArrow.classList.toggle('rotate-180');
+    });
+
+    // FAQ Accordion toggles
+    document.querySelectorAll('.faq-toggle').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const answer = btn.nextElementSibling;
+        const arrow = btn.querySelector('svg');
+        const isHidden = answer.classList.contains('hidden');
+
+        // Close all other FAQs
+        document.querySelectorAll('.faq-answer').forEach(ans => ans.classList.add('hidden'));
+        document.querySelectorAll('.faq-toggle svg').forEach(svg => svg.classList.remove('rotate-180'));
+
+        if (isHidden) {
+          answer.classList.remove('hidden');
+          arrow.classList.add('rotate-180');
+        }
+      });
+    });
+
+    // ----------------------------------------------------
+    // 7. RSVP Form Submission & Confetti Celebration
+    // ----------------------------------------------------
+    const rsvpForm = document.getElementById('rsvp-form');
+    const rsvpSuccess = document.getElementById('rsvp-success-message');
+
+    rsvpForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      // Confetti burst in Red, White, and Sage Green!
+      if (typeof confetti === 'function') {
+        confetti({
+          particleCount: 90,
+          spread: 70,
+          origin: { y: 0.7 },
+          colors: ['#9B1D2C', '#FFFFFF', '#688A68', '#486848', '#C53030']
+        });
+      }
+
+      // Hide form, show warm confirmation banner
+      rsvpForm.classList.add('hidden');
+      rsvpSuccess.classList.remove('hidden');
+
+      // Scroll smoothly to confirmation banner
+      rsvpSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  </script>
+</body>
+</html>
