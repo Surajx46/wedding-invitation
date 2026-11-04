@@ -95,9 +95,11 @@
         transform: scale(1) translate(0, 0) rotate(0deg);
         opacity: 1;
       }
+
       40% {
         transform: scale(1.15) translate(-25px, -15px) rotate(-15deg);
       }
+
       100% {
         transform: scale(0.2) translate(-160px, -70px) rotate(-65deg);
         opacity: 0;
@@ -109,9 +111,11 @@
         transform: scale(1) translate(0, 0) rotate(0deg);
         opacity: 1;
       }
+
       40% {
         transform: scale(1.15) translate(25px, -15px) rotate(15deg);
       }
+
       100% {
         transform: scale(0.2) translate(160px, -70px) rotate(65deg);
         opacity: 0;
@@ -123,10 +127,12 @@
         transform: translateY(0);
         opacity: 1;
       }
+
       40% {
         transform: translateY(30px) scale(0.9);
         opacity: 0.8;
       }
+
       100% {
         transform: translateY(130px) scale(0.4);
         opacity: 0;
@@ -138,10 +144,12 @@
         transform: scale(1) rotate(0deg);
         filter: drop-shadow(0 0 4px rgba(155, 29, 44, 0.4));
       }
+
       50% {
         transform: scale(1.35) rotate(180deg);
         filter: drop-shadow(0 0 25px #E5C989);
       }
+
       100% {
         transform: scale(2.2) rotate(360deg);
         opacity: 0;
@@ -182,6 +190,7 @@
       border: 1px solid rgba(104, 138, 104, 0.22);
       transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease, border-color 0.3s ease;
     }
+
     .luxury-card:hover {
       box-shadow: 0 16px 36px -10px rgba(155, 29, 44, 0.15), 0 4px 12px -2px rgba(104, 138, 104, 0.1);
     }
@@ -191,6 +200,7 @@
       0% {
         background-position: -200% 0;
       }
+
       100% {
         background-position: 200% 0;
       }
@@ -207,18 +217,24 @@
 
     /* Diamond sparkle glint */
     @keyframes diamondGleam {
-      0%, 75%, 100% {
+
+      0%,
+      75%,
+      100% {
         transform: scale(0) rotate(0deg);
         opacity: 0;
       }
+
       80% {
         transform: scale(1.3) rotate(45deg);
         opacity: 1;
       }
+
       88% {
         transform: scale(0.9) rotate(90deg);
         opacity: 0.8;
       }
+
       94% {
         transform: scale(1.15) rotate(135deg);
         opacity: 1;
@@ -232,18 +248,23 @@
 
     /* Sacred Diya Flame Flicker */
     @keyframes flameFlicker {
-      0%, 100% {
+
+      0%,
+      100% {
         transform: scale(1) translate(0, 0) rotate(0deg);
         filter: drop-shadow(0 0 6px rgba(255, 165, 0, 0.85));
       }
+
       25% {
         transform: scale(1.15, 0.9) translate(-0.5px, -1px) rotate(-3deg);
         filter: drop-shadow(0 0 10px rgba(255, 69, 0, 0.95));
       }
+
       50% {
         transform: scale(0.9, 1.15) translate(0.5px, -1.5px) rotate(2deg);
         filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.9));
       }
+
       75% {
         transform: scale(1.05, 0.95) translate(-0.2px, -0.5px) rotate(-1deg);
         filter: drop-shadow(0 0 12px rgba(255, 140, 0, 0.95));
@@ -260,9 +281,11 @@
       0% {
         transform: rotate(0deg);
       }
+
       50% {
         transform: rotate(1.2deg) translateY(1.5px);
       }
+
       100% {
         transform: rotate(-1.2deg) translateY(-1px);
       }
@@ -278,6 +301,7 @@
       from {
         transform: rotate(0deg);
       }
+
       to {
         transform: rotate(360deg);
       }
@@ -293,18 +317,24 @@
 
     /* Two Love Doves Hover */
     @keyframes doveHoverLeft {
-      0%, 100% {
+
+      0%,
+      100% {
         transform: translateY(0) rotate(-4deg);
       }
+
       50% {
         transform: translateY(-5px) rotate(2deg);
       }
     }
 
     @keyframes doveHoverRight {
-      0%, 100% {
+
+      0%,
+      100% {
         transform: translateY(0) rotate(4deg);
       }
+
       50% {
         transform: translateY(-5px) rotate(-2deg);
       }
@@ -324,6 +354,7 @@
         transform: scale(0.85);
         opacity: 0.85;
       }
+
       100% {
         transform: scale(2.6);
         opacity: 0;
@@ -340,18 +371,22 @@
         left: 2%;
         transform: scaleX(1);
       }
+
       48% {
         left: 82%;
         transform: scaleX(1);
       }
+
       50% {
         left: 82%;
         transform: scaleX(-1);
       }
+
       98% {
         left: 2%;
         transform: scaleX(-1);
       }
+
       100% {
         left: 2%;
         transform: scaleX(1);
@@ -367,18 +402,23 @@
       0% {
         transform: rotate(0);
       }
+
       20% {
         transform: rotate(-26deg);
       }
+
       40% {
         transform: rotate(22deg);
       }
+
       60% {
         transform: rotate(-14deg);
       }
+
       80% {
         transform: rotate(8deg);
       }
+
       100% {
         transform: rotate(0);
       }
@@ -395,9 +435,11 @@
         opacity: 1;
         transform: translate(-50%, -50%) scale(0.6) rotate(0deg);
       }
+
       50% {
         transform: translate(calc(-50% + var(--dx, 10px)), -75px) scale(1.15) rotate(var(--rot, 15deg));
       }
+
       100% {
         opacity: 0;
         transform: translate(calc(-50% + var(--dx2, 20px)), -140px) scale(0.75) rotate(var(--rot2, -15deg));
@@ -418,6 +460,7 @@
         opacity: 1;
         transform: translate(-50%, -50%) scale(1) rotate(0deg);
       }
+
       100% {
         opacity: 0;
         transform: translate(-50%, calc(-50% - 28px)) scale(0.2) rotate(60deg);
@@ -439,6 +482,7 @@
         opacity: 0.9;
         transform: translateY(0) scale(0.8) rotate(0deg);
       }
+
       100% {
         opacity: 0;
         transform: translateY(-52px) scale(1.2) rotate(var(--nrot, 20deg));
@@ -469,6 +513,19 @@
 
 <body class="antialiased selection:bg-[#F9E2E5] selection:text-[#9B1D2C]">
 
+  <!-- Hadaka.jp Minimalist Scroll Progress Indicator -->
+  <div id="scroll-progress-bar"></div>
+
+  <!-- Atmospheric Full-Screen Wedding Background Layer -->
+  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <!-- Wedding Floral Backdrop: Red Roses, White Jasmine, Sage Eucalyptus & Warm Bokeh -->
+    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[0.24] scale-105"
+      style="background-image: url('images/wedding-bg.jpg'); filter: saturate(1.2) contrast(1.08);">
+    </div>
+    <!-- Soft Auspicious Gradient Overlay for Maximum Readability & Warmth -->
+    <div class="absolute inset-0 bg-gradient-to-b from-[#FAFBF9]/80 via-[#FAFBF9]/60 to-[#FAFBF9]/88 backdrop-blur-[0.5px]"></div>
+  </div>
+
   <!-- Ambient Gentle Petals Canvas in Background -->
   <canvas id="bg-petals" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
 
@@ -490,11 +547,14 @@
       <!-- Left Gate Panel -->
       <div id="left-gate"
         class="gate-left relative w-1/2 h-full bg-[#FAFBF9] border-r border-[#CCD8CC] shadow-xl flex flex-col justify-between p-6 overflow-hidden">
-        
+        <!-- Royal Wedding Floral Texture Overlay -->
+        <div class="absolute inset-0 bg-cover bg-center opacity-[0.16] pointer-events-none" style="background-image: url('images/wedding-bg.jpg');"></div>
+
         <!-- Sacred Background Watermark Corner -->
-        <svg class="absolute -left-12 -top-12 w-48 h-48 opacity-10 text-[#688A68] pointer-events-none" viewBox="0 0 100 100" fill="currentColor">
-          <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="1"/>
-          <circle cx="50" cy="50" r="35" fill="none" stroke="currentColor" stroke-width="0.8" stroke-dasharray="3 2"/>
+        <svg class="absolute -left-12 -top-12 w-48 h-48 opacity-10 text-[#688A68] pointer-events-none"
+          viewBox="0 0 100 100" fill="currentColor">
+          <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="1" />
+          <circle cx="50" cy="50" r="35" fill="none" stroke="currentColor" stroke-width="0.8" stroke-dasharray="3 2" />
         </svg>
 
         <!-- Botanical Illustration Top Left (Sage Green & Red Berries) -->
@@ -511,14 +571,15 @@
           <circle cx="62" cy="70" r="5.5" fill="#9B1D2C" />
         </svg>
 
-        <div class="text-xs uppercase tracking-[0.3em] text-[#688A68] font-semibold -rotate-90 origin-left ml-2 flex items-center gap-2">
+        <div
+          class="text-xs uppercase tracking-[0.3em] text-[#688A68] font-semibold -rotate-90 origin-left ml-2 flex items-center gap-2">
           <span>Save Our Dates</span>
           <span class="text-[#9B1D2C] animate-pulse">❦</span>
         </div>
 
         <!-- Botanical Illustration Bottom Left -->
-        <svg class="w-36 h-36 opacity-85 text-[#688A68] transform rotate-180 relative z-10" viewBox="0 0 120 120" fill="none"
-          xmlns="http://www.w3.org/2000/svg">
+        <svg class="w-36 h-36 opacity-85 text-[#688A68] transform rotate-180 relative z-10" viewBox="0 0 120 120"
+          fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M10 20C25 40 45 35 60 25C75 15 90 30 105 15" stroke="currentColor" stroke-width="1.3"
             stroke-linecap="round" />
           <circle cx="35" cy="32" r="5" fill="#9B1D2C" />
@@ -529,30 +590,34 @@
       <!-- Right Gate Panel -->
       <div id="right-gate"
         class="gate-right relative w-1/2 h-full bg-[#FAFBF9] border-l border-[#CCD8CC] shadow-xl flex flex-col justify-between items-end p-6 overflow-hidden">
-        
+        <!-- Royal Wedding Floral Texture Overlay -->
+        <div class="absolute inset-0 bg-cover bg-center opacity-[0.16] pointer-events-none" style="background-image: url('images/wedding-bg.jpg');"></div>
+
         <!-- Sacred Background Watermark Corner -->
-        <svg class="absolute -right-12 -top-12 w-48 h-48 opacity-10 text-[#9B1D2C] pointer-events-none" viewBox="0 0 100 100" fill="currentColor">
-          <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="1"/>
-          <circle cx="50" cy="50" r="35" fill="none" stroke="currentColor" stroke-width="0.8" stroke-dasharray="3 2"/>
+        <svg class="absolute -right-12 -top-12 w-48 h-48 opacity-10 text-[#9B1D2C] pointer-events-none"
+          viewBox="0 0 100 100" fill="currentColor">
+          <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="1" />
+          <circle cx="50" cy="50" r="35" fill="none" stroke="currentColor" stroke-width="0.8" stroke-dasharray="3 2" />
         </svg>
 
         <!-- Botanical Illustration Top Right -->
-        <svg class="w-36 h-36 opacity-85 text-[#688A68] transform scale-x-[-1] relative z-10" viewBox="0 0 120 120" fill="none"
-          xmlns="http://www.w3.org/2000/svg">
+        <svg class="w-36 h-36 opacity-85 text-[#688A68] transform scale-x-[-1] relative z-10" viewBox="0 0 120 120"
+          fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M10 20C25 40 45 35 60 25C75 15 90 30 105 15" stroke="currentColor" stroke-width="1.3"
             stroke-linecap="round" />
           <circle cx="35" cy="32" r="5" fill="#9B1D2C" />
           <circle cx="62" cy="23" r="6" fill="#A3BFA3" />
         </svg>
 
-        <div class="text-xs uppercase tracking-[0.25em] text-[#9B1D2C] font-semibold rotate-90 origin-right mr-2 flex items-center gap-2">
+        <div
+          class="text-xs uppercase tracking-[0.25em] text-[#9B1D2C] font-semibold rotate-90 origin-right mr-2 flex items-center gap-2">
           <span>Mannu &amp; Sulav</span>
           <span class="text-[#688A68] animate-pulse">❦</span>
         </div>
 
         <!-- Botanical Illustration Bottom Right -->
-        <svg class="w-36 h-36 opacity-85 text-[#688A68] transform rotate-180 scale-x-[-1] relative z-10" viewBox="0 0 120 120"
-          fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="w-36 h-36 opacity-85 text-[#688A68] transform rotate-180 scale-x-[-1] relative z-10"
+          viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M10 20C25 40 45 35 60 25C75 15 90 30 105 15" stroke="currentColor" stroke-width="1.3"
             stroke-linecap="round" />
           <circle cx="35" cy="32" r="5" fill="#9B1D2C" />
@@ -569,13 +634,16 @@
 
         <!-- Rotating Golden Palace Mandala Behind Bow -->
         <div class="absolute w-56 h-56 pointer-events-none opacity-40">
-          <svg class="w-full h-full mandala-spin-cover text-[#C5A880]" viewBox="0 0 100 100" fill="none" stroke="currentColor">
-            <circle cx="50" cy="50" r="48" stroke-width="0.8" stroke-dasharray="2 2"/>
-            <circle cx="50" cy="50" r="42" stroke-width="1"/>
-            <circle cx="50" cy="50" r="32" stroke-width="0.6"/>
+          <svg class="w-full h-full mandala-spin-cover text-[#C5A880]" viewBox="0 0 100 100" fill="none"
+            stroke="currentColor">
+            <circle cx="50" cy="50" r="48" stroke-width="0.8" stroke-dasharray="2 2" />
+            <circle cx="50" cy="50" r="42" stroke-width="1" />
+            <circle cx="50" cy="50" r="32" stroke-width="0.6" />
             <!-- 8 geometric petals -->
-            <path d="M50 8 C55 25 65 35 82 40 C65 45 55 55 50 72 C45 55 35 45 18 40 C35 35 45 25 50 8 Z" stroke-width="0.8"/>
-            <path d="M50 8 C55 25 65 35 82 40 C65 45 55 55 50 72 C45 55 35 45 18 40 C35 35 45 25 50 8 Z" stroke-width="0.8" transform="rotate(45 50 50)"/>
+            <path d="M50 8 C55 25 65 35 82 40 C65 45 55 55 50 72 C45 55 35 45 18 40 C35 35 45 25 50 8 Z"
+              stroke-width="0.8" />
+            <path d="M50 8 C55 25 65 35 82 40 C65 45 55 55 50 72 C45 55 35 45 18 40 C35 35 45 25 50 8 Z"
+              stroke-width="0.8" transform="rotate(45 50 50)" />
           </svg>
         </div>
 
@@ -583,7 +651,7 @@
         <div
           class="relative w-48 h-48 flex items-center justify-center filter drop-shadow-2xl transition-transform duration-300 group-hover:scale-105 z-10">
           <svg class="w-full h-full" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-            
+
             <!-- Hanging Ribbon Tails Group -->
             <g id="ribbon-tails">
               <path d="M96 102 C85 130 65 160 55 175 C65 170 85 160 98 110Z" fill="#851623" stroke="#680E18"
@@ -609,9 +677,11 @@
             <!-- Royal Wax Seal & Monogram Medallion Center -->
             <g id="wax-seal-center">
               <circle cx="100" cy="100" r="19" fill="#9B1D2C" stroke="#7A1420" stroke-width="1.5" />
-              <circle cx="100" cy="100" r="16" fill="none" stroke="#E5C989" stroke-width="1.2" stroke-dasharray="3 1.5" />
+              <circle cx="100" cy="100" r="16" fill="none" stroke="#E5C989" stroke-width="1.2"
+                stroke-dasharray="3 1.5" />
               <circle cx="100" cy="100" r="13" fill="#821522" stroke="#D4AF37" stroke-width="0.8" />
-              <text x="100" y="103" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-size="9.5" font-weight="bold" fill="#FDF7E7" letter-spacing="0.5">M &hearts; S</text>
+              <text x="100" y="103" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif"
+                font-size="9.5" font-weight="bold" fill="#FDF7E7" letter-spacing="0.5">M &hearts; S</text>
             </g>
           </svg>
         </div>
@@ -642,8 +712,10 @@
     <button id="love-btn" aria-label="Ring wedding bell and shower blessings"
       class="bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-full shadow-xl border border-[#CCD8CC] flex items-center gap-2 hover:bg-[#FDF2F4] hover:border-[#9B1D2C]/40 active:scale-95 transition-all group">
       <!-- Swinging Golden Temple Bell Icon -->
-      <span id="bell-icon" class="text-base inline-block transform group-hover:scale-125 transition-transform origin-top">🔔</span>
-      <span class="text-[11px] font-bold text-[#9B1D2C] tracking-wide" id="love-count-text">Ring Bell &bull; 48 Loves</span>
+      <span id="bell-icon"
+        class="text-base inline-block transform group-hover:scale-125 transition-transform origin-top">🔔</span>
+      <span class="text-[11px] font-bold text-[#9B1D2C] tracking-wide" id="love-count-text">Ring Bell &bull; 48
+        Loves</span>
     </button>
   </div>
 
@@ -654,10 +726,10 @@
       <!-- Rotating Lotus Mandala Vinyl Disc -->
       <div id="sound-indicator" class="relative w-6 h-6 flex items-center justify-center">
         <svg id="music-disc" class="w-6 h-6 text-[#9B1D2C] animate-spin" viewBox="0 0 24 24" fill="currentColor">
-          <circle cx="12" cy="12" r="10" fill="#9B1D2C"/>
-          <circle cx="12" cy="12" r="7" fill="none" stroke="#FFFFFF" stroke-width="0.8" stroke-dasharray="2 1"/>
-          <circle cx="12" cy="12" r="3" fill="#FAFBF9"/>
-          <circle cx="12" cy="12" r="1" fill="#9B1D2C"/>
+          <circle cx="12" cy="12" r="10" fill="#9B1D2C" />
+          <circle cx="12" cy="12" r="7" fill="none" stroke="#FFFFFF" stroke-width="0.8" stroke-dasharray="2 1" />
+          <circle cx="12" cy="12" r="3" fill="#FAFBF9" />
+          <circle cx="12" cy="12" r="1" fill="#9B1D2C" />
         </svg>
       </div>
       <svg id="music-icon-muted" class="w-5 h-5 text-[#688A68] hidden" fill="none" stroke="currentColor"
@@ -674,26 +746,29 @@
   <!-- ============================================== -->
   <!-- MAIN INVITATION CONTENT CONTAINER              -->
   <!-- ============================================== -->
-  <main id="main-invitation" class="invitation-enter w-full max-w-md mx-auto bg-[#F8FAF8] min-h-screen relative pb-20 shadow-2xl border-x border-[#CCD8CC]/50 overflow-hidden">
+  <main id="main-invitation"
+    class="invitation-enter w-full max-w-md mx-auto bg-[#F8FAF8] min-h-screen relative pb-20 shadow-2xl border-x border-[#CCD8CC]/50 overflow-hidden">
 
     <!-- Auspicious Draped Floral Toran Garland at Top -->
     <div class="w-full overflow-hidden pointer-events-none relative z-20">
       <svg class="w-full h-10 toran-sway" viewBox="0 0 400 40" fill="none" xmlns="http://www.w3.org/2000/svg">
         <!-- Garland string arches -->
-        <path d="M-10,4 Q40,26 90,4 Q140,26 200,4 Q260,26 310,4 Q360,26 410,4" stroke="#688A68" stroke-width="1.5" fill="none" />
+        <path d="M-10,4 Q40,26 90,4 Q140,26 200,4 Q260,26 310,4 Q360,26 410,4" stroke="#688A68" stroke-width="1.5"
+          fill="none" />
         <!-- Marigold & Rose floral clusters hanging -->
-        <circle cx="90" cy="4" r="5" fill="#E5A93B"/>
-        <circle cx="90" cy="4" r="3" fill="#9B1D2C"/>
-        <circle cx="200" cy="4" r="6" fill="#9B1D2C"/>
-        <circle cx="200" cy="4" r="3.5" fill="#E5A93B"/>
-        <circle cx="310" cy="4" r="5" fill="#E5A93B"/>
-        <circle cx="310" cy="4" r="3" fill="#9B1D2C"/>
+        <circle cx="90" cy="4" r="5" fill="#E5A93B" />
+        <circle cx="90" cy="4" r="3" fill="#9B1D2C" />
+        <circle cx="200" cy="4" r="6" fill="#9B1D2C" />
+        <circle cx="200" cy="4" r="3.5" fill="#E5A93B" />
+        <circle cx="310" cy="4" r="5" fill="#E5A93B" />
+        <circle cx="310" cy="4" r="3" fill="#9B1D2C" />
         <!-- Draped center tassels -->
-        <path d="M40,16 L40,24 M145,16 L145,24 M255,16 L255,24 M360,16 L360,24" stroke="#D4AF37" stroke-width="1.2" stroke-linecap="round"/>
-        <circle cx="40" cy="25" r="2.5" fill="#9B1D2C"/>
-        <circle cx="145" cy="25" r="2.5" fill="#688A68"/>
-        <circle cx="255" cy="25" r="2.5" fill="#9B1D2C"/>
-        <circle cx="360" cy="25" r="2.5" fill="#688A68"/>
+        <path d="M40,16 L40,24 M145,16 L145,24 M255,16 L255,24 M360,16 L360,24" stroke="#D4AF37" stroke-width="1.2"
+          stroke-linecap="round" />
+        <circle cx="40" cy="25" r="2.5" fill="#9B1D2C" />
+        <circle cx="145" cy="25" r="2.5" fill="#688A68" />
+        <circle cx="255" cy="25" r="2.5" fill="#9B1D2C" />
+        <circle cx="360" cy="25" r="2.5" fill="#688A68" />
       </svg>
     </div>
 
@@ -701,17 +776,25 @@
     <header
       class="relative px-6 pt-10 pb-12 text-center overflow-hidden bg-gradient-to-b from-white via-[#FAFBF9] to-[#F8FAF8]">
       
+      <!-- Romantic Wedding Floral Halo Backdrop -->
+      <div class="absolute top-6 left-1/2 -translate-x-1/2 w-80 h-80 rounded-full opacity-[0.18] pointer-events-none bg-cover bg-center blur-[1px]"
+        style="background-image: url('images/wedding-bg.jpg');"></div>
+
       <!-- Huge Rotating Palace Sacred Mandala Watermark Background -->
       <div class="absolute top-16 left-1/2 -translate-x-1/2 w-80 h-80 opacity-[0.07] pointer-events-none z-0">
         <svg class="w-full h-full mandala-spin text-[#9B1D2C]" viewBox="0 0 200 200" fill="currentColor">
-          <circle cx="100" cy="100" r="95" fill="none" stroke="currentColor" stroke-width="1.5"/>
-          <circle cx="100" cy="100" r="82" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="4 3"/>
-          <circle cx="100" cy="100" r="65" fill="none" stroke="currentColor" stroke-width="1.2"/>
+          <circle cx="100" cy="100" r="95" fill="none" stroke="currentColor" stroke-width="1.5" />
+          <circle cx="100" cy="100" r="82" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="4 3" />
+          <circle cx="100" cy="100" r="65" fill="none" stroke="currentColor" stroke-width="1.2" />
           <!-- 12 radiating auspicious petals -->
-          <path d="M100 20 C108 50 120 70 150 80 C120 90 108 110 100 140 C92 110 80 90 50 80 C80 70 92 50 100 20 Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
-          <path d="M100 20 C108 50 120 70 150 80 C120 90 108 110 100 140 C92 110 80 90 50 80 C80 70 92 50 100 20 Z" fill="none" stroke="currentColor" stroke-width="1.5" transform="rotate(45 100 100)"/>
-          <path d="M100 20 C108 50 120 70 150 80 C120 90 108 110 100 140 C92 110 80 90 50 80 C80 70 92 50 100 20 Z" fill="none" stroke="currentColor" stroke-width="1.5" transform="rotate(30 100 100)"/>
-          <path d="M100 20 C108 50 120 70 150 80 C120 90 108 110 100 140 C92 110 80 90 50 80 C80 70 92 50 100 20 Z" fill="none" stroke="currentColor" stroke-width="1.5" transform="rotate(60 100 100)"/>
+          <path d="M100 20 C108 50 120 70 150 80 C120 90 108 110 100 140 C92 110 80 90 50 80 C80 70 92 50 100 20 Z"
+            fill="none" stroke="currentColor" stroke-width="1.5" />
+          <path d="M100 20 C108 50 120 70 150 80 C120 90 108 110 100 140 C92 110 80 90 50 80 C80 70 92 50 100 20 Z"
+            fill="none" stroke="currentColor" stroke-width="1.5" transform="rotate(45 100 100)" />
+          <path d="M100 20 C108 50 120 70 150 80 C120 90 108 110 100 140 C92 110 80 90 50 80 C80 70 92 50 100 20 Z"
+            fill="none" stroke="currentColor" stroke-width="1.5" transform="rotate(30 100 100)" />
+          <path d="M100 20 C108 50 120 70 150 80 C120 90 108 110 100 140 C92 110 80 90 50 80 C80 70 92 50 100 20 Z"
+            fill="none" stroke="currentColor" stroke-width="1.5" transform="rotate(60 100 100)" />
         </svg>
       </div>
 
@@ -734,7 +817,7 @@
       <!-- Auspicious Crest with Sacred Flickering Diya -->
       <div
         class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#EDF3ED] border border-[#CCD8CC] text-[#486848] text-[10px] uppercase tracking-[0.25em] font-semibold mb-3 relative z-10 shadow-sm">
-        
+
         <!-- Animated Sacred Diya SVG -->
         <svg class="w-5 h-5 inline-block" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
           <!-- Diya Bowl -->
@@ -754,13 +837,15 @@
       <div class="flex items-center justify-center gap-4 my-2 relative z-10">
         <!-- Left Dove -->
         <svg class="w-7 h-7 text-[#9B1D2C] dove-left" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 2C8 2 4 5 4 9C4 13 8 16 12 20C12 18 13 16 15 15C18 14 20 11 20 8C20 4 16 2 12 2ZM8 8C7.4 8 7 7.6 7 7C7 6.4 7.4 6 8 6C8.6 6 9 6.4 9 7C9 7.6 8.6 8 8 8Z"/>
+          <path
+            d="M12 2C8 2 4 5 4 9C4 13 8 16 12 20C12 18 13 16 15 15C18 14 20 11 20 8C20 4 16 2 12 2ZM8 8C7.4 8 7 7.6 7 7C7 6.4 7.4 6 8 6C8.6 6 9 6.4 9 7C9 7.6 8.6 8 8 8Z" />
         </svg>
         <!-- Heart / Auspicious Knot -->
         <span class="text-xl animate-pulse text-[#9B1D2C]">❦</span>
         <!-- Right Dove (Mirrored) -->
         <svg class="w-7 h-7 text-[#9B1D2C] dove-right transform scale-x-[-1]" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 2C8 2 4 5 4 9C4 13 8 16 12 20C12 18 13 16 15 15C18 14 20 11 20 8C20 4 16 2 12 2ZM8 8C7.4 8 7 7.6 7 7C7 6.4 7.4 6 8 6C8.6 6 9 6.4 9 7C9 7.6 8.6 8 8 8Z"/>
+          <path
+            d="M12 2C8 2 4 5 4 9C4 13 8 16 12 20C12 18 13 16 15 15C18 14 20 11 20 8C20 4 16 2 12 2ZM8 8C7.4 8 7 7.6 7 7C7 6.4 7.4 6 8 6C8.6 6 9 6.4 9 7C9 7.6 8.6 8 8 8Z" />
         </svg>
       </div>
 
@@ -783,7 +868,8 @@
       </div>
 
       <!-- Shimmering Couple Names -->
-      <h1 class="font-cormorant text-5xl sm:text-6xl font-normal tracking-wide leading-none my-2 shimmer-text relative z-10">
+      <h1
+        class="font-cormorant text-5xl sm:text-6xl font-normal tracking-wide leading-none my-2 shimmer-text relative z-10">
         Mannu Shrestha
         <span class="block text-3xl italic text-[#9B1D2C] my-1 font-serif">
           <span class="inline-block animate-pulse text-xl align-middle mr-1">❦</span>
@@ -793,7 +879,8 @@
         Sulav Rana
       </h1>
 
-      <p class="font-cormorant italic text-lg text-[#5A6B5D] mt-2 relative z-10">Together with their families, invite you to celebrate
+      <p class="font-cormorant italic text-lg text-[#5A6B5D] mt-2 relative z-10">Together with their families, invite
+        you to celebrate
         their wedding.</p>
 
       <!-- Red & Sage Divider with Floating Sparkles -->
@@ -805,14 +892,16 @@
 
       <!-- Quick Date Badges -->
       <div class="space-y-1.5 mt-2 relative z-10">
-        <div class="inline-block bg-white px-4 py-1.5 rounded-xl border border-[#CCD8CC] shadow-sm hover:border-[#9B1D2C]/40 transition hover:scale-105 duration-200">
+        <div
+          class="inline-block bg-white px-4 py-1.5 rounded-xl border border-[#CCD8CC] shadow-sm hover:border-[#9B1D2C]/40 transition hover:scale-105 duration-200">
           <p class="text-[11px] tracking-wider text-[#9B1D2C] uppercase font-bold flex items-center gap-1.5">
             <span class="w-1.5 h-1.5 rounded-full bg-[#9B1D2C]"></span>
             <span>Reception: November 28, 2026 &bull; Dhulikhel</span>
           </p>
         </div>
         <br>
-        <div class="inline-block bg-white px-4 py-1.5 rounded-xl border border-[#CCD8CC] shadow-sm hover:border-[#486848]/40 transition hover:scale-105 duration-200">
+        <div
+          class="inline-block bg-white px-4 py-1.5 rounded-xl border border-[#CCD8CC] shadow-sm hover:border-[#486848]/40 transition hover:scale-105 duration-200">
           <p class="text-[11px] tracking-wider text-[#486848] uppercase font-bold flex items-center gap-1.5">
             <span class="w-1.5 h-1.5 rounded-full bg-[#486848]"></span>
             <span>Wedding Day: December 3, 2026 &bull; Chabahil</span>
@@ -828,26 +917,32 @@
       <div
         class="w-12 h-12 mx-auto mb-2 text-[#9B1D2C] flex items-center justify-center bg-[#FDF2F4] rounded-full border border-[#9B1D2C]/20 shadow-sm animate-pulse">
         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+          <path
+            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
         </svg>
       </div>
       <h2 class="font-cormorant text-2xl text-[#232D25] italic mb-1">Counting Down To Our Celebrations</h2>
-      <p class="text-[11px] text-[#5A6B5D] uppercase tracking-wider mb-6">Reception starts Nov 28, 2026 &bull; 3:30 PM</p>
+      <p class="text-[11px] text-[#5A6B5D] uppercase tracking-wider mb-6">Reception starts Nov 28, 2026 &bull; 3:30 PM
+      </p>
 
       <div class="grid grid-cols-4 gap-3 max-w-xs mx-auto">
-        <div class="luxury-card rounded-2xl py-3 px-1 text-center transform hover:-translate-y-1.5 transition duration-300">
+        <div
+          class="luxury-card rounded-2xl py-3 px-1 text-center transform hover:-translate-y-1.5 transition duration-300">
           <span id="days" class="font-cormorant text-3xl font-semibold text-[#9B1D2C] block">00</span>
           <span class="text-[9px] uppercase tracking-wider text-[#5A6B5D] font-medium">Days</span>
         </div>
-        <div class="luxury-card rounded-2xl py-3 px-1 text-center transform hover:-translate-y-1.5 transition duration-300">
+        <div
+          class="luxury-card rounded-2xl py-3 px-1 text-center transform hover:-translate-y-1.5 transition duration-300">
           <span id="hours" class="font-cormorant text-3xl font-semibold text-[#232D25] block">00</span>
           <span class="text-[9px] uppercase tracking-wider text-[#5A6B5D] font-medium">Hours</span>
         </div>
-        <div class="luxury-card rounded-2xl py-3 px-1 text-center transform hover:-translate-y-1.5 transition duration-300">
+        <div
+          class="luxury-card rounded-2xl py-3 px-1 text-center transform hover:-translate-y-1.5 transition duration-300">
           <span id="minutes" class="font-cormorant text-3xl font-semibold text-[#232D25] block">00</span>
           <span class="text-[9px] uppercase tracking-wider text-[#5A6B5D] font-medium">Minutes</span>
         </div>
-        <div class="luxury-card rounded-2xl py-3 px-1 text-center transform hover:-translate-y-1.5 transition duration-300">
+        <div
+          class="luxury-card rounded-2xl py-3 px-1 text-center transform hover:-translate-y-1.5 transition duration-300">
           <span id="seconds" class="font-cormorant text-3xl font-semibold text-[#688A68] block">00</span>
           <span class="text-[9px] uppercase tracking-wider text-[#5A6B5D] font-medium">Seconds</span>
         </div>
@@ -881,7 +976,8 @@
         <h4 class="font-cormorant text-3xl text-[#232D25] font-semibold">Prem Banquet</h4>
         <p class="text-xs text-[#5A6B5D] mt-1 font-medium">Dhulikhel, Kavrepalanchok, Nepal</p>
 
-        <div class="mt-4 py-2.5 px-4 bg-[#FAFBF9] rounded-2xl border border-[#CCD8CC] inline-block text-left w-full shadow-inner">
+        <div
+          class="mt-4 py-2.5 px-4 bg-[#FAFBF9] rounded-2xl border border-[#CCD8CC] inline-block text-left w-full shadow-inner">
           <div class="flex items-center justify-between text-xs text-[#232D25] font-medium">
             <span class="text-[#9B1D2C] font-semibold">Date:</span>
             <span>Saturday, November 28, 2026</span>
@@ -892,27 +988,38 @@
           </div>
         </div>
 
-        <!-- Stylized Map Preview: Dhulikhel with Radar Pulse -->
-        <div class="relative w-full h-32 rounded-2xl overflow-hidden mt-5 border border-[#CCD8CC] bg-[#EDF3ED]">
-          <div
-            class="absolute inset-0 opacity-40 bg-[radial-gradient(#688a68_1.5px,transparent_1.5px)] [background-size:14px_14px]">
-          </div>
-          <div class="absolute inset-0 flex flex-col items-center justify-center bg-white/50 p-4">
-            
-            <div class="relative flex items-center justify-center">
-              <span class="absolute w-12 h-12 rounded-full bg-[#9B1D2C]/35 radar-ring pointer-events-none"></span>
-              <div class="bg-[#9B1D2C] text-white p-2.5 rounded-full shadow-lg relative z-10 animate-bounce">
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd"
-                    d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                    clip-rule="evenodd" />
-                </svg>
-              </div>
-            </div>
+        <!-- Wedding Reception Venue Showcase: Prem Banquet Dhulikhel -->
+        <div class="relative w-full h-44 rounded-2xl overflow-hidden mt-5 border-2 border-[#CCD8CC] shadow-md group/venue">
+          <!-- Real Banquet Hall Photo with Warm Glow -->
+          <img src="images/reception-venue.jpg" alt="Prem Banquet Reception Hall" 
+            class="w-full h-full object-cover group-hover/venue:scale-105 transition-transform duration-700 ease-out" />
+          
+          <!-- Romantic Amber & Crimson Gradient Overlay -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent"></div>
 
-            <span
-              class="text-[11px] font-bold text-[#232D25] mt-2 bg-white px-3 py-0.5 rounded-full shadow-sm border border-[#CCD8CC]">Prem
-              Banquet &bull; Dhulikhel</span>
+          <!-- Top Venue Badge with Pulsing Diya / Location Pin -->
+          <div class="absolute top-2.5 left-2.5">
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/55 backdrop-blur-md text-white text-[10px] font-semibold border border-white/20">
+              <span class="w-2 h-2 rounded-full bg-[#FF4500] animate-ping"></span>
+              <span>Reception Celebration</span>
+            </span>
+          </div>
+
+          <!-- Bottom Venue Info Overlay -->
+          <div class="absolute bottom-2.5 inset-x-2.5 flex items-center justify-between text-white">
+            <div class="text-left">
+              <span class="text-xs font-bold block drop-shadow-sm flex items-center gap-1">
+                <span>📍</span> Prem Banquet &bull; Dhulikhel
+              </span>
+              <span class="text-[10px] text-white/85">Grand banquet hall &amp; scenic hill ambiance</span>
+            </div>
+            <div class="bg-[#9B1D2C] text-white p-2 rounded-full shadow-lg border border-white/30 animate-bounce">
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd"
+                  d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                  clip-rule="evenodd" />
+              </svg>
+            </div>
           </div>
         </div>
 
@@ -940,15 +1047,25 @@
 
       <!-- Cute Animated Connecting Journey Route between Dhulikhel & Chabahil -->
       <div class="relative py-2 text-center overflow-hidden">
-        <div class="flex items-center justify-center gap-2 text-[10px] font-bold text-[#688A68] uppercase tracking-wider mb-2">
+        <div
+          class="flex items-center justify-center gap-2 text-[10px] font-bold text-[#688A68] uppercase tracking-wider mb-2">
           <span>🌸 From the Hills of Dhulikhel to Kathmandu Valley 🌸</span>
         </div>
-        <div class="relative w-4/5 mx-auto h-7 border-b-2 border-dashed border-[#CCD8CC] flex items-center">
-          <!-- Animated Moving Car with Flower Procession -->
-          <div class="absolute journey-car text-lg -bottom-3 select-none">
+        <div id="journey-track"
+          class="relative w-4/5 mx-auto h-8 border-b-2 border-dashed border-[#CCD8CC] flex items-center">
+          <!-- Start Milestone Marker -->
+          <div class="absolute -left-1 -bottom-1.5 w-3 h-3 rounded-full bg-[#9B1D2C] ring-2 ring-white shadow-sm"
+            title="Dhulikhel"></div>
+          <!-- End Milestone Marker -->
+          <div class="absolute -right-1 -bottom-1.5 w-3 h-3 rounded-full bg-[#486848] ring-2 ring-white shadow-sm"
+            title="Kathmandu"></div>
+          <!-- Interactive Scroll Scrubbed Wedding Car -->
+          <div id="scroll-journey-car" class="text-xl select-none" title="Tap the procession car!">
             🚗💨🌸
           </div>
         </div>
+        <p class="text-[9px] text-[#5A6B5D] mt-2 italic">Scroll to drive the procession &bull; Tap car for joyful cheers
+        </p>
       </div>
 
       <!-- VENUE CARD 2: WEDDING DAY (SMART PALACE CHUCHEPATI CHABAHIL) -->
@@ -963,7 +1080,8 @@
         <h4 class="font-cormorant text-3xl text-[#232D25] font-semibold">Smart Palace</h4>
         <p class="text-xs text-[#5A6B5D] mt-1 font-medium">Chuchepati, Chabahil, Kathmandu, Nepal</p>
 
-        <div class="mt-4 py-2.5 px-4 bg-[#FAFBF9] rounded-2xl border border-[#CCD8CC] inline-block text-left w-full shadow-inner">
+        <div
+          class="mt-4 py-2.5 px-4 bg-[#FAFBF9] rounded-2xl border border-[#CCD8CC] inline-block text-left w-full shadow-inner">
           <div class="flex items-center justify-between text-xs text-[#232D25] font-medium">
             <span class="text-[#9B1D2C] font-semibold">Date:</span>
             <span>Thursday, December 3, 2026</span>
@@ -974,27 +1092,38 @@
           </div>
         </div>
 
-        <!-- Stylized Map Preview: Chuchepati Chabahil with Radar Pulse -->
-        <div class="relative w-full h-32 rounded-2xl overflow-hidden mt-5 border border-[#CCD8CC] bg-[#EDF3ED]">
-          <div
-            class="absolute inset-0 opacity-40 bg-[radial-gradient(#688a68_1.5px,transparent_1.5px)] [background-size:14px_14px]">
-          </div>
-          <div class="absolute inset-0 flex flex-col items-center justify-center bg-white/50 p-4">
-            
-            <div class="relative flex items-center justify-center">
-              <span class="absolute w-12 h-12 rounded-full bg-[#486848]/35 radar-ring pointer-events-none"></span>
-              <div class="bg-[#486848] text-white p-2.5 rounded-full shadow-lg relative z-10 animate-bounce">
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd"
-                    d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                    clip-rule="evenodd" />
-                </svg>
-              </div>
-            </div>
+        <!-- Wedding Day Mandap Showcase: Smart Palace Chabahil -->
+        <div class="relative w-full h-44 rounded-2xl overflow-hidden mt-5 border-2 border-[#CCD8CC] shadow-md group/venue">
+          <!-- Real Sacred Vivaha Mandap Photo with Silk Drapes & Marigolds -->
+          <img src="images/wedding-mandap.jpg" alt="Smart Palace Wedding Mandap" 
+            class="w-full h-full object-cover group-hover/venue:scale-105 transition-transform duration-700 ease-out" />
+          
+          <!-- Sacred Emerald & Crimson Gradient Overlay -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent"></div>
 
-            <span
-              class="text-[11px] font-bold text-[#232D25] mt-2 bg-white px-3 py-0.5 rounded-full shadow-sm border border-[#CCD8CC]">Smart
-              Palace &bull; Chabahil</span>
+          <!-- Top Venue Badge with Pulsing Mandap Flame -->
+          <div class="absolute top-2.5 left-2.5">
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/55 backdrop-blur-md text-white text-[10px] font-semibold border border-white/20">
+              <span class="w-2 h-2 rounded-full bg-[#D4AF37] animate-ping"></span>
+              <span>Vivaha Ceremony Mandap</span>
+            </span>
+          </div>
+
+          <!-- Bottom Venue Info Overlay -->
+          <div class="absolute bottom-2.5 inset-x-2.5 flex items-center justify-between text-white">
+            <div class="text-left">
+              <span class="text-xs font-bold block drop-shadow-sm flex items-center gap-1">
+                <span>🪔</span> Smart Palace &bull; Chabahil
+              </span>
+              <span class="text-[10px] text-white/85">Traditional sacred Vivaha palace mandap</span>
+            </div>
+            <div class="bg-[#486848] text-white p-2 rounded-full shadow-lg border border-white/30 animate-bounce">
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd"
+                  d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                  clip-rule="evenodd" />
+              </svg>
+            </div>
           </div>
         </div>
 
@@ -1021,106 +1150,6 @@
       </div>
     </section>
 
-
-    <!-- 4. SCHEDULE / TIMELINE -->
-    <section class="px-6 py-8 relative z-10">
-      <div class="text-center mb-8">
-        <div
-          class="w-10 h-10 mx-auto mb-2 text-[#9B1D2C] flex items-center justify-center bg-[#FDF2F4] rounded-full border border-[#9B1D2C]/20 shadow-sm animate-pulse">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.3"
-              d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-          </svg>
-        </div>
-        <h3 class="font-cormorant text-3xl text-[#232D25]">Program Schedule</h3>
-        <p class="font-cormorant italic text-sm text-[#5A6B5D]">Events flow of our celebrations</p>
-      </div>
-
-      <!-- Schedule Block 1: Reception -->
-      <div class="mb-6">
-        <div
-          class="inline-block px-3 py-1 bg-[#9B1D2C] text-white text-[10px] uppercase font-bold tracking-wider rounded-lg mb-4 shadow-sm hover:scale-105 transition-transform duration-200">
-          Part 1: Reception — Nov 28 (Prem Banquet, Dhulikhel)
-        </div>
-        <div
-          class="relative pl-6 space-y-5 before:content-[''] before:absolute before:left-2 before:top-2 before:bottom-2 before:w-[2px] before:bg-gradient-to-b before:from-[#9B1D2C] before:via-[#E5C989] before:to-[#9B1D2C]">
-          
-          <div class="relative group">
-            <div
-              class="absolute -left-[27px] top-1 w-4 h-4 rounded-full bg-white border-2 border-[#9B1D2C] group-hover:scale-125 group-hover:bg-[#9B1D2C] transition-all duration-300 shadow-sm">
-            </div>
-            <span class="text-[11px] font-semibold text-[#9B1D2C] uppercase tracking-wider block">3:30 PM</span>
-            <h4 class="font-cormorant text-xl font-medium text-[#232D25]">Guest Welcoming &amp; High Tea</h4>
-            <p class="text-xs text-[#5A6B5D] mt-0.5">Welcome drinks and refreshments at Prem Banquet</p>
-          </div>
-
-          <div class="relative group">
-            <div
-              class="absolute -left-[27px] top-1 w-4 h-4 rounded-full bg-white border-2 border-[#9B1D2C] group-hover:scale-125 group-hover:bg-[#9B1D2C] transition-all duration-300 shadow-sm">
-            </div>
-            <span class="text-[11px] font-semibold text-[#9B1D2C] uppercase tracking-wider block">4:30 PM</span>
-            <h4 class="font-cormorant text-xl font-medium text-[#232D25]">Bride's Entrance &amp; Stage Greetings</h4>
-            <p class="text-xs text-[#5A6B5D] mt-0.5">Welcoming the bride to the stage for blessings and photography</p>
-          </div>
-
-          <div class="relative group">
-            <div
-              class="absolute -left-[27px] top-1 w-4 h-4 rounded-full bg-white border-2 border-[#9B1D2C] group-hover:scale-125 group-hover:bg-[#9B1D2C] transition-all duration-300 shadow-sm">
-            </div>
-            <span class="text-[11px] font-semibold text-[#9B1D2C] uppercase tracking-wider block">5:30 PM &mdash; 8:30 PM</span>
-            <h4 class="font-cormorant text-xl font-medium text-[#232D25]">Grand Banquet Dinner &amp; Music</h4>
-            <p class="text-xs text-[#5A6B5D] mt-0.5">Buffet dinner feast, live celebration, and memorable moments</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Schedule Block 2: Wedding Day -->
-      <div>
-        <div
-          class="inline-block px-3 py-1 bg-[#486848] text-white text-[10px] uppercase font-bold tracking-wider rounded-lg mb-4 shadow-sm hover:scale-105 transition-transform duration-200">
-          Part 2: Wedding Day — Dec 3 (Smart Palace, Chabahil)
-        </div>
-        <div
-          class="relative pl-6 space-y-5 before:content-[''] before:absolute before:left-2 before:top-2 before:bottom-2 before:w-[2px] before:bg-gradient-to-b before:from-[#486848] before:via-[#E5C989] before:to-[#486848]">
-          
-          <div class="relative group">
-            <div
-              class="absolute -left-[27px] top-1 w-4 h-4 rounded-full bg-white border-2 border-[#688A68] group-hover:scale-125 group-hover:bg-[#688A68] transition-all duration-300 shadow-sm">
-            </div>
-            <span class="text-[11px] font-semibold text-[#486848] uppercase tracking-wider block">9:00 AM</span>
-            <h4 class="font-cormorant text-xl font-medium text-[#232D25]">Janti Arrival &amp; Swagatam</h4>
-            <p class="text-xs text-[#5A6B5D] mt-0.5">Grand welcome of the groom's procession at Smart Palace</p>
-          </div>
-
-          <div class="relative group">
-            <div
-              class="absolute -left-[27px] top-1 w-4 h-4 rounded-full bg-white border-2 border-[#688A68] group-hover:scale-125 group-hover:bg-[#688A68] transition-all duration-300 shadow-sm">
-            </div>
-            <span class="text-[11px] font-semibold text-[#486848] uppercase tracking-wider block">11:00 AM</span>
-            <h4 class="font-cormorant text-xl font-medium text-[#232D25]">Sacred Lagan &amp; Vows Ceremony</h4>
-            <p class="text-xs text-[#5A6B5D] mt-0.5">Auspicious rituals and holy blessings around the mandap</p>
-          </div>
-
-          <div class="relative group">
-            <div
-              class="absolute -left-[27px] top-1 w-4 h-4 rounded-full bg-white border-2 border-[#688A68] group-hover:scale-125 group-hover:bg-[#688A68] transition-all duration-300 shadow-sm">
-            </div>
-            <span class="text-[11px] font-semibold text-[#486848] uppercase tracking-wider block">1:00 PM</span>
-            <h4 class="font-cormorant text-xl font-medium text-[#232D25]">Wedding Bhoj &amp; Blessings</h4>
-            <p class="text-xs text-[#5A6B5D] mt-0.5">Traditional feast with family, relatives, and dear friends</p>
-          </div>
-
-          <div class="relative group">
-            <div
-              class="absolute -left-[27px] top-1 w-4 h-4 rounded-full bg-white border-2 border-[#688A68] group-hover:scale-125 group-hover:bg-[#688A68] transition-all duration-300 shadow-sm">
-            </div>
-            <span class="text-[11px] font-semibold text-[#486848] uppercase tracking-wider block">4:00 PM</span>
-            <h4 class="font-cormorant text-xl font-medium text-[#232D25]">Doli &amp; Bidaai Ceremony</h4>
-            <p class="text-xs text-[#5A6B5D] mt-0.5">Farewell ritual with hearty blessings for the new journey</p>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- FOOTER -->
     <footer class="text-center pt-6 pb-12 px-6 relative z-10">
@@ -1218,7 +1247,7 @@
         filter.connect(gain);
         gain.connect(audioCtx.destination);
         whiteNoise.start();
-      } catch (e) {}
+      } catch (e) { }
     }
 
     // Grand Fairytale Opening Arpeggio with High Sparkle Bells
@@ -1691,7 +1720,299 @@ END:VCALENDAR`;
         "Mannu-Sulav-Wedding.ics"
       );
     });
+
+    // ----------------------------------------------------
+    // 9. Hadaka.jp Scroll Engine & End-of-Page Welcome Pop-up
+    // ----------------------------------------------------
+    const progressBar = document.getElementById('scroll-progress-bar');
+    const journeyTrack = document.getElementById('journey-track');
+    const journeyCar = document.getElementById('scroll-journey-car');
+
+    // Welcome Pop-up Elements
+    const welcomeModal = document.getElementById('welcome-modal');
+    const welcomeModalCard = document.getElementById('welcome-modal-card');
+    const welcomeModalClose = document.getElementById('welcome-modal-close');
+    const welcomeModalBackdrop = document.getElementById('welcome-modal-backdrop');
+    const welcomeModalBtn = document.getElementById('welcome-modal-btn');
+
+    let welcomeModalShown = false;
+    let isModalOpen = false;
+
+    // Launch cheerful blossom confetti burst for the welcome pop-up
+    function launchModalBlossoms() {
+      const symbols = ['🌸', '✨', '❤️', '💖', '🌿', '🎉'];
+      const rect = welcomeModalCard ? welcomeModalCard.getBoundingClientRect() : { left: window.innerWidth / 2, top: window.innerHeight / 2, width: 0, height: 0 };
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + 80;
+
+      for (let i = 0; i < 24; i++) {
+        setTimeout(() => {
+          const el = document.createElement('div');
+          el.className = 'tap-heart font-sans text-xl pointer-events-none z-50';
+          el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+          el.style.left = (centerX + (Math.random() - 0.5) * 80) + 'px';
+          el.style.top = (centerY + (Math.random() - 0.5) * 40) + 'px';
+          el.style.setProperty('--dx', (Math.random() * 80 - 40) + 'px');
+          el.style.setProperty('--dx2', (Math.random() * 120 - 60) + 'px');
+          el.style.setProperty('--rot', (Math.random() * 60 - 30) + 'deg');
+          el.style.setProperty('--rot2', (Math.random() * 90 - 45) + 'deg');
+          document.body.appendChild(el);
+          setTimeout(() => el.remove(), 1400);
+        }, i * 35);
+      }
+    }
+
+    function openWelcomeModal() {
+      if (isModalOpen || !welcomeModal || !welcomeModalCard) return;
+      isModalOpen = true;
+      welcomeModalShown = true;
+
+      // Play joyful greeting chime
+      initAudio();
+      playTempleBell();
+      setTimeout(() => {
+        playChimeNote(1046.50, 0, 0.8);
+        playChimeNote(1318.51, 100, 1.0);
+        playChimeNote(1567.98, 200, 1.2);
+      }, 150);
+
+      // Reveal modal with spring animation
+      welcomeModal.classList.remove('opacity-0', 'pointer-events-none');
+      welcomeModalCard.classList.remove('scale-90', 'translate-y-8');
+      welcomeModalCard.classList.add('scale-100', 'translate-y-0');
+
+      // Burst blossoms
+      launchModalBlossoms();
+    }
+
+    function closeWelcomeModal() {
+      if (!isModalOpen || !welcomeModal || !welcomeModalCard) return;
+      isModalOpen = false;
+
+      welcomeModal.classList.add('opacity-0', 'pointer-events-none');
+      welcomeModalCard.classList.remove('scale-100', 'translate-y-0');
+      welcomeModalCard.classList.add('scale-90', 'translate-y-8');
+    }
+
+    if (welcomeModalClose) welcomeModalClose.addEventListener('click', closeWelcomeModal);
+    if (welcomeModalBackdrop) welcomeModalBackdrop.addEventListener('click', closeWelcomeModal);
+    if (welcomeModalBtn) welcomeModalBtn.addEventListener('click', closeWelcomeModal);
+
+    // Escape key closes modal
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isModalOpen) {
+        closeWelcomeModal();
+      }
+    });
+
+    // High performance scroll listener
+    function handleWindowScroll() {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+      // 1. Update top scroll progress bar
+      if (progressBar && scrollHeight > 0) {
+        const progressPercent = Math.min(100, Math.max(0, (scrollTop / scrollHeight) * 100));
+        progressBar.style.width = progressPercent + '%';
+      }
+
+      // 2. Scrub interactive wedding car along journey track
+      if (journeyTrack && journeyCar) {
+        const trackRect = journeyTrack.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        if (trackRect.top < windowHeight && trackRect.bottom > 0) {
+          const totalDistance = windowHeight + trackRect.height;
+          const currentProgress = (windowHeight - trackRect.top) / totalDistance;
+          const clamped = Math.max(0.04, Math.min(0.86, currentProgress));
+          journeyCar.style.left = (clamped * 100) + '%';
+        }
+      }
+
+      // 4. Trigger "Welcome to the Weddings" pop-up when reaching the end of the page
+      if (!welcomeModalShown && hasOpened) {
+        const scrollBottom = window.innerHeight + scrollTop;
+        const totalHeight = document.documentElement.scrollHeight;
+        // Trigger within 90px of reaching page bottom
+        if (scrollBottom >= totalHeight - 90) {
+          openWelcomeModal();
+        }
+      }
+    }
+
+    window.addEventListener('scroll', handleWindowScroll, { passive: true });
+
+    // Tap on Journey Car
+    if (journeyCar) {
+      journeyCar.addEventListener('click', (e) => {
+        e.stopPropagation();
+        initAudio();
+        playChimeNote(880, 0, 0.4);
+        playChimeNote(1318.5, 90, 0.6);
+        playChimeNote(1760, 180, 0.8);
+
+        journeyCar.style.transform = 'scale(1.5) translateY(-8px)';
+        setTimeout(() => {
+          journeyCar.style.transform = '';
+        }, 300);
+
+        const rect = journeyCar.getBoundingClientRect();
+        for (let i = 0; i < 8; i++) {
+          setTimeout(() => {
+            spawnTapHeart(rect.left + rect.width / 2 + (Math.random() - 0.5) * 30, rect.top);
+          }, i * 40);
+        }
+      });
+    }
+
+    // IntersectionObserver for Hadaka scroll reveals & Footer end trigger
+    let scrollObserver = null;
+
+    function initHadakaObserver() {
+      const revealElements = document.querySelectorAll(
+        '.reveal-on-scroll, .reveal-slide-left, .reveal-slide-right, .reveal-pop, .reveal-scale, .reveal-fade'
+      );
+
+      if ('IntersectionObserver' in window) {
+        scrollObserver = new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-revealed');
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          {
+            threshold: 0.1,
+            rootMargin: '0px 0px -30px 0px'
+          }
+        );
+
+        revealElements.forEach((el) => scrollObserver.observe(el));
+
+        // Footer Intersection Observer for end-of-page pop-up
+        const footerElement = document.querySelector('footer');
+        if (footerElement) {
+          const footerObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting && !welcomeModalShown && hasOpened) {
+                openWelcomeModal();
+              }
+            });
+          }, { threshold: 0.25 });
+          footerObserver.observe(footerElement);
+        }
+      } else {
+        revealElements.forEach((el) => el.classList.add('is-revealed'));
+      }
+    }
+
+    function triggerInitialReveals() {
+      const revealElements = document.querySelectorAll(
+        '.reveal-on-scroll, .reveal-slide-left, .reveal-slide-right, .reveal-pop, .reveal-scale, .reveal-fade'
+      );
+      revealElements.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          el.classList.add('is-revealed');
+          if (scrollObserver) scrollObserver.unobserve(el);
+        }
+      });
+    }
+
+    initHadakaObserver();
+
   </script>
+
+  <!-- ============================================== -->
+  <!-- END-OF-PAGE CELEBRATION POP-UP MODAL           -->
+  <!-- ============================================== -->
+  <div id="welcome-modal"
+    class="fixed inset-0 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-500 ease-out"
+    role="dialog" aria-modal="true" aria-labelledby="welcome-modal-title">
+    <!-- Backdrop with warm blur -->
+    <div id="welcome-modal-backdrop"
+      class="absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-500"></div>
+
+    <!-- Modal Card with Hadaka Spring Physics -->
+    <div id="welcome-modal-card"
+      class="relative w-full max-w-sm bg-gradient-to-b from-[#FFFFFF] via-[#FAFBF9] to-[#F4F8F4] rounded-3xl p-6 sm:p-7 text-center border-2 border-[#D4AF37]/60 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.35)] transform scale-90 translate-y-8 transition-all duration-500 cubic-bezier(0.16,1,0.3,1) z-10 overflow-hidden">
+      <!-- Romantic Wedding Floral Overlay inside Modal -->
+      <div class="absolute inset-0 bg-cover bg-center opacity-[0.14] pointer-events-none" style="background-image: url('images/wedding-bg.jpg');"></div>
+
+      <!-- Top Decorative Glow -->
+      <div
+        class="absolute -top-14 left-1/2 -translate-x-1/2 w-44 h-44 bg-[#9B1D2C]/10 rounded-full blur-2xl pointer-events-none">
+      </div>
+
+      <!-- Close Button (Top-Right) -->
+      <button id="welcome-modal-close"
+        class="absolute top-3.5 right-3.5 w-8 h-8 rounded-full bg-white/90 hover:bg-[#FDF2F4] text-[#5A6B5D] hover:text-[#9B1D2C] border border-[#CCD8CC] flex items-center justify-center transition-all duration-200 active:scale-90 shadow-sm"
+        aria-label="Close welcome greetings">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <!-- Auspicious Namaste Icon -->
+      <div
+        class="w-16 h-16 mx-auto mb-3 rounded-full bg-gradient-to-br from-[#FDF2F4] to-[#EDF3ED] border-2 border-[#D4AF37] flex items-center justify-center shadow-md transform hover:scale-110 transition-transform duration-300">
+        <span class="text-3xl select-none animate-pulse">🙏</span>
+      </div>
+
+      <!-- Couple Monogram Badge -->
+      <div
+        class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#FDF2F4] border border-[#9B1D2C]/30 text-[#9B1D2C] text-[10px] uppercase tracking-widest font-bold mb-2 shadow-xs">
+        <span class="w-2 h-2 rounded-full bg-[#9B1D2C] animate-ping"></span>
+        <span>Mannu Shrestha &bull; Sulav Rana</span>
+      </div>
+
+      <!-- Welcome to the Weddings Main Heading -->
+      <h3 id="welcome-modal-title"
+        class="font-cormorant text-3xl sm:text-4xl font-normal text-[#232D25] leading-tight my-1">
+        Welcome to the Weddings
+      </h3>
+
+      <!-- Auspicious Knot Divider -->
+      <div class="flex items-center justify-center gap-2 my-2.5">
+        <div class="w-8 h-[1px] bg-[#688A68]"></div>
+        <span class="text-sm text-[#9B1D2C] animate-pulse">❦</span>
+        <div class="w-8 h-[1px] bg-[#688A68]"></div>
+      </div>
+
+      <!-- Warm Welcoming Message -->
+      <p class="font-cormorant italic text-base text-[#4A5D4D] leading-relaxed px-2 mb-4">
+        With immense joy and deepest gratitude, we welcome you to our wedding celebrations! Your blessings, presence,
+        and love mean the world to us as we begin our lifelong journey together.
+      </p>
+
+      <!-- Event Quick Badges -->
+      <div class="space-y-1.5 mb-5 text-left bg-white/90 p-3 rounded-2xl border border-[#CCD8CC]/80 shadow-inner">
+        <div class="flex items-center justify-between text-xs font-semibold text-[#232D25]">
+          <span class="text-[#9B1D2C] flex items-center gap-1.5">
+            <span>🌸</span> Reception
+          </span>
+          <span class="text-[#5A6B5D] text-[11px]">Nov 28 &bull; Prem Banquet, Dhulikhel</span>
+        </div>
+        <div
+          class="flex items-center justify-between text-xs font-semibold text-[#232D25] pt-1.5 border-t border-[#EDF3ED]">
+          <span class="text-[#486848] flex items-center gap-1.5">
+            <span>💍</span> Wedding Day
+          </span>
+          <span class="text-[#5A6B5D] text-[11px]">Dec 3 &bull; Smart Palace, Chabahil</span>
+        </div>
+      </div>
+
+      <!-- Action Button -->
+      <button id="welcome-modal-btn"
+        class="w-full py-3 px-5 rounded-2xl bg-gradient-to-r from-[#9B1D2C] via-[#B52636] to-[#9B1D2C] hover:from-[#821522] hover:to-[#9B1D2C] text-white text-xs font-bold uppercase tracking-wider shadow-md hover:shadow-lg transition-all duration-200 active:scale-95 flex items-center justify-center gap-2">
+        <span>Celebrate With Love &hearts;</span>
+        <span class="text-sm">✨</span>
+      </button>
+
+    </div>
+  </div>
+
 </body>
 
 </html>
