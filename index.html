@@ -82,6 +82,13 @@
       transform: rotateY(118deg);
     }
 
+    /* Inner Light Ray Flash on Open */
+    .gates-opened #door-light-beam {
+      opacity: 1;
+      width: 100%;
+      transition: width 0.8s ease-out, opacity 0.9s ease-out;
+    }
+
     /* Ribbon Untying Keyframe Animations */
     @keyframes untieLeftLoop {
       0% {
@@ -173,6 +180,10 @@
       background: #FFFFFF;
       box-shadow: 0 10px 30px -10px rgba(104, 138, 104, 0.12), 0 2px 6px -1px rgba(0, 0, 0, 0.03);
       border: 1px solid rgba(104, 138, 104, 0.22);
+      transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .luxury-card:hover {
+      box-shadow: 0 16px 36px -10px rgba(155, 29, 44, 0.15), 0 4px 12px -2px rgba(104, 138, 104, 0.1);
     }
 
     /* Golden Shimmer on Couple's Names */
@@ -219,11 +230,99 @@
       animation: diamondGleam 4s ease-in-out infinite;
     }
 
+    /* Sacred Diya Flame Flicker */
+    @keyframes flameFlicker {
+      0%, 100% {
+        transform: scale(1) translate(0, 0) rotate(0deg);
+        filter: drop-shadow(0 0 6px rgba(255, 165, 0, 0.85));
+      }
+      25% {
+        transform: scale(1.15, 0.9) translate(-0.5px, -1px) rotate(-3deg);
+        filter: drop-shadow(0 0 10px rgba(255, 69, 0, 0.95));
+      }
+      50% {
+        transform: scale(0.9, 1.15) translate(0.5px, -1.5px) rotate(2deg);
+        filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.9));
+      }
+      75% {
+        transform: scale(1.05, 0.95) translate(-0.2px, -0.5px) rotate(-1deg);
+        filter: drop-shadow(0 0 12px rgba(255, 140, 0, 0.95));
+      }
+    }
+
+    .diya-flame {
+      transform-origin: 16px 15px;
+      animation: flameFlicker 1.4s ease-in-out infinite;
+    }
+
+    /* Top Floral Toran Sway */
+    @keyframes toranSway {
+      0% {
+        transform: rotate(0deg);
+      }
+      50% {
+        transform: rotate(1.2deg) translateY(1.5px);
+      }
+      100% {
+        transform: rotate(-1.2deg) translateY(-1px);
+      }
+    }
+
+    .toran-sway {
+      transform-origin: top center;
+      animation: toranSway 5s ease-in-out infinite alternate;
+    }
+
+    /* Rotating Sacred Mandala */
+    @keyframes mandalaSpin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .mandala-spin {
+      animation: mandalaSpin 80s linear infinite;
+    }
+
+    .mandala-spin-cover {
+      animation: mandalaSpin 50s linear infinite;
+    }
+
+    /* Two Love Doves Hover */
+    @keyframes doveHoverLeft {
+      0%, 100% {
+        transform: translateY(0) rotate(-4deg);
+      }
+      50% {
+        transform: translateY(-5px) rotate(2deg);
+      }
+    }
+
+    @keyframes doveHoverRight {
+      0%, 100% {
+        transform: translateY(0) rotate(4deg);
+      }
+      50% {
+        transform: translateY(-5px) rotate(-2deg);
+      }
+    }
+
+    .dove-left {
+      animation: doveHoverLeft 3.5s ease-in-out infinite;
+    }
+
+    .dove-right {
+      animation: doveHoverRight 3.5s ease-in-out infinite 0.4s;
+    }
+
     /* Radar Ping for Venue Maps */
     @keyframes radarWave {
       0% {
         transform: scale(0.85);
-        opacity: 0.8;
+        opacity: 0.85;
       }
       100% {
         transform: scale(2.6);
@@ -235,6 +334,61 @@
       animation: radarWave 2s cubic-bezier(0, 0, 0.2, 1) infinite;
     }
 
+    /* Moving Wedding Car along Scenic Route */
+    @keyframes journeyCar {
+      0% {
+        left: 2%;
+        transform: scaleX(1);
+      }
+      48% {
+        left: 82%;
+        transform: scaleX(1);
+      }
+      50% {
+        left: 82%;
+        transform: scaleX(-1);
+      }
+      98% {
+        left: 2%;
+        transform: scaleX(-1);
+      }
+      100% {
+        left: 2%;
+        transform: scaleX(1);
+      }
+    }
+
+    .journey-car {
+      animation: journeyCar 13s ease-in-out infinite;
+    }
+
+    /* Temple Bell Swing */
+    @keyframes bellSwing {
+      0% {
+        transform: rotate(0);
+      }
+      20% {
+        transform: rotate(-26deg);
+      }
+      40% {
+        transform: rotate(22deg);
+      }
+      60% {
+        transform: rotate(-14deg);
+      }
+      80% {
+        transform: rotate(8deg);
+      }
+      100% {
+        transform: rotate(0);
+      }
+    }
+
+    .swinging-bell {
+      transform-origin: top center;
+      animation: bellSwing 0.7s ease-in-out;
+    }
+
     /* Floating Heart on Tap */
     @keyframes floatUpFade {
       0% {
@@ -242,11 +396,11 @@
         transform: translate(-50%, -50%) scale(0.6) rotate(0deg);
       }
       50% {
-        transform: translate(calc(-50% + var(--dx, 10px)), -70px) scale(1.15) rotate(var(--rot, 15deg));
+        transform: translate(calc(-50% + var(--dx, 10px)), -75px) scale(1.15) rotate(var(--rot, 15deg));
       }
       100% {
         opacity: 0;
-        transform: translate(calc(-50% + var(--dx2, 20px)), -130px) scale(0.8) rotate(var(--rot2, -15deg));
+        transform: translate(calc(-50% + var(--dx2, 20px)), -140px) scale(0.75) rotate(var(--rot2, -15deg));
       }
     }
 
@@ -254,7 +408,28 @@
       position: fixed;
       pointer-events: none;
       z-index: 9999;
-      animation: floatUpFade 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+      animation: floatUpFade 1.25s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+      user-select: none;
+    }
+
+    /* Fairy Dust Trail (Finger & Cursor) */
+    @keyframes fairyDustFade {
+      0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1) rotate(0deg);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(-50%, calc(-50% - 28px)) scale(0.2) rotate(60deg);
+      }
+    }
+
+    .fairy-dust {
+      position: fixed;
+      pointer-events: none;
+      z-index: 9998;
+      font-size: 11px;
+      animation: fairyDustFade 0.8s ease-out forwards;
       user-select: none;
     }
 
@@ -266,7 +441,7 @@
       }
       100% {
         opacity: 0;
-        transform: translateY(-50px) scale(1.2) rotate(var(--nrot, 20deg));
+        transform: translateY(-52px) scale(1.2) rotate(var(--nrot, 20deg));
       }
     }
 
@@ -289,29 +464,6 @@
       opacity: 1;
       transform: scale(1) translateY(0);
     }
-
-    /* Audio wave animation */
-    @keyframes wave {
-      0%, 100% {
-        height: 4px;
-      }
-      50% {
-        height: 16px;
-      }
-    }
-
-    .sound-bar {
-      animation: wave 1.2s ease-in-out infinite;
-    }
-    .sound-bar:nth-child(2) {
-      animation-delay: 0.2s;
-    }
-    .sound-bar:nth-child(3) {
-      animation-delay: 0.4s;
-    }
-    .sound-bar:nth-child(4) {
-      animation-delay: 0.1s;
-    }
   </style>
 </head>
 
@@ -330,11 +482,23 @@
     class="fixed inset-0 z-50 flex items-center justify-center overflow-hidden bg-stone-900/50 backdrop-blur-sm">
     <div class="relative w-full h-full max-w-md mx-auto shadow-2xl overflow-hidden flex">
 
+      <!-- Central Seam Light Ray Burst -->
+      <div id="door-light-beam"
+        class="absolute inset-y-0 left-1/2 -translate-x-1/2 w-0 bg-gradient-to-r from-transparent via-[#FFF3D1] to-transparent opacity-0 z-30 pointer-events-none">
+      </div>
+
       <!-- Left Gate Panel -->
       <div id="left-gate"
-        class="gate-left relative w-1/2 h-full bg-[#FAFBF9] border-r border-[#CCD8CC] shadow-xl flex flex-col justify-between p-6">
+        class="gate-left relative w-1/2 h-full bg-[#FAFBF9] border-r border-[#CCD8CC] shadow-xl flex flex-col justify-between p-6 overflow-hidden">
+        
+        <!-- Sacred Background Watermark Corner -->
+        <svg class="absolute -left-12 -top-12 w-48 h-48 opacity-10 text-[#688A68] pointer-events-none" viewBox="0 0 100 100" fill="currentColor">
+          <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="1"/>
+          <circle cx="50" cy="50" r="35" fill="none" stroke="currentColor" stroke-width="0.8" stroke-dasharray="3 2"/>
+        </svg>
+
         <!-- Botanical Illustration Top Left (Sage Green & Red Berries) -->
-        <svg class="w-36 h-36 opacity-85 text-[#688A68]" viewBox="0 0 120 120" fill="none"
+        <svg class="w-36 h-36 opacity-85 text-[#688A68] relative z-10" viewBox="0 0 120 120" fill="none"
           xmlns="http://www.w3.org/2000/svg">
           <path d="M10 20C25 40 45 35 60 25C75 15 90 30 105 15" stroke="currentColor" stroke-width="1.3"
             stroke-linecap="round" />
@@ -347,12 +511,13 @@
           <circle cx="62" cy="70" r="5.5" fill="#9B1D2C" />
         </svg>
 
-        <div class="text-xs uppercase tracking-[0.3em] text-[#688A68] font-semibold -rotate-90 origin-left ml-2">
-          Save Our Dates
+        <div class="text-xs uppercase tracking-[0.3em] text-[#688A68] font-semibold -rotate-90 origin-left ml-2 flex items-center gap-2">
+          <span>Save Our Dates</span>
+          <span class="text-[#9B1D2C] animate-pulse">❦</span>
         </div>
 
         <!-- Botanical Illustration Bottom Left -->
-        <svg class="w-36 h-36 opacity-85 text-[#688A68] transform rotate-180" viewBox="0 0 120 120" fill="none"
+        <svg class="w-36 h-36 opacity-85 text-[#688A68] transform rotate-180 relative z-10" viewBox="0 0 120 120" fill="none"
           xmlns="http://www.w3.org/2000/svg">
           <path d="M10 20C25 40 45 35 60 25C75 15 90 30 105 15" stroke="currentColor" stroke-width="1.3"
             stroke-linecap="round" />
@@ -363,9 +528,16 @@
 
       <!-- Right Gate Panel -->
       <div id="right-gate"
-        class="gate-right relative w-1/2 h-full bg-[#FAFBF9] border-l border-[#CCD8CC] shadow-xl flex flex-col justify-between items-end p-6">
+        class="gate-right relative w-1/2 h-full bg-[#FAFBF9] border-l border-[#CCD8CC] shadow-xl flex flex-col justify-between items-end p-6 overflow-hidden">
+        
+        <!-- Sacred Background Watermark Corner -->
+        <svg class="absolute -right-12 -top-12 w-48 h-48 opacity-10 text-[#9B1D2C] pointer-events-none" viewBox="0 0 100 100" fill="currentColor">
+          <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="1"/>
+          <circle cx="50" cy="50" r="35" fill="none" stroke="currentColor" stroke-width="0.8" stroke-dasharray="3 2"/>
+        </svg>
+
         <!-- Botanical Illustration Top Right -->
-        <svg class="w-36 h-36 opacity-85 text-[#688A68] transform scale-x-[-1]" viewBox="0 0 120 120" fill="none"
+        <svg class="w-36 h-36 opacity-85 text-[#688A68] transform scale-x-[-1] relative z-10" viewBox="0 0 120 120" fill="none"
           xmlns="http://www.w3.org/2000/svg">
           <path d="M10 20C25 40 45 35 60 25C75 15 90 30 105 15" stroke="currentColor" stroke-width="1.3"
             stroke-linecap="round" />
@@ -373,12 +545,13 @@
           <circle cx="62" cy="23" r="6" fill="#A3BFA3" />
         </svg>
 
-        <div class="text-xs uppercase tracking-[0.25em] text-[#9B1D2C] font-semibold rotate-90 origin-right mr-2">
-          Mannu &amp; Sulav
+        <div class="text-xs uppercase tracking-[0.25em] text-[#9B1D2C] font-semibold rotate-90 origin-right mr-2 flex items-center gap-2">
+          <span>Mannu &amp; Sulav</span>
+          <span class="text-[#688A68] animate-pulse">❦</span>
         </div>
 
         <!-- Botanical Illustration Bottom Right -->
-        <svg class="w-36 h-36 opacity-85 text-[#688A68] transform rotate-180 scale-x-[-1]" viewBox="0 0 120 120"
+        <svg class="w-36 h-36 opacity-85 text-[#688A68] transform rotate-180 scale-x-[-1] relative z-10" viewBox="0 0 120 120"
           fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M10 20C25 40 45 35 60 25C75 15 90 30 105 15" stroke="currentColor" stroke-width="1.3"
             stroke-linecap="round" />
@@ -387,24 +560,34 @@
         </svg>
       </div>
 
-      <!-- Center Bow & Tap to Open Button (Rich Crimson Silk Ribbon + Golden Wax Seal) -->
+      <!-- Center Bow & Tap to Open Button (Rich Crimson Silk Ribbon + Rotating Mandala Seal) -->
       <div id="ribbon-center"
-        class="ribbon-wrapper absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 flex flex-col items-center cursor-pointer group select-none">
+        class="ribbon-wrapper absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 flex flex-col items-center cursor-pointer group select-none">
 
-        <!-- Outer Glowing Halo Ring -->
-        <div class="absolute -inset-6 rounded-full bg-[#E5C989]/25 blur-xl animate-pulse pointer-events-none"></div>
+        <!-- Outer Glowing Aura Ring -->
+        <div class="absolute -inset-8 rounded-full bg-[#E5C989]/30 blur-2xl animate-pulse pointer-events-none"></div>
 
-        <!-- Elegant Silk Ribbon Bow Graphic in Red with Animated Elements -->
+        <!-- Rotating Golden Palace Mandala Behind Bow -->
+        <div class="absolute w-56 h-56 pointer-events-none opacity-40">
+          <svg class="w-full h-full mandala-spin-cover text-[#C5A880]" viewBox="0 0 100 100" fill="none" stroke="currentColor">
+            <circle cx="50" cy="50" r="48" stroke-width="0.8" stroke-dasharray="2 2"/>
+            <circle cx="50" cy="50" r="42" stroke-width="1"/>
+            <circle cx="50" cy="50" r="32" stroke-width="0.6"/>
+            <!-- 8 geometric petals -->
+            <path d="M50 8 C55 25 65 35 82 40 C65 45 55 55 50 72 C45 55 35 45 18 40 C35 35 45 25 50 8 Z" stroke-width="0.8"/>
+            <path d="M50 8 C55 25 65 35 82 40 C65 45 55 55 50 72 C45 55 35 45 18 40 C35 35 45 25 50 8 Z" stroke-width="0.8" transform="rotate(45 50 50)"/>
+          </svg>
+        </div>
+
+        <!-- Silk Ribbon Bow Graphic in Red with Animated Elements -->
         <div
-          class="relative w-48 h-48 flex items-center justify-center filter drop-shadow-2xl transition-transform duration-300 group-hover:scale-105">
+          class="relative w-48 h-48 flex items-center justify-center filter drop-shadow-2xl transition-transform duration-300 group-hover:scale-105 z-10">
           <svg class="w-full h-full" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
             
             <!-- Hanging Ribbon Tails Group -->
             <g id="ribbon-tails">
-              <!-- Left Tail -->
               <path d="M96 102 C85 130 65 160 55 175 C65 170 85 160 98 110Z" fill="#851623" stroke="#680E18"
                 stroke-width="1" />
-              <!-- Right Tail -->
               <path d="M104 102 C115 130 135 160 145 175 C135 170 115 160 102 110Z" fill="#851623" stroke="#680E18"
                 stroke-width="1" />
             </g>
@@ -425,28 +608,24 @@
 
             <!-- Royal Wax Seal & Monogram Medallion Center -->
             <g id="wax-seal-center">
-              <!-- Crimson Wax Seal Base -->
               <circle cx="100" cy="100" r="19" fill="#9B1D2C" stroke="#7A1420" stroke-width="1.5" />
-              <!-- Golden Outer Laurel Ring -->
               <circle cx="100" cy="100" r="16" fill="none" stroke="#E5C989" stroke-width="1.2" stroke-dasharray="3 1.5" />
-              <!-- Inner Gold Emboss Circle -->
               <circle cx="100" cy="100" r="13" fill="#821522" stroke="#D4AF37" stroke-width="0.8" />
-              <!-- Monogram "M ♥ S" in Gold -->
               <text x="100" y="103" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-size="9.5" font-weight="bold" fill="#FDF7E7" letter-spacing="0.5">M &hearts; S</text>
             </g>
           </svg>
         </div>
 
         <!-- Tap To Open CTA Container -->
-        <div id="open-btn-container" class="flex flex-col items-center mt-2">
+        <div id="open-btn-container" class="flex flex-col items-center mt-2 z-10">
           <button id="open-btn"
-            class="relative bg-gradient-to-r from-white via-[#FFF5F6] to-white text-[#9B1D2C] border border-[#9B1D2C]/40 text-xs font-bold tracking-[0.25em] uppercase py-2.5 px-6 rounded-full shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300 flex items-center gap-2">
+            class="relative bg-gradient-to-r from-white via-[#FFF5F6] to-white text-[#9B1D2C] border-2 border-[#9B1D2C]/40 text-xs font-bold tracking-[0.25em] uppercase py-2.5 px-6 rounded-full shadow-2xl hover:shadow-[#9B1D2C]/20 hover:scale-105 active:scale-95 transition-all duration-300 flex items-center gap-2">
             <span class="animate-pulse text-sm">✨</span>
             <span>Tap to Open</span>
             <span class="animate-pulse text-sm">✨</span>
           </button>
           <p class="text-[9px] uppercase tracking-widest text-[#5A6B5D] font-medium mt-1.5 animate-bounce">
-            With Love &amp; Blessings
+            With Love &amp; Auspicious Blessings
           </p>
         </div>
       </div>
@@ -456,28 +635,32 @@
 
 
   <!-- ============================================== -->
-  <!-- FLOATING CONTROLS (MUSIC & SHOWER LOVE)       -->
+  <!-- FLOATING CONTROLS (ROTATING DISC & BELL)      -->
   <!-- ============================================== -->
-  <!-- Bottom Left: Cute Shower Love Button -->
+  <!-- Bottom Left: Cute Temple Bell & Shower Blessings Widget -->
   <div class="fixed bottom-5 left-5 z-40">
-    <button id="love-btn" aria-label="Shower blessings and love"
-      class="bg-white/95 backdrop-blur-md px-3.5 py-2.5 rounded-full shadow-lg border border-[#CCD8CC] flex items-center gap-1.5 hover:bg-[#FDF2F4] hover:border-[#9B1D2C]/40 active:scale-95 transition-all group">
-      <span class="text-sm transform group-hover:scale-125 transition-transform animate-pulse">💖</span>
-      <span class="text-[11px] font-semibold text-[#9B1D2C] tracking-wide" id="love-count-text">Shower Love</span>
+    <button id="love-btn" aria-label="Ring wedding bell and shower blessings"
+      class="bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-full shadow-xl border border-[#CCD8CC] flex items-center gap-2 hover:bg-[#FDF2F4] hover:border-[#9B1D2C]/40 active:scale-95 transition-all group">
+      <!-- Swinging Golden Temple Bell Icon -->
+      <span id="bell-icon" class="text-base inline-block transform group-hover:scale-125 transition-transform origin-top">🔔</span>
+      <span class="text-[11px] font-bold text-[#9B1D2C] tracking-wide" id="love-count-text">Ring Bell &bull; 48 Loves</span>
     </button>
   </div>
 
-  <!-- Bottom Right: Floating Music Toggle Button -->
+  <!-- Bottom Right: Floating Music Toggle Button with Rotating Lotus Disc -->
   <div class="fixed bottom-5 right-5 z-40 relative" id="music-container">
     <button id="music-toggle" aria-label="Toggle ambient music"
-      class="bg-white/95 backdrop-blur-md p-3 rounded-full shadow-lg border border-[#CCD8CC] flex items-center gap-2 hover:bg-[#FAFBF9] transition">
-      <div id="sound-indicator" class="flex items-center gap-0.5 h-4 w-4 justify-center">
-        <!-- Animated bars in festive red -->
-        <span class="w-0.5 bg-[#9B1D2C] h-1.5 rounded-full sound-bar"></span>
-        <span class="w-0.5 bg-[#9B1D2C] h-3.5 rounded-full sound-bar"></span>
-        <span class="w-0.5 bg-[#9B1D2C] h-2 rounded-full sound-bar"></span>
+      class="bg-white/95 backdrop-blur-md p-3 rounded-full shadow-xl border border-[#CCD8CC] flex items-center gap-2 hover:bg-[#FAFBF9] transition">
+      <!-- Rotating Lotus Mandala Vinyl Disc -->
+      <div id="sound-indicator" class="relative w-6 h-6 flex items-center justify-center">
+        <svg id="music-disc" class="w-6 h-6 text-[#9B1D2C] animate-spin" viewBox="0 0 24 24" fill="currentColor">
+          <circle cx="12" cy="12" r="10" fill="#9B1D2C"/>
+          <circle cx="12" cy="12" r="7" fill="none" stroke="#FFFFFF" stroke-width="0.8" stroke-dasharray="2 1"/>
+          <circle cx="12" cy="12" r="3" fill="#FAFBF9"/>
+          <circle cx="12" cy="12" r="1" fill="#9B1D2C"/>
+        </svg>
       </div>
-      <svg id="music-icon-muted" class="w-4 h-4 text-[#688A68] hidden" fill="none" stroke="currentColor"
+      <svg id="music-icon-muted" class="w-5 h-5 text-[#688A68] hidden" fill="none" stroke="currentColor"
         viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
           d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
@@ -491,11 +674,47 @@
   <!-- ============================================== -->
   <!-- MAIN INVITATION CONTENT CONTAINER              -->
   <!-- ============================================== -->
-  <main id="main-invitation" class="invitation-enter w-full max-w-md mx-auto bg-[#F8FAF8] min-h-screen relative pb-20 shadow-xl border-x border-[#CCD8CC]/50">
+  <main id="main-invitation" class="invitation-enter w-full max-w-md mx-auto bg-[#F8FAF8] min-h-screen relative pb-20 shadow-2xl border-x border-[#CCD8CC]/50 overflow-hidden">
+
+    <!-- Auspicious Draped Floral Toran Garland at Top -->
+    <div class="w-full overflow-hidden pointer-events-none relative z-20">
+      <svg class="w-full h-10 toran-sway" viewBox="0 0 400 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Garland string arches -->
+        <path d="M-10,4 Q40,26 90,4 Q140,26 200,4 Q260,26 310,4 Q360,26 410,4" stroke="#688A68" stroke-width="1.5" fill="none" />
+        <!-- Marigold & Rose floral clusters hanging -->
+        <circle cx="90" cy="4" r="5" fill="#E5A93B"/>
+        <circle cx="90" cy="4" r="3" fill="#9B1D2C"/>
+        <circle cx="200" cy="4" r="6" fill="#9B1D2C"/>
+        <circle cx="200" cy="4" r="3.5" fill="#E5A93B"/>
+        <circle cx="310" cy="4" r="5" fill="#E5A93B"/>
+        <circle cx="310" cy="4" r="3" fill="#9B1D2C"/>
+        <!-- Draped center tassels -->
+        <path d="M40,16 L40,24 M145,16 L145,24 M255,16 L255,24 M360,16 L360,24" stroke="#D4AF37" stroke-width="1.2" stroke-linecap="round"/>
+        <circle cx="40" cy="25" r="2.5" fill="#9B1D2C"/>
+        <circle cx="145" cy="25" r="2.5" fill="#688A68"/>
+        <circle cx="255" cy="25" r="2.5" fill="#9B1D2C"/>
+        <circle cx="360" cy="25" r="2.5" fill="#688A68"/>
+      </svg>
+    </div>
 
     <!-- 1. HERO SECTION: SAVE THE DATE -->
     <header
-      class="relative px-6 pt-16 pb-12 text-center overflow-hidden bg-gradient-to-b from-white via-[#FAFBF9] to-[#F8FAF8]">
+      class="relative px-6 pt-10 pb-12 text-center overflow-hidden bg-gradient-to-b from-white via-[#FAFBF9] to-[#F8FAF8]">
+      
+      <!-- Huge Rotating Palace Sacred Mandala Watermark Background -->
+      <div class="absolute top-16 left-1/2 -translate-x-1/2 w-80 h-80 opacity-[0.07] pointer-events-none z-0">
+        <svg class="w-full h-full mandala-spin text-[#9B1D2C]" viewBox="0 0 200 200" fill="currentColor">
+          <circle cx="100" cy="100" r="95" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="100" cy="100" r="82" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="4 3"/>
+          <circle cx="100" cy="100" r="65" fill="none" stroke="currentColor" stroke-width="1.2"/>
+          <!-- 12 radiating auspicious petals -->
+          <path d="M100 20 C108 50 120 70 150 80 C120 90 108 110 100 140 C92 110 80 90 50 80 C80 70 92 50 100 20 Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M100 20 C108 50 120 70 150 80 C120 90 108 110 100 140 C92 110 80 90 50 80 C80 70 92 50 100 20 Z" fill="none" stroke="currentColor" stroke-width="1.5" transform="rotate(45 100 100)"/>
+          <path d="M100 20 C108 50 120 70 150 80 C120 90 108 110 100 140 C92 110 80 90 50 80 C80 70 92 50 100 20 Z" fill="none" stroke="currentColor" stroke-width="1.5" transform="rotate(30 100 100)"/>
+          <path d="M100 20 C108 50 120 70 150 80 C120 90 108 110 100 140 C92 110 80 90 50 80 C80 70 92 50 100 20 Z" fill="none" stroke="currentColor" stroke-width="1.5" transform="rotate(60 100 100)"/>
+        </svg>
+      </div>
+
       <!-- Decorative floral frame borders in Sage Green & Red hints -->
       <div class="absolute -top-10 -left-10 w-44 h-44 text-[#688A68]/20 pointer-events-none">
         <svg viewBox="0 0 100 100" fill="currentColor">
@@ -512,13 +731,41 @@
         </svg>
       </div>
 
+      <!-- Auspicious Crest with Sacred Flickering Diya -->
       <div
-        class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EDF3ED] border border-[#CCD8CC] text-[#486848] text-[10px] uppercase tracking-[0.25em] font-semibold mb-3">
+        class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#EDF3ED] border border-[#CCD8CC] text-[#486848] text-[10px] uppercase tracking-[0.25em] font-semibold mb-3 relative z-10 shadow-sm">
+        
+        <!-- Animated Sacred Diya SVG -->
+        <svg class="w-5 h-5 inline-block" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Diya Bowl -->
+          <path d="M6 18 C6 26 26 26 26 18 Z" fill="#D4AF37" stroke="#9E7E52" stroke-width="1" />
+          <path d="M12 25 L20 25 L22 28 L10 28 Z" fill="#B8860B" />
+          <!-- Flickering Flame -->
+          <g class="diya-flame">
+            <path d="M16 5 C14 9 13 12 16 15 C19 12 18 9 16 5 Z" fill="#FF4500" />
+            <path d="M16 8 C15 10 14.5 12 16 14 C17.5 12 17 10 16 8 Z" fill="#FFD700" />
+          </g>
+        </svg>
+
         <span>Save Our Dates</span>
       </div>
 
-      <!-- Cute Animated Interlocking Wedding Rings with Glint -->
-      <div class="flex items-center justify-center my-2 relative">
+      <!-- Two Animated Love Doves with Heart -->
+      <div class="flex items-center justify-center gap-4 my-2 relative z-10">
+        <!-- Left Dove -->
+        <svg class="w-7 h-7 text-[#9B1D2C] dove-left" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C8 2 4 5 4 9C4 13 8 16 12 20C12 18 13 16 15 15C18 14 20 11 20 8C20 4 16 2 12 2ZM8 8C7.4 8 7 7.6 7 7C7 6.4 7.4 6 8 6C8.6 6 9 6.4 9 7C9 7.6 8.6 8 8 8Z"/>
+        </svg>
+        <!-- Heart / Auspicious Knot -->
+        <span class="text-xl animate-pulse text-[#9B1D2C]">❦</span>
+        <!-- Right Dove (Mirrored) -->
+        <svg class="w-7 h-7 text-[#9B1D2C] dove-right transform scale-x-[-1]" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C8 2 4 5 4 9C4 13 8 16 12 20C12 18 13 16 15 15C18 14 20 11 20 8C20 4 16 2 12 2ZM8 8C7.4 8 7 7.6 7 7C7 6.4 7.4 6 8 6C8.6 6 9 6.4 9 7C9 7.6 8.6 8 8 8Z"/>
+        </svg>
+      </div>
+
+      <!-- Animated Interlocking Wedding Rings with Glint -->
+      <div class="flex items-center justify-center my-1 relative z-10">
         <svg class="w-16 h-10" viewBox="0 0 80 44" fill="none" xmlns="http://www.w3.org/2000/svg">
           <!-- Left Ring (Golden Sage) -->
           <circle cx="33" cy="24" r="13" stroke="#C5A880" stroke-width="2.5" stroke-linecap="round" />
@@ -535,7 +782,8 @@
         </svg>
       </div>
 
-      <h1 class="font-cormorant text-5xl sm:text-6xl font-normal tracking-wide leading-none my-2 shimmer-text">
+      <!-- Shimmering Couple Names -->
+      <h1 class="font-cormorant text-5xl sm:text-6xl font-normal tracking-wide leading-none my-2 shimmer-text relative z-10">
         Mannu Shrestha
         <span class="block text-3xl italic text-[#9B1D2C] my-1 font-serif">
           <span class="inline-block animate-pulse text-xl align-middle mr-1">❦</span>
@@ -545,27 +793,29 @@
         Sulav Rana
       </h1>
 
-      <p class="font-cormorant italic text-lg text-[#5A6B5D] mt-2">Together with their families, invite you to celebrate
+      <p class="font-cormorant italic text-lg text-[#5A6B5D] mt-2 relative z-10">Together with their families, invite you to celebrate
         their wedding.</p>
 
       <!-- Red & Sage Divider with Floating Sparkles -->
-      <div class="flex items-center justify-center gap-2 my-4">
+      <div class="flex items-center justify-center gap-2 my-4 relative z-10">
         <div class="w-10 h-[1px] bg-[#688A68]"></div>
         <div class="w-2 h-2 rounded-full bg-[#9B1D2C] animate-ping"></div>
         <div class="w-10 h-[1px] bg-[#688A68]"></div>
       </div>
 
       <!-- Quick Date Badges -->
-      <div class="space-y-1.5 mt-2">
-        <div class="inline-block bg-white px-4 py-1.5 rounded-xl border border-[#CCD8CC] shadow-sm hover:border-[#9B1D2C]/40 transition">
-          <p class="text-[11px] tracking-wider text-[#9B1D2C] uppercase font-bold">
-            Reception: November 28, 2026 &bull; Dhulikhel
+      <div class="space-y-1.5 mt-2 relative z-10">
+        <div class="inline-block bg-white px-4 py-1.5 rounded-xl border border-[#CCD8CC] shadow-sm hover:border-[#9B1D2C]/40 transition hover:scale-105 duration-200">
+          <p class="text-[11px] tracking-wider text-[#9B1D2C] uppercase font-bold flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#9B1D2C]"></span>
+            <span>Reception: November 28, 2026 &bull; Dhulikhel</span>
           </p>
         </div>
         <br>
-        <div class="inline-block bg-white px-4 py-1.5 rounded-xl border border-[#CCD8CC] shadow-sm hover:border-[#486848]/40 transition">
-          <p class="text-[11px] tracking-wider text-[#486848] uppercase font-bold">
-            Wedding Day: December 3, 2026 &bull; Chabahil
+        <div class="inline-block bg-white px-4 py-1.5 rounded-xl border border-[#CCD8CC] shadow-sm hover:border-[#486848]/40 transition hover:scale-105 duration-200">
+          <p class="text-[11px] tracking-wider text-[#486848] uppercase font-bold flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#486848]"></span>
+            <span>Wedding Day: December 3, 2026 &bull; Chabahil</span>
           </p>
         </div>
       </div>
@@ -573,7 +823,7 @@
 
 
     <!-- 2. COUNTDOWN TIMER -->
-    <section class="px-6 py-8 text-center">
+    <section class="px-6 py-8 text-center relative z-10">
       <!-- Section Vignette Icon in Sage Green with Beating Heart -->
       <div
         class="w-12 h-12 mx-auto mb-2 text-[#9B1D2C] flex items-center justify-center bg-[#FDF2F4] rounded-full border border-[#9B1D2C]/20 shadow-sm animate-pulse">
@@ -585,19 +835,19 @@
       <p class="text-[11px] text-[#5A6B5D] uppercase tracking-wider mb-6">Reception starts Nov 28, 2026 &bull; 3:30 PM</p>
 
       <div class="grid grid-cols-4 gap-3 max-w-xs mx-auto">
-        <div class="luxury-card rounded-2xl py-3 px-1 text-center transform hover:-translate-y-1 transition duration-300">
+        <div class="luxury-card rounded-2xl py-3 px-1 text-center transform hover:-translate-y-1.5 transition duration-300">
           <span id="days" class="font-cormorant text-3xl font-semibold text-[#9B1D2C] block">00</span>
           <span class="text-[9px] uppercase tracking-wider text-[#5A6B5D] font-medium">Days</span>
         </div>
-        <div class="luxury-card rounded-2xl py-3 px-1 text-center transform hover:-translate-y-1 transition duration-300">
+        <div class="luxury-card rounded-2xl py-3 px-1 text-center transform hover:-translate-y-1.5 transition duration-300">
           <span id="hours" class="font-cormorant text-3xl font-semibold text-[#232D25] block">00</span>
           <span class="text-[9px] uppercase tracking-wider text-[#5A6B5D] font-medium">Hours</span>
         </div>
-        <div class="luxury-card rounded-2xl py-3 px-1 text-center transform hover:-translate-y-1 transition duration-300">
+        <div class="luxury-card rounded-2xl py-3 px-1 text-center transform hover:-translate-y-1.5 transition duration-300">
           <span id="minutes" class="font-cormorant text-3xl font-semibold text-[#232D25] block">00</span>
           <span class="text-[9px] uppercase tracking-wider text-[#5A6B5D] font-medium">Minutes</span>
         </div>
-        <div class="luxury-card rounded-2xl py-3 px-1 text-center transform hover:-translate-y-1 transition duration-300">
+        <div class="luxury-card rounded-2xl py-3 px-1 text-center transform hover:-translate-y-1.5 transition duration-300">
           <span id="seconds" class="font-cormorant text-3xl font-semibold text-[#688A68] block">00</span>
           <span class="text-[9px] uppercase tracking-wider text-[#5A6B5D] font-medium">Seconds</span>
         </div>
@@ -606,11 +856,11 @@
 
 
     <!-- 3. VENUES & CELEBRATIONS (TWO DEDICATED VENUES) -->
-    <section class="px-6 py-6 space-y-6">
+    <section class="px-6 py-6 space-y-6 relative z-10">
       <div class="text-center">
         <div
-          class="w-12 h-12 mx-auto mb-2 text-[#486848] flex items-center justify-center bg-[#EDF3ED] rounded-full border border-[#CCD8CC]">
-          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          class="w-12 h-12 mx-auto mb-2 text-[#486848] flex items-center justify-center bg-[#EDF3ED] rounded-full border border-[#CCD8CC] shadow-sm animate-bounce">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.3"
               d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
           </svg>
@@ -620,7 +870,7 @@
       </div>
 
       <!-- VENUE CARD 1: RECEPTION -->
-      <div class="luxury-card rounded-3xl p-6 text-center relative overflow-hidden group hover:border-[#9B1D2C]/40 transition duration-300">
+      <div class="luxury-card rounded-3xl p-6 text-center relative overflow-hidden group hover:border-[#9B1D2C]/40">
         <!-- Event Ribbon Badge -->
         <div
           class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FDF2F4] border border-[#9B1D2C]/30 text-[#9B1D2C] text-[10px] uppercase tracking-widest font-bold mb-3">
@@ -631,7 +881,7 @@
         <h4 class="font-cormorant text-3xl text-[#232D25] font-semibold">Prem Banquet</h4>
         <p class="text-xs text-[#5A6B5D] mt-1 font-medium">Dhulikhel, Kavrepalanchok, Nepal</p>
 
-        <div class="mt-4 py-2.5 px-4 bg-[#FAFBF9] rounded-2xl border border-[#CCD8CC] inline-block text-left w-full">
+        <div class="mt-4 py-2.5 px-4 bg-[#FAFBF9] rounded-2xl border border-[#CCD8CC] inline-block text-left w-full shadow-inner">
           <div class="flex items-center justify-between text-xs text-[#232D25] font-medium">
             <span class="text-[#9B1D2C] font-semibold">Date:</span>
             <span>Saturday, November 28, 2026</span>
@@ -650,7 +900,7 @@
           <div class="absolute inset-0 flex flex-col items-center justify-center bg-white/50 p-4">
             
             <div class="relative flex items-center justify-center">
-              <span class="absolute w-12 h-12 rounded-full bg-[#9B1D2C]/30 radar-ring pointer-events-none"></span>
+              <span class="absolute w-12 h-12 rounded-full bg-[#9B1D2C]/35 radar-ring pointer-events-none"></span>
               <div class="bg-[#9B1D2C] text-white p-2.5 rounded-full shadow-lg relative z-10 animate-bounce">
                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd"
@@ -688,9 +938,21 @@
         </div>
       </div>
 
+      <!-- Cute Animated Connecting Journey Route between Dhulikhel & Chabahil -->
+      <div class="relative py-2 text-center overflow-hidden">
+        <div class="flex items-center justify-center gap-2 text-[10px] font-bold text-[#688A68] uppercase tracking-wider mb-2">
+          <span>🌸 From the Hills of Dhulikhel to Kathmandu Valley 🌸</span>
+        </div>
+        <div class="relative w-4/5 mx-auto h-7 border-b-2 border-dashed border-[#CCD8CC] flex items-center">
+          <!-- Animated Moving Car with Flower Procession -->
+          <div class="absolute journey-car text-lg -bottom-3 select-none">
+            🚗💨🌸
+          </div>
+        </div>
+      </div>
 
       <!-- VENUE CARD 2: WEDDING DAY (SMART PALACE CHUCHEPATI CHABAHIL) -->
-      <div class="luxury-card rounded-3xl p-6 text-center relative overflow-hidden group hover:border-[#486848]/40 transition duration-300">
+      <div class="luxury-card rounded-3xl p-6 text-center relative overflow-hidden group hover:border-[#486848]/40">
         <!-- Event Ribbon Badge -->
         <div
           class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EDF3ED] border border-[#CCD8CC] text-[#486848] text-[10px] uppercase tracking-widest font-bold mb-3">
@@ -701,7 +963,7 @@
         <h4 class="font-cormorant text-3xl text-[#232D25] font-semibold">Smart Palace</h4>
         <p class="text-xs text-[#5A6B5D] mt-1 font-medium">Chuchepati, Chabahil, Kathmandu, Nepal</p>
 
-        <div class="mt-4 py-2.5 px-4 bg-[#FAFBF9] rounded-2xl border border-[#CCD8CC] inline-block text-left w-full">
+        <div class="mt-4 py-2.5 px-4 bg-[#FAFBF9] rounded-2xl border border-[#CCD8CC] inline-block text-left w-full shadow-inner">
           <div class="flex items-center justify-between text-xs text-[#232D25] font-medium">
             <span class="text-[#9B1D2C] font-semibold">Date:</span>
             <span>Thursday, December 3, 2026</span>
@@ -720,7 +982,7 @@
           <div class="absolute inset-0 flex flex-col items-center justify-center bg-white/50 p-4">
             
             <div class="relative flex items-center justify-center">
-              <span class="absolute w-12 h-12 rounded-full bg-[#486848]/30 radar-ring pointer-events-none"></span>
+              <span class="absolute w-12 h-12 rounded-full bg-[#486848]/35 radar-ring pointer-events-none"></span>
               <div class="bg-[#486848] text-white p-2.5 rounded-full shadow-lg relative z-10 animate-bounce">
                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd"
@@ -761,10 +1023,10 @@
 
 
     <!-- 4. SCHEDULE / TIMELINE -->
-    <section class="px-6 py-8">
+    <section class="px-6 py-8 relative z-10">
       <div class="text-center mb-8">
         <div
-          class="w-10 h-10 mx-auto mb-2 text-[#9B1D2C] flex items-center justify-center bg-[#FDF2F4] rounded-full border border-[#9B1D2C]/20">
+          class="w-10 h-10 mx-auto mb-2 text-[#9B1D2C] flex items-center justify-center bg-[#FDF2F4] rounded-full border border-[#9B1D2C]/20 shadow-sm animate-pulse">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.3"
               d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
@@ -777,30 +1039,33 @@
       <!-- Schedule Block 1: Reception -->
       <div class="mb-6">
         <div
-          class="inline-block px-3 py-1 bg-[#9B1D2C] text-white text-[10px] uppercase font-bold tracking-wider rounded-lg mb-4 shadow-sm">
+          class="inline-block px-3 py-1 bg-[#9B1D2C] text-white text-[10px] uppercase font-bold tracking-wider rounded-lg mb-4 shadow-sm hover:scale-105 transition-transform duration-200">
           Part 1: Reception — Nov 28 (Prem Banquet, Dhulikhel)
         </div>
         <div
-          class="relative pl-6 space-y-5 before:content-[''] before:absolute before:left-2 before:top-2 before:bottom-2 before:w-[1px] before:bg-[#9B1D2C]/30">
+          class="relative pl-6 space-y-5 before:content-[''] before:absolute before:left-2 before:top-2 before:bottom-2 before:w-[2px] before:bg-gradient-to-b before:from-[#9B1D2C] before:via-[#E5C989] before:to-[#9B1D2C]">
+          
           <div class="relative group">
             <div
-              class="absolute -left-[27px] top-1 w-3.5 h-3.5 rounded-full bg-white border-2 border-[#9B1D2C] group-hover:bg-[#9B1D2C] transition">
+              class="absolute -left-[27px] top-1 w-4 h-4 rounded-full bg-white border-2 border-[#9B1D2C] group-hover:scale-125 group-hover:bg-[#9B1D2C] transition-all duration-300 shadow-sm">
             </div>
             <span class="text-[11px] font-semibold text-[#9B1D2C] uppercase tracking-wider block">3:30 PM</span>
             <h4 class="font-cormorant text-xl font-medium text-[#232D25]">Guest Welcoming &amp; High Tea</h4>
             <p class="text-xs text-[#5A6B5D] mt-0.5">Welcome drinks and refreshments at Prem Banquet</p>
           </div>
+
           <div class="relative group">
             <div
-              class="absolute -left-[27px] top-1 w-3.5 h-3.5 rounded-full bg-white border-2 border-[#9B1D2C] group-hover:bg-[#9B1D2C] transition">
+              class="absolute -left-[27px] top-1 w-4 h-4 rounded-full bg-white border-2 border-[#9B1D2C] group-hover:scale-125 group-hover:bg-[#9B1D2C] transition-all duration-300 shadow-sm">
             </div>
             <span class="text-[11px] font-semibold text-[#9B1D2C] uppercase tracking-wider block">4:30 PM</span>
-            <h4 class="font-cormorant text-xl font-medium text-[#232D25]">Couple Entrance &amp; Stage Greetings</h4>
-            <p class="text-xs text-[#5A6B5D] mt-0.5">Stage photography and blessings with the newly-weds</p>
+            <h4 class="font-cormorant text-xl font-medium text-[#232D25]">Bride's Entrance &amp; Stage Greetings</h4>
+            <p class="text-xs text-[#5A6B5D] mt-0.5">Welcoming the bride to the stage for blessings and photography</p>
           </div>
+
           <div class="relative group">
             <div
-              class="absolute -left-[27px] top-1 w-3.5 h-3.5 rounded-full bg-white border-2 border-[#9B1D2C] group-hover:bg-[#9B1D2C] transition">
+              class="absolute -left-[27px] top-1 w-4 h-4 rounded-full bg-white border-2 border-[#9B1D2C] group-hover:scale-125 group-hover:bg-[#9B1D2C] transition-all duration-300 shadow-sm">
             </div>
             <span class="text-[11px] font-semibold text-[#9B1D2C] uppercase tracking-wider block">5:30 PM &mdash; 8:30 PM</span>
             <h4 class="font-cormorant text-xl font-medium text-[#232D25]">Grand Banquet Dinner &amp; Music</h4>
@@ -812,38 +1077,42 @@
       <!-- Schedule Block 2: Wedding Day -->
       <div>
         <div
-          class="inline-block px-3 py-1 bg-[#486848] text-white text-[10px] uppercase font-bold tracking-wider rounded-lg mb-4 shadow-sm">
+          class="inline-block px-3 py-1 bg-[#486848] text-white text-[10px] uppercase font-bold tracking-wider rounded-lg mb-4 shadow-sm hover:scale-105 transition-transform duration-200">
           Part 2: Wedding Day — Dec 3 (Smart Palace, Chabahil)
         </div>
         <div
-          class="relative pl-6 space-y-5 before:content-[''] before:absolute before:left-2 before:top-2 before:bottom-2 before:w-[1px] before:bg-[#688A68]/40">
+          class="relative pl-6 space-y-5 before:content-[''] before:absolute before:left-2 before:top-2 before:bottom-2 before:w-[2px] before:bg-gradient-to-b before:from-[#486848] before:via-[#E5C989] before:to-[#486848]">
+          
           <div class="relative group">
             <div
-              class="absolute -left-[27px] top-1 w-3.5 h-3.5 rounded-full bg-white border-2 border-[#688A68] group-hover:bg-[#688A68] transition">
+              class="absolute -left-[27px] top-1 w-4 h-4 rounded-full bg-white border-2 border-[#688A68] group-hover:scale-125 group-hover:bg-[#688A68] transition-all duration-300 shadow-sm">
             </div>
             <span class="text-[11px] font-semibold text-[#486848] uppercase tracking-wider block">9:00 AM</span>
             <h4 class="font-cormorant text-xl font-medium text-[#232D25]">Janti Arrival &amp; Swagatam</h4>
             <p class="text-xs text-[#5A6B5D] mt-0.5">Grand welcome of the groom's procession at Smart Palace</p>
           </div>
+
           <div class="relative group">
             <div
-              class="absolute -left-[27px] top-1 w-3.5 h-3.5 rounded-full bg-white border-2 border-[#688A68] group-hover:bg-[#688A68] transition">
+              class="absolute -left-[27px] top-1 w-4 h-4 rounded-full bg-white border-2 border-[#688A68] group-hover:scale-125 group-hover:bg-[#688A68] transition-all duration-300 shadow-sm">
             </div>
             <span class="text-[11px] font-semibold text-[#486848] uppercase tracking-wider block">11:00 AM</span>
             <h4 class="font-cormorant text-xl font-medium text-[#232D25]">Sacred Lagan &amp; Vows Ceremony</h4>
             <p class="text-xs text-[#5A6B5D] mt-0.5">Auspicious rituals and holy blessings around the mandap</p>
           </div>
+
           <div class="relative group">
             <div
-              class="absolute -left-[27px] top-1 w-3.5 h-3.5 rounded-full bg-white border-2 border-[#688A68] group-hover:bg-[#688A68] transition">
+              class="absolute -left-[27px] top-1 w-4 h-4 rounded-full bg-white border-2 border-[#688A68] group-hover:scale-125 group-hover:bg-[#688A68] transition-all duration-300 shadow-sm">
             </div>
             <span class="text-[11px] font-semibold text-[#486848] uppercase tracking-wider block">1:00 PM</span>
             <h4 class="font-cormorant text-xl font-medium text-[#232D25]">Wedding Bhoj &amp; Blessings</h4>
             <p class="text-xs text-[#5A6B5D] mt-0.5">Traditional feast with family, relatives, and dear friends</p>
           </div>
+
           <div class="relative group">
             <div
-              class="absolute -left-[27px] top-1 w-3.5 h-3.5 rounded-full bg-white border-2 border-[#688A68] group-hover:bg-[#688A68] transition">
+              class="absolute -left-[27px] top-1 w-4 h-4 rounded-full bg-white border-2 border-[#688A68] group-hover:scale-125 group-hover:bg-[#688A68] transition-all duration-300 shadow-sm">
             </div>
             <span class="text-[11px] font-semibold text-[#486848] uppercase tracking-wider block">4:00 PM</span>
             <h4 class="font-cormorant text-xl font-medium text-[#232D25]">Doli &amp; Bidaai Ceremony</h4>
@@ -854,7 +1123,7 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="text-center pt-6 pb-12 px-6">
+    <footer class="text-center pt-6 pb-12 px-6 relative z-10">
       <p class="font-cormorant text-2xl text-[#232D25] font-medium">Mannu Shrestha &amp; Sulav Rana</p>
       <p class="text-[10px] uppercase tracking-widest text-[#9B1D2C] font-semibold mt-1">
         Nov 28 &amp; Dec 3, 2026 &bull; Dhulikhel &amp; Kathmandu
@@ -871,7 +1140,7 @@
   <!-- ============================================== -->
   <script>
     // ----------------------------------------------------
-    // 1. Web Audio Synthesizer (Romantic Harp & Celestial Sparkle)
+    // 1. Web Audio Synthesizer (Harp, Satin Whoosh & Temple Bell)
     // ----------------------------------------------------
     let audioCtx = null;
     let isPlaying = false;
@@ -907,9 +1176,55 @@
       }, delay);
     }
 
+    // Authentic Resonant Temple Bell Chime
+    function playTempleBell() {
+      if (!audioCtx) return;
+      const now = audioCtx.currentTime;
+      [659.25, 1318.5, 1977.75, 2637].forEach((freq, i) => {
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = i === 0 ? 'sine' : 'triangle';
+        osc.frequency.setValueAtTime(freq + (Math.random() * 2 - 1), now);
+        const amp = 0.09 / (i + 1);
+        gain.gain.setValueAtTime(amp, now);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + (2.6 - i * 0.4));
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start(now);
+        osc.stop(now + 2.6);
+      });
+    }
+
+    // Soft Satin Ribbon Rustle Whoosh
+    function playRibbonRustle() {
+      if (!audioCtx) return;
+      try {
+        const bufferSize = audioCtx.sampleRate * 0.32;
+        const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+        const data = buffer.getChannelData(0);
+        for (let i = 0; i < bufferSize; i++) {
+          data[i] = Math.random() * 2 - 1;
+        }
+        const whiteNoise = audioCtx.createBufferSource();
+        whiteNoise.buffer = buffer;
+        const filter = audioCtx.createBiquadFilter();
+        filter.type = 'bandpass';
+        filter.frequency.setValueAtTime(1400, audioCtx.currentTime);
+        filter.frequency.exponentialRampToValueAtTime(350, audioCtx.currentTime + 0.3);
+        const gain = audioCtx.createGain();
+        gain.gain.setValueAtTime(0.05, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.3);
+        whiteNoise.connect(filter);
+        filter.connect(gain);
+        gain.connect(audioCtx.destination);
+        whiteNoise.start();
+      } catch (e) {}
+    }
+
     // Grand Fairytale Opening Arpeggio with High Sparkle Bells
     function playOpeningArpeggio() {
       initAudio();
+      playRibbonRustle();
       const chord = [261.63, 329.63, 392.00, 523.25, 659.25, 783.99, 1046.50, 1318.51];
       chord.forEach((freq, idx) => {
         playChimeNote(freq, idx * 95, 2.0);
@@ -939,7 +1254,6 @@
           playChimeNote(freq * 1.5, idx * 220, 2.8);
         });
         step++;
-        // Spawn cute music note when playing
         spawnMusicNote();
       }, 2800);
     }
@@ -951,13 +1265,13 @@
     }
 
     function updateMusicUI() {
-      const soundIndicator = document.getElementById('sound-indicator');
+      const musicDisc = document.getElementById('music-disc');
       const musicMutedIcon = document.getElementById('music-icon-muted');
       if (isPlaying) {
-        soundIndicator.classList.remove('hidden');
+        if (musicDisc) musicDisc.style.animationPlayState = 'running';
         musicMutedIcon.classList.add('hidden');
       } else {
-        soundIndicator.classList.add('hidden');
+        if (musicDisc) musicDisc.style.animationPlayState = 'paused';
         musicMutedIcon.classList.remove('hidden');
       }
     }
@@ -978,7 +1292,7 @@
     }
 
     // ----------------------------------------------------
-    // 2. Full-Screen Rose Petals & Golden Sparkles Explosion
+    // 2. Full-Screen Rose Petals, Sage Leaves & Sparkles Explosion
     // ----------------------------------------------------
     function launchOpeningPetals() {
       const canvas = document.getElementById('opening-canvas');
@@ -994,9 +1308,9 @@
       const centerX = window.innerWidth / 2;
       const centerY = window.innerHeight / 2;
 
-      for (let i = 0; i < 95; i++) {
+      for (let i = 0; i < 110; i++) {
         const angle = Math.random() * Math.PI * 2;
-        const speed = Math.random() * 9 + 4;
+        const speed = Math.random() * 10 + 4.5;
         particles.push({
           x: centerX + (Math.random() - 0.5) * 50,
           y: centerY + (Math.random() - 0.5) * 50,
@@ -1050,7 +1364,6 @@
             ctx.quadraticCurveTo(-p.size * 0.6, 0, 0, -p.size);
             ctx.fill();
           } else {
-            // Golden 4-point star
             ctx.beginPath();
             for (let s = 0; s < 4; s++) {
               const a = (s * Math.PI) / 2;
@@ -1094,7 +1407,7 @@
       const ambientPetals = [];
       const colors = ['rgba(155, 29, 44, 0.45)', 'rgba(181, 38, 54, 0.4)', 'rgba(104, 138, 104, 0.35)', 'rgba(163, 191, 163, 0.3)'];
 
-      for (let i = 0; i < 18; i++) {
+      for (let i = 0; i < 20; i++) {
         ambientPetals.push({
           x: Math.random() * window.innerWidth,
           y: Math.random() * window.innerHeight,
@@ -1152,7 +1465,7 @@
       if (hasOpened) return;
       hasOpened = true;
 
-      // 1. Play magical chime cascade
+      // 1. Play magical chime cascade & whoosh
       playOpeningArpeggio();
 
       // 2. Untie the silk ribbon & burst the wax seal
@@ -1200,7 +1513,35 @@
     });
 
     // ----------------------------------------------------
-    // 5. Interactive "Shower Love" Button & Tap-Anywhere Hearts
+    // 5. Interactive Fairy Dust Trail (Finger & Cursor)
+    // ----------------------------------------------------
+    let lastTrailTime = 0;
+    function spawnTrailParticle(x, y) {
+      const now = Date.now();
+      if (now - lastTrailTime < 45) return;
+      lastTrailTime = now;
+
+      const p = document.createElement('div');
+      p.className = 'fairy-dust';
+      const symbols = ['✦', '★', '🌸', '✨'];
+      p.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+      p.style.left = (x + (Math.random() * 12 - 6)) + 'px';
+      p.style.top = (y + (Math.random() * 12 - 6)) + 'px';
+      const colors = ['#D4AF37', '#9B1D2C', '#688A68', '#FFD700', '#FF85A2'];
+      p.style.color = colors[Math.floor(Math.random() * colors.length)];
+      document.body.appendChild(p);
+      setTimeout(() => p.remove(), 800);
+    }
+
+    window.addEventListener('mousemove', (e) => spawnTrailParticle(e.clientX, e.clientY));
+    window.addEventListener('touchmove', (e) => {
+      if (e.touches.length > 0) {
+        spawnTrailParticle(e.touches[0].clientX, e.touches[0].clientY);
+      }
+    }, { passive: true });
+
+    // ----------------------------------------------------
+    // 6. Interactive "Ring Bell & Shower Love" Widget
     // ----------------------------------------------------
     function spawnTapHeart(x, y) {
       const emojis = ['❤️', '💖', '✨', '🌸', '💕', '🌿'];
@@ -1214,7 +1555,7 @@
       el.style.setProperty('--rot', (Math.random() * 40 - 20) + 'deg');
       el.style.setProperty('--rot2', (Math.random() * 60 - 30) + 'deg');
       document.body.appendChild(el);
-      setTimeout(() => el.remove(), 1200);
+      setTimeout(() => el.remove(), 1250);
     }
 
     // Tap anywhere on the document to spawn cute floating hearts/flowers
@@ -1231,34 +1572,41 @@
       spawnTapHeart(e.clientX, e.clientY);
     });
 
-    // Shower Love button handler
-    let loveCount = 42;
+    // Temple Bell Ring & Blessings button handler
+    let loveCount = 48;
     const loveBtn = document.getElementById('love-btn');
     const loveText = document.getElementById('love-count-text');
+    const bellIcon = document.getElementById('bell-icon');
 
     loveBtn.addEventListener('click', (e) => {
       e.stopPropagation();
       loveCount++;
-      loveText.textContent = `${loveCount} Loves!`;
+      loveText.textContent = `Ring Bell • ${loveCount} Loves!`;
 
+      // Animate swinging bell
+      if (bellIcon) {
+        bellIcon.classList.remove('swinging-bell');
+        void bellIcon.offsetWidth; // trigger reflow
+        bellIcon.classList.add('swinging-bell');
+      }
+
+      // Play temple bell chime
       initAudio();
-      playChimeNote(880, 0, 0.8);
-      playChimeNote(1046.5, 80, 1.1);
-      playChimeNote(1318.5, 160, 1.4);
+      playTempleBell();
 
       const rect = loveBtn.getBoundingClientRect();
       const originX = rect.left + rect.width / 2;
       const originY = rect.top;
 
-      for (let i = 0; i < 12; i++) {
+      for (let i = 0; i < 15; i++) {
         setTimeout(() => {
-          spawnTapHeart(originX + (Math.random() - 0.5) * 50, originY + (Math.random() - 0.5) * 20);
-        }, i * 55);
+          spawnTapHeart(originX + (Math.random() - 0.5) * 55, originY + (Math.random() - 0.5) * 20);
+        }, i * 50);
       }
     });
 
     // ----------------------------------------------------
-    // 6. Countdown Timer (Targets Reception: Nov 28, 2026 3:30 PM, then Wedding: Dec 3, 2026)
+    // 7. Countdown Timer (Targets Reception: Nov 28, 2026 3:30 PM, then Wedding: Dec 3, 2026)
     // ----------------------------------------------------
     const receptionTarget = new Date('November 28, 2026 15:30:00').getTime();
     const weddingTarget = new Date('December 3, 2026 09:00:00').getTime();
@@ -1294,7 +1642,7 @@
     updateCountdown();
 
     // ----------------------------------------------------
-    // 7. Calendar .ICS File Downloads
+    // 8. Calendar .ICS File Downloads
     // ----------------------------------------------------
     function downloadCalendarICS(eventTitle, description, location, dtStart, dtEnd, filename) {
       const icsContent =
