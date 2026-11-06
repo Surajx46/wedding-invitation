@@ -640,7 +640,7 @@
 
   <!-- Hadaka.jp Minimalist Scroll Progress Indicator -->
   <div id="scroll-progress-bar"></div>
-  <!-- Hidden YouTube Audio Player: "Newa Boucha Wa Manicha" (https://youtu.be/d9aC_kqaJm8) -->
+  <!-- Hidden YouTube Audio Player: "https://youtu.be/OfutLHeiWa0" (Starts at 1:00 min) -->
   <div id="youtube-audio-container" style="position: fixed; width: 200px; height: 200px; bottom: -500px; right: -500px; opacity: 0.001; pointer-events: none; z-index: -9999; overflow: hidden;">
     <div id="yt-player"></div>
   </div>
@@ -842,12 +842,7 @@
 
   <!-- Bottom Right: Floating Music Toggle Button with Rotating Lotus Disc -->
   <div class="fixed bottom-5 right-5 z-40 flex items-center gap-2" id="music-container">
-    <!-- Song Title Badge Pill (Plays YouTube Audio: Newa Boucha Wa Manicha) -->
-    <div id="song-title-pill" title="Click to play / pause Newa Boucha Wa Manicha" class="hidden sm:flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-[#D4AF37] shadow-lg text-[10px] font-bold text-[#8B1220] hover:bg-[#FAFBF9] hover:scale-105 active:scale-95 transition-all cursor-pointer select-none">
-      <span class="animate-pulse">🎵</span>
-      <span id="song-pill-label">Newa Boucha Wa Manicha</span>
-    </div>
-    <button id="music-toggle" aria-label="Toggle wedding song: Newa Boucha Wa Manicha" title="Song: Newa Boucha Wa Manicha (Young Newari Music Band)"
+    <button id="music-toggle" aria-label="Toggle wedding song" title="Wedding Music (Tap to Play / Pause)"
       class="bg-white/95 backdrop-blur-md p-3 rounded-full shadow-xl border-2 border-[#D4AF37] flex items-center gap-2 hover:bg-[#FAFBF9] transition transform hover:scale-105 active:scale-95">
       <!-- Rotating Lotus Mandala Vinyl Disc -->
       <div id="sound-indicator" class="relative w-6 h-6 flex items-center justify-center">
@@ -1446,14 +1441,27 @@
   <!-- ============================================== -->
   <script>
     // ----------------------------------------------------
-    // 1. YouTube Audio Player: "Newa Boucha Wa Manicha" (d9aC_kqaJm8)
+    // 1. YouTube Audio Player: OfutLHeiWa0 (Starts at 1:00 min)
     // ----------------------------------------------------
-    const YOUTUBE_VIDEO_ID = 'd9aC_kqaJm8';
+    const YOUTUBE_VIDEO_ID = 'OfutLHeiWa0';
+    const SONG_START_SECONDS = 60; // 1:00 min
     let ytPlayer = null;
     let isYtReady = false;
     let isPlaying = false;
     let pendingPlay = false;
     let musicNotesInterval = null;
+
+    function getSongTitle() {
+      try {
+        if (ytPlayer && typeof ytPlayer.getVideoData === 'function') {
+          const data = ytPlayer.getVideoData();
+          if (data && data.title) {
+            return data.title;
+          }
+        }
+      } catch (e) {}
+      return 'Wedding Celebration Song';
+    }
 
     window.onYouTubeIframeAPIReady = function() {
       try {
@@ -1468,7 +1476,8 @@
             playlist: YOUTUBE_VIDEO_ID,
             playsinline: 1,
             enablejsapi: 1,
-            rel: 0
+            rel: 0,
+            start: SONG_START_SECONDS
           },
           events: {
             onReady: function(e) {
@@ -1476,14 +1485,17 @@
               try {
                 e.target.unMute();
                 e.target.setVolume(100);
+                e.target.seekTo(SONG_START_SECONDS, true);
               } catch(err) {}
               if (pendingPlay || isPlaying) {
                 try {
+                  e.target.seekTo(SONG_START_SECONDS, true);
                   e.target.playVideo();
                 } catch (err) {
                   console.warn('YouTube play on ready notice:', err);
                 }
               }
+              updateMusicUI();
             },
             onStateChange: function(e) {
               if (e.data === 1) { // YT.PlayerState.PLAYING
@@ -1494,6 +1506,7 @@
                 updateMusicUI();
               } else if (e.data === 0) { // YT.PlayerState.ENDED
                 try {
+                  ytPlayer.seekTo(SONG_START_SECONDS, true);
                   ytPlayer.playVideo();
                 } catch (err) {}
               }
@@ -1522,6 +1535,12 @@
         try {
           ytPlayer.unMute();
           ytPlayer.setVolume(100);
+          if (typeof ytPlayer.getCurrentTime === 'function') {
+            const curr = ytPlayer.getCurrentTime();
+            if (!curr || curr < (SONG_START_SECONDS - 1)) {
+              ytPlayer.seekTo(SONG_START_SECONDS, true);
+            }
+          }
           ytPlayer.playVideo();
         } catch (err) {
           console.warn('YouTube playVideo notice:', err);
@@ -1547,10 +1566,11 @@
       const musicDisc = document.getElementById('music-disc');
       const musicMutedIcon = document.getElementById('music-icon-muted');
       const songPillLabel = document.getElementById('song-pill-label');
+      const title = getSongTitle();
       if (isPlaying) {
         if (musicDisc) musicDisc.style.animationPlayState = 'running';
         if (musicMutedIcon) musicMutedIcon.classList.add('hidden');
-        if (songPillLabel) songPillLabel.textContent = 'Playing: Newa Boucha Wa Manicha';
+        if (songPillLabel) songPillLabel.textContent = 'Playing: ' + title;
         if (!musicNotesInterval) {
           musicNotesInterval = setInterval(() => {
             if (isPlaying) spawnMusicNote();
@@ -1782,7 +1802,7 @@
         }
       }, 550);
 
-      // 4. Play YouTube wedding song: "Newa Boucha Wa Manicha" (immediate start)
+      // 4. Play YouTube wedding song: OfutLHeiWa0 from 1:00 min (immediate start)
       startAmbientMusic();
 
       // 5. Fade out and remove gatefold from DOM flow so user can scroll freely
@@ -1798,7 +1818,7 @@
     if (openBtn) openBtn.addEventListener('click', openInvitation);
     if (ribbonCenter) ribbonCenter.addEventListener('click', openInvitation);
 
-    // Floating audio button toggle (Plays YouTube "Newa Boucha Wa Manicha")
+    // Floating audio button toggle (Plays YouTube OfutLHeiWa0 from 1:00 min)
     const toggleAudioPlayState = () => {
       if (isPlaying) {
         stopAmbientMusic();
