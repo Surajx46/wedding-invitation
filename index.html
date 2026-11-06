@@ -990,12 +990,11 @@
 
   <!-- Bottom Right: Floating Music Toggle Button with Rotating Lotus Disc -->
   <div class="fixed bottom-5 right-5 z-40 flex items-center gap-2" id="music-container">
-    <!-- Song Title Badge Pill with Direct YouTube Link -->
-    <a id="song-title-pill" href="https://youtu.be/HAcLoqZO-Z0?si=9V4AgCNNmYXmOrfZ" target="_blank" rel="noopener noreferrer" title="Listen to Bardali by Sushant KC on YouTube" class="hidden sm:flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-[#D4AF37] shadow-lg text-[10px] font-bold text-[#8B1220] hover:bg-[#FAFBF9] hover:scale-105 transition-all">
+    <!-- Song Title Badge Pill (Plays Local MP3 Audio) -->
+    <div id="song-title-pill" title="Click to play / pause Bardali" class="hidden sm:flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-[#D4AF37] shadow-lg text-[10px] font-bold text-[#8B1220] hover:bg-[#FAFBF9] hover:scale-105 active:scale-95 transition-all cursor-pointer select-none">
       <span class="animate-pulse">🎵</span>
       <span>Bardali &bull; Sushant KC</span>
-      <span class="text-[9px] opacity-60">↗</span>
-    </a>
+    </div>
     <button id="music-toggle" aria-label="Toggle wedding song: Bardali" title="Song: Bardali - Sushant KC & Indrakala Rai"
       class="bg-white/95 backdrop-blur-md p-3 rounded-full shadow-xl border-2 border-[#D4AF37] flex items-center gap-2 hover:bg-[#FAFBF9] transition transform hover:scale-105 active:scale-95">
       <!-- Rotating Lotus Mandala Vinyl Disc -->
@@ -2052,14 +2051,19 @@
     if (orb2) orb2.addEventListener('click', (e) => { e.stopPropagation(); catchBlessing(orb2, hud2, '💍'); });
     if (orb3) orb3.addEventListener('click', (e) => { e.stopPropagation(); catchBlessing(orb3, hud3, '💖'); });
 
-    // Floating audio button toggle (Plays ONLY "Bardali" song)
-    document.getElementById('music-toggle').addEventListener('click', () => {
+    // Floating audio button toggle (Plays ONLY local "Bardali" MP3)
+    const toggleAudioPlayState = () => {
       if (isPlaying) {
         stopAmbientMusic();
       } else {
         startAmbientMusic();
       }
-    });
+    };
+    document.getElementById('music-toggle').addEventListener('click', toggleAudioPlayState);
+    const songPill = document.getElementById('song-title-pill');
+    if (songPill) {
+      songPill.addEventListener('click', toggleAudioPlayState);
+    }
 
     // ----------------------------------------------------
     // 5. Interactive Fairy Dust Trail (Finger & Cursor)
