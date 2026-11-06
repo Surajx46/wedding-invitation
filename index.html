@@ -195,7 +195,92 @@
       box-shadow: 0 16px 36px -10px rgba(155, 29, 44, 0.15), 0 4px 12px -2px rgba(104, 138, 104, 0.1);
     }
 
-    /* Golden Shimmer on Couple's Names */
+    /* Royal Golden Light Sheen Sweep across Couple's Names */
+    @keyframes goldSheenSweep {
+      0% {
+        background-position: -200% center;
+      }
+      100% {
+        background-position: 200% center;
+      }
+    }
+
+    .gold-sheen-title {
+      background: linear-gradient(110deg, #7D0E1C 12%, #B82236 28%, #D4AF37 46%, #FFF9E6 50%, #D4AF37 54%, #B82236 72%, #7D0E1C 88%);
+      background-size: 260% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: goldSheenSweep 4.8s ease-in-out infinite;
+    }
+
+    /* Counter-Rotating Sacred Mandala Layer */
+    @keyframes mandalaCounterSpin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(-360deg); }
+    }
+    .mandala-spin-reverse {
+      animation: mandalaCounterSpin 50s linear infinite;
+    }
+
+    /* Subtle Floral Breathing Motion */
+    @keyframes floralBreathe {
+      0%, 100% { transform: scale(1) rotate(0deg); }
+      50% { transform: scale(1.05) rotate(1.8deg); }
+    }
+    .floral-breathe {
+      animation: floralBreathe 4.5s ease-in-out infinite;
+    }
+
+    /* Rings 3D Floating Motion */
+    @keyframes ringsFloat {
+      0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+      50% { transform: translateY(-5px) rotate(-2.5deg) scale(1.04); }
+    }
+    .rings-float {
+      animation: ringsFloat 3.6s ease-in-out infinite;
+    }
+
+    /* Countdown Jewels Golden Aura Pulse */
+    @keyframes jewelGlow {
+      0%, 100% {
+        box-shadow: 0 4px 14px rgba(212, 175, 55, 0.18), inset 0 0 10px rgba(255, 255, 255, 0.1);
+        border-color: rgba(212, 175, 55, 0.55);
+      }
+      50% {
+        box-shadow: 0 8px 26px rgba(212, 175, 55, 0.5), inset 0 0 16px rgba(255, 215, 0, 0.25);
+        border-color: rgba(212, 175, 55, 1);
+      }
+    }
+    .jewel-glow {
+      animation: jewelGlow 3.2s ease-in-out infinite;
+    }
+
+    /* Dangling Bell Clapper Sway */
+    @keyframes bellClapperSway {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(-22deg); }
+      75% { transform: rotate(22deg); }
+    }
+    .bell-clapper {
+      transform-origin: top center;
+      animation: bellClapperSway 1.8s ease-in-out infinite;
+    }
+
+    /* Golden Pulse Glow for Badges */
+    @keyframes badgeGlowPulse {
+      0%, 100% {
+        box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.5);
+      }
+      50% {
+        box-shadow: 0 0 0 8px rgba(212, 175, 55, 0);
+      }
+    }
+    .badge-pulse {
+      animation: badgeGlowPulse 2.8s infinite;
+    }
+
+        /* Golden Shimmer on Couple's Names */
     @keyframes textShimmer {
       0% {
         background-position: -200% 0;
@@ -545,18 +630,135 @@
       opacity: 1;
       transform: scale(1) translateY(0);
     }
+
+    /* =================================================== */
+    /* MINI-GAME: CATCH 3 BLESSINGS TO UNLOCK             */
+    /* =================================================== */
+    @keyframes floatOrb1 {
+      0%, 100% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+      }
+      33% {
+        transform: translate(25px, -22px) scale(1.08) rotate(8deg);
+      }
+      66% {
+        transform: translate(-22px, 18px) scale(0.96) rotate(-8deg);
+      }
+    }
+
+    @keyframes floatOrb2 {
+      0%, 100% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+      }
+      33% {
+        transform: translate(-28px, 24px) scale(1.06) rotate(-10deg);
+      }
+      66% {
+        transform: translate(25px, -20px) scale(0.95) rotate(10deg);
+      }
+    }
+
+    @keyframes floatOrb3 {
+      0%, 100% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+      }
+      33% {
+        transform: translate(24px, 25px) scale(1.05) rotate(12deg);
+      }
+      66% {
+        transform: translate(-25px, -22px) scale(0.98) rotate(-6deg);
+      }
+    }
+
+    .game-target-orb {
+      position: absolute;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      user-select: none;
+      box-shadow: 0 8px 24px rgba(139, 18, 32, 0.28), 0 0 16px rgba(212, 175, 55, 0.45);
+      border: 2px solid #D4AF37;
+      background: radial-gradient(circle at 35% 35%, #FFFFFF 0%, #FFF8E7 45%, #FDE49B 100%);
+      transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
+      z-index: 45;
+      touch-action: manipulation;
+    }
+
+    .game-target-orb:hover, .game-target-orb:active {
+      transform: scale(1.28) !important;
+    }
+
+    .game-orb-1 {
+      top: 15%;
+      left: 8%;
+      animation: floatOrb1 5.2s ease-in-out infinite;
+    }
+
+    .game-orb-2 {
+      top: 20%;
+      right: 8%;
+      animation: floatOrb2 6.0s ease-in-out infinite;
+    }
+
+    .game-orb-3 {
+      bottom: 18%;
+      left: 43%;
+      animation: floatOrb3 5.5s ease-in-out infinite;
+    }
+
+    .game-orb-caught {
+      transform: scale(0) rotate(180deg) !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+      transition: transform 0.4s ease-in, opacity 0.3s ease !important;
+    }
+
+    @keyframes lockWiggle {
+      0%, 100% { transform: translateX(0); }
+      15%, 45%, 75% { transform: translateX(-6px) rotate(-1.5deg); }
+      30%, 60%, 90% { transform: translateX(6px) rotate(1.5deg); }
+    }
+
+    .shake-locked {
+      animation: lockWiggle 0.45s cubic-bezier(0.36, 0.07, 0.19, 0.97) !important;
+    }
+
+    @keyframes orbHighlightPulse {
+      0%, 100% {
+        box-shadow: 0 8px 24px rgba(139, 18, 32, 0.28), 0 0 16px rgba(212, 175, 55, 0.45);
+        transform: scale(1);
+      }
+      50% {
+        box-shadow: 0 0 35px rgba(212, 175, 55, 1), 0 0 50px rgba(139, 18, 32, 0.75);
+        transform: scale(1.35);
+      }
+    }
+
+    .orb-locked-highlight {
+      animation: orbHighlightPulse 0.6s ease-in-out 3 !important;
+    }
   </style>
-  <script src="https://www.youtube.com/iframe_api"></script>
 </head>
 
 <body class="antialiased selection:bg-[#F9E2E5] selection:text-[#9B1D2C]">
 
   <!-- Hadaka.jp Minimalist Scroll Progress Indicator -->
   <div id="scroll-progress-bar"></div>
-  <!-- Hidden YouTube Audio Player: "Sadhai Bhari" by Abhaya and the Steam Engines (T36r-O5k8Tc) -->
-  <div id="youtube-audio-container" style="position: fixed; width: 1px; height: 1px; bottom: -50px; left: -50px; opacity: 0; pointer-events: none; overflow: hidden;">
-    <div id="yt-player"></div>
-  </div>
+  <!-- High-Fidelity Native Audio & Media Player ("Bardali" by Sushant KC) -->
+  <audio id="wedding-audio" preload="auto" loop playsinline>
+    <source src="audio/bardali.mp3" type="audio/mpeg">
+    <source src="audio/bardali.m4a" type="audio/mp4">
+    <source src="audio/bardali.mp4" type="audio/mp4">
+    <source src="audio/Sushant KC - Bardali ft. Indrakala Rai (Official Music Video).mp4" type="audio/mp4">
+  </audio>
+  <video id="wedding-media" preload="auto" loop playsinline style="position: fixed; z-index: -9999; bottom: 0; right: 0; width: 1px; height: 1px; opacity: 0.001; pointer-events: none;">
+    <source src="audio/bardali.mp4" type="video/mp4">
+    <source src="audio/Sushant KC - Bardali ft. Indrakala Rai (Official Music Video).mp4" type="video/mp4">
+  </video>
 
 
   <!-- Atmospheric Full-Screen Wedding Background Layer -->
@@ -586,6 +788,40 @@
       <!-- Central Seam Light Ray Burst -->
       <div id="door-light-beam"
         class="absolute inset-y-0 left-1/2 -translate-x-1/2 w-0 bg-gradient-to-r from-transparent via-[#FFF3D1] to-transparent opacity-0 z-30 pointer-events-none">
+      </div>
+
+      <!-- Mini-Game: Catch 3 Blessings to Unlock Invitation (Mandatory to Open) -->
+      <div id="minigame-hud" class="absolute top-5 inset-x-4 z-40 flex flex-col items-center pointer-events-auto transition-transform">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/95 backdrop-blur-md border-2 border-[#D4AF37] shadow-xl text-[11px] font-bold text-[#8B1220] transition-all">
+          <span class="animate-bounce">🎮</span>
+          <span>Catch 3 Blessings to Unlock!</span>
+          <!-- Blessing Checkmarks -->
+          <div class="flex items-center gap-2 ml-1 bg-[#8B1220]/10 px-2.5 py-0.5 rounded-full">
+            <span id="game-target-1-icon" class="opacity-35 transition-all text-xs" title="Sacred Rose">🌸</span>
+            <span id="game-target-2-icon" class="opacity-35 transition-all text-xs" title="Wedding Ring">💍</span>
+            <span id="game-target-3-icon" class="opacity-35 transition-all text-xs" title="Love Knot">💖</span>
+          </div>
+          <span id="blessing-count-badge" class="ml-1 bg-[#8B1220] text-white text-[10px] font-black px-2 py-0.5 rounded-full shadow-sm">0/3</span>
+        </div>
+        <p id="minigame-subtext" class="text-[10px] text-white font-medium drop-shadow-md mt-1.5 bg-black/60 px-3.5 py-0.5 rounded-full flex items-center gap-1.5">
+          <span>🔒 Card Locked: Tap all 3 floating blessings to open!</span>
+        </p>
+        <!-- Floating Lock Notification Toast -->
+        <div id="game-locked-banner" class="opacity-0 pointer-events-none transition-all duration-300 transform -translate-y-2 mt-2 px-4 py-1.5 rounded-full bg-[#8B1220] text-[#FFF9E6] border border-[#D4AF37] shadow-2xl text-[11px] font-bold flex items-center gap-1.5">
+          <span>🔒</span>
+          <span id="game-locked-banner-text">Catch all 3 blessings to unlock the card! 🌸💍💖</span>
+        </div>
+      </div>
+
+      <!-- 3 Floating Interactive Blessing Target Orbs -->
+      <div id="game-orb-1" class="game-target-orb game-orb-1" title="Tap to catch Sacred Rose!">
+        <span class="text-2xl select-none">🌸</span>
+      </div>
+      <div id="game-orb-2" class="game-target-orb game-orb-2" title="Tap to catch Wedding Ring!">
+        <span class="text-2xl select-none">💍</span>
+      </div>
+      <div id="game-orb-3" class="game-target-orb game-orb-3" title="Tap to catch Love Knot!">
+        <span class="text-2xl select-none">💖</span>
       </div>
 
       <!-- Left Gate Panel -->
@@ -730,16 +966,16 @@
           </svg>
         </div>
 
-        <!-- Tap To Open CTA Container -->
+        <!-- Tap To Open CTA Container (Locked until 3 blessings caught) -->
         <div id="open-btn-container" class="flex flex-col items-center mt-2 z-10">
           <button id="open-btn"
-            class="relative bg-gradient-to-r from-white via-[#FFF5F6] to-white text-[#9B1D2C] border-2 border-[#9B1D2C]/40 text-xs font-bold tracking-[0.25em] uppercase py-2.5 px-6 rounded-full shadow-2xl hover:shadow-[#9B1D2C]/20 hover:scale-105 active:scale-95 transition-all duration-300 flex items-center gap-2">
-            <span class="animate-pulse text-sm">✨</span>
-            <span>Tap to Open</span>
-            <span class="animate-pulse text-sm">✨</span>
+            class="relative bg-gradient-to-r from-white via-[#FFF5F6] to-white text-[#9B1D2C] border-2 border-[#9B1D2C]/40 text-xs font-bold tracking-[0.16em] uppercase py-2.5 px-6 rounded-full shadow-2xl hover:shadow-[#9B1D2C]/20 hover:scale-105 active:scale-95 transition-all duration-300 flex items-center gap-2">
+            <span id="open-btn-icon" class="text-sm">🔒</span>
+            <span id="open-btn-text">Catch 3 Blessings to Unlock</span>
+            <span id="open-btn-subicon" class="text-xs">🌸</span>
           </button>
-          <p class="text-[9px] uppercase tracking-widest text-[#5A6B5D] font-medium mt-1.5 animate-bounce">
-            With Love &amp; Auspicious Blessings
+          <p id="open-btn-hint" class="text-[9px] uppercase tracking-wider text-[#5A6B5D] font-bold mt-1.5 transition-colors">
+            Tap the 3 floating blessings 🌸 💍 💖
           </p>
         </div>
       </div>
@@ -749,28 +985,18 @@
 
 
   <!-- ============================================== -->
-  <!-- FLOATING CONTROLS (ROTATING DISC & BELL)      -->
+  <!-- FLOATING CONTROLS (ROTATING MUSIC PLAYER DISC) -->
   <!-- ============================================== -->
-  <!-- Bottom Left: Cute Temple Bell & Shower Blessings Widget -->
-  <div class="fixed bottom-5 left-5 z-40">
-    <button id="love-btn" aria-label="Ring wedding bell and shower blessings"
-      class="bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-full shadow-xl border border-[#CCD8CC] flex items-center gap-2 hover:bg-[#FDF2F4] hover:border-[#9B1D2C]/40 active:scale-95 transition-all group">
-      <!-- Swinging Golden Temple Bell Icon -->
-      <span id="bell-icon"
-        class="text-base inline-block transform group-hover:scale-125 transition-transform origin-top">🔔</span>
-      <span class="text-[11px] font-bold text-[#9B1D2C] tracking-wide" id="love-count-text">Ring Bell &bull; 48
-        Loves</span>
-    </button>
-  </div>
 
   <!-- Bottom Right: Floating Music Toggle Button with Rotating Lotus Disc -->
   <div class="fixed bottom-5 right-5 z-40 flex items-center gap-2" id="music-container">
-    <!-- Song Title Badge Pill -->
-    <div id="song-title-pill" class="hidden sm:flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-[#D4AF37] shadow-lg text-[10px] font-bold text-[#8B1220]">
+    <!-- Song Title Badge Pill with Direct YouTube Link -->
+    <a id="song-title-pill" href="https://youtu.be/HAcLoqZO-Z0?si=9V4AgCNNmYXmOrfZ" target="_blank" rel="noopener noreferrer" title="Listen to Bardali by Sushant KC on YouTube" class="hidden sm:flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-[#D4AF37] shadow-lg text-[10px] font-bold text-[#8B1220] hover:bg-[#FAFBF9] hover:scale-105 transition-all">
       <span class="animate-pulse">🎵</span>
-      <span>Sadhai Bhari &bull; Abhaya</span>
-    </div>
-    <button id="music-toggle" aria-label="Toggle wedding song: Sadhai Bhari" title="Song: Sadhai Bhari - Abhaya and the Steam Engines"
+      <span>Bardali &bull; Sushant KC</span>
+      <span class="text-[9px] opacity-60">↗</span>
+    </a>
+    <button id="music-toggle" aria-label="Toggle wedding song: Bardali" title="Song: Bardali - Sushant KC & Indrakala Rai"
       class="bg-white/95 backdrop-blur-md p-3 rounded-full shadow-xl border-2 border-[#D4AF37] flex items-center gap-2 hover:bg-[#FAFBF9] transition transform hover:scale-105 active:scale-95">
       <!-- Rotating Lotus Mandala Vinyl Disc -->
       <div id="sound-indicator" class="relative w-6 h-6 flex items-center justify-center">
@@ -809,7 +1035,7 @@
 
 
     <!-- Ornate Wedding Floral Corner Ornaments (Top-Left & Top-Right) -->
-    <div class="absolute top-0 left-0 w-28 h-28 pointer-events-none z-20">
+    <div class="absolute top-0 left-0 w-28 h-28 pointer-events-none z-20 floral-breathe">
       <svg viewBox="0 0 120 120" fill="none" class="w-full h-full drop-shadow-sm">
         <!-- Golden Branch & Swirls -->
         <path d="M0,0 Q60,10 70,70 Q20,60 0,0" fill="none" stroke="#D4AF37" stroke-width="1.2" opacity="0.8"/>
@@ -834,7 +1060,7 @@
       </svg>
     </div>
 
-    <div class="absolute top-0 right-0 w-28 h-28 pointer-events-none z-20 transform scale-x-[-1]">
+    <div class="absolute top-0 right-0 w-28 h-28 pointer-events-none z-20 transform scale-x-[-1] floral-breathe">
       <svg viewBox="0 0 120 120" fill="none" class="w-full h-full drop-shadow-sm">
         <path d="M0,0 Q60,10 70,70 Q20,60 0,0" fill="none" stroke="#D4AF37" stroke-width="1.2" opacity="0.8"/>
         <circle cx="28" cy="28" r="14" fill="#8B1220" />
@@ -882,7 +1108,7 @@
         <!-- Hanging Golden Temple Bells with Red Ribbon -->
         <g transform="translate(45, 20)">
           <path d="M-4,0 L4,0 L6,8 L-6,8 Z" fill="#D4AF37" stroke="#996515" stroke-width="0.8"/>
-          <circle cx="0" cy="9" r="2" fill="#8B1220" />
+          <circle cx="0" cy="9" r="2" fill="#8B1220" class="bell-clapper" />
         </g>
         <g transform="translate(150, 20)">
           <path d="M-4,0 L4,0 L6,8 L-6,8 Z" fill="#D4AF37" stroke="#996515" stroke-width="0.8"/>
@@ -908,8 +1134,8 @@
         style="background-image: url('images/floral-card-bg.jpg'); filter: saturate(1.3) contrast(1.15);"></div>
       <div class="absolute top-4 left-1/2 -translate-x-1/2 w-72 h-72 rounded-full bg-gradient-to-b from-[#FFFDF8]/70 via-[#FFF8E7]/50 to-transparent pointer-events-none"></div>
 
-      <!-- Huge Rotating Palace Sacred Mandala Watermark Background -->
-      <div class="absolute top-16 left-1/2 -translate-x-1/2 w-80 h-80 opacity-[0.07] pointer-events-none z-0">
+      <!-- Layered Dual-Rotating Palace Sacred Mandalas (Motion Graphic) -->
+      <div class="absolute top-14 left-1/2 -translate-x-1/2 w-80 h-80 opacity-[0.08] pointer-events-none z-0">
         <svg class="w-full h-full mandala-spin text-[#9B1D2C]" viewBox="0 0 200 200" fill="currentColor">
           <circle cx="100" cy="100" r="95" fill="none" stroke="currentColor" stroke-width="1.5" />
           <circle cx="100" cy="100" r="82" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="4 3" />
@@ -923,6 +1149,16 @@
             fill="none" stroke="currentColor" stroke-width="1.5" transform="rotate(30 100 100)" />
           <path d="M100 20 C108 50 120 70 150 80 C120 90 108 110 100 140 C92 110 80 90 50 80 C80 70 92 50 100 20 Z"
             fill="none" stroke="currentColor" stroke-width="1.5" transform="rotate(60 100 100)" />
+        </svg>
+      </div>
+      <!-- Inner Counter-Rotating Golden Palace Mandala (Mesmerizing Depth Motion) -->
+      <div class="absolute top-24 left-1/2 -translate-x-1/2 w-60 h-60 opacity-[0.14] pointer-events-none z-0">
+        <svg class="w-full h-full mandala-spin-reverse text-[#D4AF37]" viewBox="0 0 100 100" fill="none" stroke="currentColor">
+          <circle cx="50" cy="50" r="46" stroke-width="0.8" stroke-dasharray="2 2" />
+          <circle cx="50" cy="50" r="38" stroke-width="1" />
+          <circle cx="50" cy="50" r="28" stroke-width="0.7" />
+          <path d="M50 12 C54 28 64 36 80 40 C64 44 54 52 50 68 C46 52 36 44 20 40 C36 36 46 28 50 12 Z" stroke-width="0.9" />
+          <path d="M50 12 C54 28 64 36 80 40 C64 44 54 52 50 68 C46 52 36 44 20 40 C36 36 46 28 50 12 Z" stroke-width="0.9" transform="rotate(45 50 50)" />
         </svg>
       </div>
 
@@ -978,7 +1214,7 @@
       </div>
 
       <!-- Animated Interlocking Wedding Rings with Glint -->
-      <div class="flex items-center justify-center my-1 relative z-10">
+      <div class="flex items-center justify-center my-1 relative z-10 rings-float">
         <svg class="w-16 h-10" viewBox="0 0 80 44" fill="none" xmlns="http://www.w3.org/2000/svg">
           <!-- Left Ring (Golden Sage) -->
           <circle cx="33" cy="24" r="13" stroke="#C5A880" stroke-width="2.5" stroke-linecap="round" />
@@ -1001,22 +1237,22 @@
         <!-- Auspicious Floral Wreath Crown -->
         <div class="flex items-center justify-center gap-2 mb-1">
           <span class="text-base select-none">🌸</span>
-          <p class="text-[11px] tracking-[0.35em] uppercase text-[#8B1220] font-bold drop-shadow-sm bg-[#FFFDF8]/90 px-3 py-0.5 rounded-full border border-[#D4AF37]">
+          <p class="text-[11px] tracking-[0.35em] uppercase text-[#8B1220] font-bold drop-shadow-sm bg-[#FFFDF8]/90 px-3 py-0.5 rounded-full border border-[#D4AF37] badge-pulse">
             ✦ शुभ विवाह ✦
           </p>
           <span class="text-base select-none">🌸</span>
         </div>
 
-        <h1 class="font-cormorant text-5xl sm:text-6xl font-normal tracking-wide leading-[1.08] my-2 text-[#8B1220] drop-shadow-[0_2px_4px_rgba(139,18,32,0.18)]">
-          <span class="block font-medium bg-gradient-to-r from-[#7D0E1C] via-[#A81F30] to-[#7D0E1C] bg-clip-text text-transparent">
+        <h1 class="font-cormorant text-5xl sm:text-6xl font-normal tracking-wide leading-[1.08] my-2 drop-shadow-[0_2px_8px_rgba(139,18,32,0.22)]">
+          <span class="block font-medium gold-sheen-title">
             Mannu Shrestha
           </span>
           <span class="flex items-center justify-center gap-3 my-1 font-serif">
             <span class="h-[1px] w-8 bg-gradient-to-r from-transparent to-[#D4AF37]"></span>
-            <span class="text-3xl italic text-[#D4AF37] font-cormorant drop-shadow-sm font-semibold">&amp;</span>
+            <span class="text-3xl italic text-[#D4AF37] font-cormorant drop-shadow-sm font-semibold animate-pulse">&amp;</span>
             <span class="h-[1px] w-8 bg-gradient-to-l from-transparent to-[#D4AF37]"></span>
           </span>
-          <span class="block font-medium bg-gradient-to-r from-[#7D0E1C] via-[#A81F30] to-[#7D0E1C] bg-clip-text text-transparent">
+          <span class="block font-medium gold-sheen-title">
             Sulav Rana
           </span>
         </h1>
@@ -1081,22 +1317,22 @@
 
       <div class="grid grid-cols-4 gap-2.5 max-w-xs mx-auto reveal-on-scroll delay-150">
         <!-- Days: Royal Crimson Jewel -->
-        <div class="bg-gradient-to-br from-[#8B1220] to-[#600C16] text-white rounded-2xl py-3 px-1 text-center border-2 border-[#D4AF37]/70 shadow-md transform hover:-translate-y-1 transition duration-300 reveal-pop delay-75">
+        <div class="bg-gradient-to-br from-[#8B1220] to-[#600C16] text-white rounded-2xl py-3 px-1 text-center border-2 border-[#D4AF37] shadow-md transform hover:-translate-y-1 transition duration-300 reveal-pop delay-75 jewel-glow">
           <span id="days" class="font-cormorant text-3xl font-bold text-[#F9D77E] block leading-none drop-shadow-sm">00</span>
           <span class="text-[9px] uppercase tracking-wider text-white/90 font-bold mt-1 block">Days</span>
         </div>
         <!-- Hours: Royal Emerald Jewel -->
-        <div class="bg-gradient-to-br from-[#1E5631] to-[#11381F] text-white rounded-2xl py-3 px-1 text-center border-2 border-[#D4AF37]/70 shadow-md transform hover:-translate-y-1 transition duration-300 reveal-pop delay-150">
+        <div class="bg-gradient-to-br from-[#1E5631] to-[#11381F] text-white rounded-2xl py-3 px-1 text-center border-2 border-[#D4AF37] shadow-md transform hover:-translate-y-1 transition duration-300 reveal-pop delay-150 jewel-glow">
           <span id="hours" class="font-cormorant text-3xl font-bold text-[#F9D77E] block leading-none drop-shadow-sm">00</span>
           <span class="text-[9px] uppercase tracking-wider text-white/90 font-bold mt-1 block">Hours</span>
         </div>
         <!-- Minutes: Saffron Marigold Jewel -->
-        <div class="bg-gradient-to-br from-[#D35400] to-[#8E3200] text-white rounded-2xl py-3 px-1 text-center border-2 border-[#D4AF37]/70 shadow-md transform hover:-translate-y-1 transition duration-300 reveal-pop delay-225">
+        <div class="bg-gradient-to-br from-[#D35400] to-[#8E3200] text-white rounded-2xl py-3 px-1 text-center border-2 border-[#D4AF37] shadow-md transform hover:-translate-y-1 transition duration-300 reveal-pop delay-225 jewel-glow">
           <span id="minutes" class="font-cormorant text-3xl font-bold text-[#FFF3CD] block leading-none drop-shadow-sm">00</span>
           <span class="text-[9px] uppercase tracking-wider text-white/90 font-bold mt-1 block">Mins</span>
         </div>
         <!-- Seconds: Deep Royal Wine Jewel -->
-        <div class="bg-gradient-to-br from-[#6C1D45] to-[#400E27] text-white rounded-2xl py-3 px-1 text-center border-2 border-[#D4AF37]/70 shadow-md transform hover:-translate-y-1 transition duration-300 reveal-pop delay-300">
+        <div class="bg-gradient-to-br from-[#6C1D45] to-[#400E27] text-white rounded-2xl py-3 px-1 text-center border-2 border-[#D4AF37] shadow-md transform hover:-translate-y-1 transition duration-300 reveal-pop delay-300 jewel-glow">
           <span id="seconds" class="font-cormorant text-3xl font-bold text-[#F9D77E] block leading-none drop-shadow-sm">00</span>
           <span class="text-[9px] uppercase tracking-wider text-white/90 font-bold mt-1 block">Secs</span>
         </div>
@@ -1154,7 +1390,7 @@
           <!-- Top Venue Badge with Pulsing Diya / Location Pin -->
           <div class="absolute top-2.5 left-2.5">
             <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/55 backdrop-blur-md text-white text-[10px] font-semibold border border-white/20">
-              <span class="w-2 h-2 rounded-full bg-[#FF4500] animate-ping"></span>
+              <span class="relative flex h-2.5 w-2.5"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF4500] opacity-75"></span><span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#FF4500]"></span></span>
               <span>Reception Celebration</span>
             </span>
           </div>
@@ -1257,7 +1493,7 @@
           <!-- Top Venue Badge with Pulsing Mandap Flame -->
           <div class="absolute top-2.5 left-2.5">
             <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/55 backdrop-blur-md text-white text-[10px] font-semibold border border-white/20">
-              <span class="w-2 h-2 rounded-full bg-[#D4AF37] animate-ping"></span>
+              <span class="relative flex h-2.5 w-2.5"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#D4AF37] opacity-75"></span><span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#D4AF37]"></span></span>
               <span>Vivaha Ceremony Mandap</span>
             </span>
           </div>
@@ -1361,203 +1597,76 @@
   <!-- ============================================== -->
   <script>
     // ----------------------------------------------------
-    // 1. YouTube Audio Player ("Sadhai Bhari" - ID: T36r-O5k8Tc) & Audio Synthesizer
+    // 1. High-Fidelity Audio Player ("Bardali" by Sushant KC)
     // ----------------------------------------------------
-    const YOUTUBE_VIDEO_ID = 'T36r-O5k8Tc';
-    let ytPlayer = null;
-    let isYtReady = false;
+    const weddingAudio = document.getElementById('wedding-audio');
+    const weddingMedia = document.getElementById('wedding-media');
     let isPlaying = false;
-    let synthInterval = null;
-    let audioCtx = null;
+    let musicNotesInterval = null;
 
-    // Load YouTube IFrame Player for "Sadhai Bhari"
-    window.onYouTubeIframeAPIReady = function() {
-      try {
-        ytPlayer = new YT.Player('yt-player', {
-          height: '1',
-          width: '1',
-          videoId: YOUTUBE_VIDEO_ID,
-          playerVars: {
-            autoplay: 0,
-            controls: 0,
-            loop: 1,
-            playlist: YOUTUBE_VIDEO_ID,
-            playsinline: 1,
-            enablejsapi: 1,
-            rel: 0
-          },
-          events: {
-            onReady: function(e) {
-              isYtReady = true;
-              if (isPlaying) {
-                try { e.target.playVideo(); } catch(err){}
-              }
-            },
-            onStateChange: function(e) {
-              // When song ends, loop automatically
-              if (e.data === 0) { // YT.PlayerState.ENDED
-                try { ytPlayer.playVideo(); } catch(err){}
-              }
-              if (e.data === 1) { // YT.PlayerState.PLAYING
+    if (weddingAudio) {
+      weddingAudio.volume = 1.0;
+      weddingAudio.addEventListener('play', () => { isPlaying = true; updateMusicUI(); });
+      weddingAudio.addEventListener('pause', () => { if (!weddingMedia || weddingMedia.paused) { isPlaying = false; updateMusicUI(); } });
+      weddingAudio.addEventListener('ended', () => { weddingAudio.currentTime = 0; weddingAudio.play().catch(e => {}); });
+    }
+    if (weddingMedia) {
+      weddingMedia.volume = 1.0;
+      weddingMedia.addEventListener('play', () => { isPlaying = true; updateMusicUI(); });
+      weddingMedia.addEventListener('pause', () => { if (!weddingAudio || weddingAudio.paused) { isPlaying = false; updateMusicUI(); } });
+      weddingMedia.addEventListener('ended', () => { weddingMedia.currentTime = 0; weddingMedia.play().catch(e => {}); });
+    }
+
+    // Pre-warm audio and media on first user gesture
+    function primeAudioOnGesture() {
+      if (weddingAudio && weddingAudio.paused && !isPlaying) {
+        weddingAudio.load();
+      }
+      if (weddingMedia && weddingMedia.paused && !isPlaying) {
+        weddingMedia.load();
+      }
+    }
+    window.addEventListener('click', primeAudioOnGesture, { once: true });
+    window.addEventListener('touchstart', primeAudioOnGesture, { once: true, passive: true });
+
+    // Play "Bardali" with dual audio/media fallback
+    function startAmbientMusic() {
+      let started = false;
+
+      // 1. Try standard audio element first
+      if (weddingAudio) {
+        weddingAudio.volume = 1.0;
+        const p1 = weddingAudio.play();
+        if (p1 !== undefined) {
+          p1.then(() => {
+            started = true;
+            isPlaying = true;
+            updateMusicUI();
+          }).catch(err => {
+            console.warn('Audio element notice, falling back to media:', err);
+            // 2. If audio container has video stream, media element plays it directly!
+            if (weddingMedia && !started) {
+              weddingMedia.volume = 1.0;
+              weddingMedia.play().then(() => {
                 isPlaying = true;
                 updateMusicUI();
-              } else if (e.data === 2) { // YT.PlayerState.PAUSED
-                isPlaying = false;
-                updateMusicUI();
-              }
+              }).catch(e => console.warn('Media play notice:', e));
             }
-          }
-        });
-      } catch (err) {
-        console.warn('YouTube API init notice:', err);
-      }
-    };
-
-    function initAudio() {
-      if (!audioCtx) {
-        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-      }
-      if (audioCtx.state === 'suspended') {
-        audioCtx.resume();
-      }
-    }
-
-    function playChimeNote(freq, delay = 0, duration = 1.6) {
-      if (!audioCtx) return;
-      setTimeout(() => {
-        const osc = audioCtx.createOscillator();
-        const gain = audioCtx.createGain();
-
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-
-        gain.gain.setValueAtTime(0.001, audioCtx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.12, audioCtx.currentTime + 0.08);
-        gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
-
-        osc.connect(gain);
-        gain.connect(audioCtx.destination);
-
-        osc.start();
-        osc.stop(audioCtx.currentTime + duration);
-      }, delay);
-    }
-
-    // Authentic Resonant Temple Bell Chime
-    function playTempleBell() {
-      if (!audioCtx) return;
-      const now = audioCtx.currentTime;
-      [659.25, 1318.5, 1977.75, 2637].forEach((freq, i) => {
-        const osc = audioCtx.createOscillator();
-        const gain = audioCtx.createGain();
-        osc.type = i === 0 ? 'sine' : 'triangle';
-        osc.frequency.setValueAtTime(freq + (Math.random() * 2 - 1), now);
-        const amp = 0.09 / (i + 1);
-        gain.gain.setValueAtTime(amp, now);
-        gain.gain.exponentialRampToValueAtTime(0.0001, now + (2.6 - i * 0.4));
-        osc.connect(gain);
-        gain.connect(audioCtx.destination);
-        osc.start(now);
-        osc.stop(now + 2.6);
-      });
-    }
-
-    // Soft Satin Ribbon Rustle Whoosh
-    function playRibbonRustle() {
-      if (!audioCtx) return;
-      try {
-        const bufferSize = audioCtx.sampleRate * 0.32;
-        const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
-        const data = buffer.getChannelData(0);
-        for (let i = 0; i < bufferSize; i++) {
-          data[i] = Math.random() * 2 - 1;
-        }
-        const whiteNoise = audioCtx.createBufferSource();
-        whiteNoise.buffer = buffer;
-        const filter = audioCtx.createBiquadFilter();
-        filter.type = 'bandpass';
-        filter.frequency.setValueAtTime(1400, audioCtx.currentTime);
-        filter.frequency.exponentialRampToValueAtTime(350, audioCtx.currentTime + 0.3);
-        const gain = audioCtx.createGain();
-        gain.gain.setValueAtTime(0.05, audioCtx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.3);
-        whiteNoise.connect(filter);
-        filter.connect(gain);
-        gain.connect(audioCtx.destination);
-        whiteNoise.start();
-      } catch (e) {}
-    }
-
-    // Grand Fairytale Opening Arpeggio with High Sparkle Bells
-    function playOpeningArpeggio() {
-      initAudio();
-      playRibbonRustle();
-      const chord = [261.63, 329.63, 392.00, 523.25, 659.25, 783.99, 1046.50, 1318.51];
-      chord.forEach((freq, idx) => {
-        playChimeNote(freq, idx * 95, 2.0);
-      });
-      setTimeout(() => {
-        playChimeNote(1567.98, 0, 1.4);
-        playChimeNote(2093.00, 110, 1.8);
-      }, 760);
-    }
-
-    // Start playing the wedding song: "Sadhai Bhari" by Abhaya and the Steam Engines
-    function startAmbientMusic() {
-      isPlaying = true;
-      updateMusicUI();
-
-      // Play official YouTube track "Sadhai Bhari"
-      if (ytPlayer && typeof ytPlayer.playVideo === 'function') {
-        try {
-          ytPlayer.playVideo();
-          if (!synthInterval) {
-            synthInterval = setInterval(() => {
-              if (isPlaying) spawnMusicNote();
-            }, 2000);
-          }
-          return;
-        } catch (err) {
-          console.warn('Playing fallback:', err);
-        }
-      }
-
-      // Elegant fallback chords if YouTube is loading or offline
-      if (!synthInterval) {
-        const progression = [
-          [261.63, 329.63, 392.00], // C
-          [220.00, 261.63, 329.63], // Am
-          [174.61, 220.00, 261.63], // F
-          [196.00, 246.94, 293.66]  // G
-        ];
-        let step = 0;
-        synthInterval = setInterval(() => {
-          if (!isPlaying) return;
-          if (ytPlayer && isYtReady) {
-            try {
-              ytPlayer.playVideo();
-              return;
-            } catch(e) {}
-          }
-          const currentChord = progression[step % progression.length];
-          currentChord.forEach((freq, idx) => {
-            playChimeNote(freq * 1.5, idx * 220, 2.8);
           });
-          step++;
-          spawnMusicNote();
-        }, 2800);
+        }
+      } else if (weddingMedia) {
+        weddingMedia.volume = 1.0;
+        weddingMedia.play().then(() => {
+          isPlaying = true;
+          updateMusicUI();
+        }).catch(e => console.warn(e));
       }
     }
 
     function stopAmbientMusic() {
+      if (weddingAudio) weddingAudio.pause();
+      if (weddingMedia) weddingMedia.pause();
       isPlaying = false;
-      if (ytPlayer && typeof ytPlayer.pauseVideo === 'function') {
-        try { ytPlayer.pauseVideo(); } catch(err){}
-      }
-      if (synthInterval) {
-        clearInterval(synthInterval);
-        synthInterval = null;
-      }
       updateMusicUI();
     }
 
@@ -1566,10 +1675,19 @@
       const musicMutedIcon = document.getElementById('music-icon-muted');
       if (isPlaying) {
         if (musicDisc) musicDisc.style.animationPlayState = 'running';
-        musicMutedIcon.classList.add('hidden');
+        if (musicMutedIcon) musicMutedIcon.classList.add('hidden');
+        if (!musicNotesInterval) {
+          musicNotesInterval = setInterval(() => {
+            if (isPlaying) spawnMusicNote();
+          }, 2000);
+        }
       } else {
         if (musicDisc) musicDisc.style.animationPlayState = 'paused';
-        musicMutedIcon.classList.remove('hidden');
+        if (musicMutedIcon) musicMutedIcon.classList.remove('hidden');
+        if (musicNotesInterval) {
+          clearInterval(musicNotesInterval);
+          musicNotesInterval = null;
+        }
       }
     }
 
@@ -1757,41 +1875,111 @@
     initBackgroundPetals();
 
     // ----------------------------------------------------
-    // 4. Magical Gatefold Opening Sequence
+    // 4. Magical Gatefold Opening Sequence & Mini-Game Gate
     // ----------------------------------------------------
     const gatefoldCover = document.getElementById('gatefold-cover');
     const openBtn = document.getElementById('open-btn');
     const ribbonCenter = document.getElementById('ribbon-center');
     const mainInvitation = document.getElementById('main-invitation');
     let hasOpened = false;
+    let lockPromptTimeout = null;
+
+    // Mini-game progress state
+    let blessingsCaught = 0;
+    const orb1 = document.getElementById('game-orb-1');
+    const orb2 = document.getElementById('game-orb-2');
+    const orb3 = document.getElementById('game-orb-3');
+    const hud1 = document.getElementById('game-target-1-icon');
+    const hud2 = document.getElementById('game-target-2-icon');
+    const hud3 = document.getElementById('game-target-3-icon');
+    const countBadge = document.getElementById('blessing-count-badge');
+    const openBtnIcon = document.getElementById('open-btn-icon');
+    const openBtnText = document.getElementById('open-btn-text');
+    const openBtnHint = document.getElementById('open-btn-hint');
+
+    // Friendly feedback when user tries to open before catching all 3 blessings
+    function showMiniGameLockedHint() {
+      const remaining = Math.max(0, 3 - blessingsCaught);
+      const banner = document.getElementById('game-locked-banner');
+      const bannerText = document.getElementById('game-locked-banner-text');
+
+      if (banner && bannerText) {
+        bannerText.textContent = remaining > 1 
+          ? `Catch ${remaining} more blessings to unlock! 🌸💍💖`
+          : `Catch the last blessing to unlock! 💖`;
+        banner.classList.remove('opacity-0', '-translate-y-2', 'pointer-events-none');
+        banner.classList.add('opacity-100', 'translate-y-0');
+
+        if (lockPromptTimeout) clearTimeout(lockPromptTimeout);
+        lockPromptTimeout = setTimeout(() => {
+          banner.classList.add('opacity-0', '-translate-y-2', 'pointer-events-none');
+          banner.classList.remove('opacity-100', 'translate-y-0');
+        }, 2200);
+      }
+
+      // Wiggle HUD, Open Button & Ribbon
+      const wiggleTargets = [document.getElementById('minigame-hud'), openBtn, ribbonCenter];
+      wiggleTargets.forEach(el => {
+        if (!el) return;
+        el.classList.remove('shake-locked');
+        void el.offsetWidth; // force browser layout recalculation for repeat animation
+        el.classList.add('shake-locked');
+        setTimeout(() => el.classList.remove('shake-locked'), 500);
+      });
+
+      // Highlight uncollected floating orbs with pulsating gold halo
+      [orb1, orb2, orb3].forEach(orb => {
+        if (orb && !orb.classList.contains('game-orb-caught')) {
+          orb.classList.remove('orb-locked-highlight');
+          void orb.offsetWidth;
+          orb.classList.add('orb-locked-highlight');
+          setTimeout(() => orb.classList.remove('orb-locked-highlight'), 1800);
+        }
+      });
+    }
+
+    function handleCardOpenAttempt(e) {
+      if (e) {
+        e.stopPropagation();
+      }
+      if (hasOpened) return;
+
+      // MANDATORY GAME GATE: Without playing and catching all 3 blessings, card cannot open!
+      if (blessingsCaught < 3) {
+        showMiniGameLockedHint();
+        return;
+      }
+
+      openInvitation();
+    }
 
     function openInvitation() {
       if (hasOpened) return;
+      // Safety guard: Must have all 3 blessings
+      if (blessingsCaught < 3) {
+        showMiniGameLockedHint();
+        return;
+      }
       hasOpened = true;
 
-      // 1. Play magical chime cascade & whoosh
-      playOpeningArpeggio();
-
-      // 2. Untie the silk ribbon & burst the wax seal
+      // 1. Untie the silk ribbon & burst the wax seal
       ribbonCenter.classList.add('untying');
 
-      // 3. At 350ms, swing the 3D doors open & shower petals
+      // 2. At 350ms, swing the 3D doors open & shower petals
       setTimeout(() => {
         gatefoldCover.classList.add('gates-opened');
         launchOpeningPetals();
       }, 350);
 
-      // 4. At 550ms, reveal the invitation card smoothly
+      // 3. At 550ms, reveal the invitation card smoothly
       setTimeout(() => {
         if (mainInvitation) {
           mainInvitation.classList.add('invitation-revealed');
         }
       }, 550);
 
-      // 5. Start looping romantic background music after a gentle pause
-      setTimeout(() => {
-        startAmbientMusic();
-      }, 1200);
+      // 4. Play song ONLY: "Bardali" by Sushant KC (immediate start)
+      startAmbientMusic();
 
       // 6. Fade out and remove gatefold from DOM flow so user can scroll freely
       setTimeout(() => {
@@ -1803,12 +1991,69 @@
       }, 1400);
     }
 
-    openBtn.addEventListener('click', openInvitation);
-    ribbonCenter.addEventListener('click', openInvitation);
+    openBtn.addEventListener('click', handleCardOpenAttempt);
+    ribbonCenter.addEventListener('click', handleCardOpenAttempt);
 
-    // Floating audio button toggle
+    // ----------------------------------------------------
+    // Mini-Game: Catch 3 Blessings Implementation
+    // ----------------------------------------------------
+    function catchBlessing(orbElement, hudElement, symbol) {
+      if (!orbElement || orbElement.classList.contains('game-orb-caught')) return;
+
+      // Mark caught visually
+      orbElement.classList.add('game-orb-caught');
+      if (hudElement) {
+        hudElement.classList.remove('opacity-35');
+        hudElement.classList.add('opacity-100', 'scale-125');
+      }
+
+      // Burst sparkles at touch point
+      const rect = orbElement.getBoundingClientRect();
+      const originX = rect.left + rect.width / 2;
+      const originY = rect.top + rect.height / 2;
+      for (let i = 0; i < 10; i++) {
+        setTimeout(() => {
+          spawnTapHeart(originX + (Math.random() - 0.5) * 45, originY + (Math.random() - 0.5) * 45);
+        }, i * 25);
+      }
+
+      blessingsCaught++;
+
+      // Update HUD and Open Button State
+      if (countBadge) countBadge.textContent = `${blessingsCaught}/3`;
+
+      if (blessingsCaught === 1) {
+        if (openBtnText) openBtnText.textContent = '1/3 Caught • 2 Left!';
+        if (openBtnHint) openBtnHint.textContent = 'Catch 2 more blessings floating around! 💍 💖';
+      } else if (blessingsCaught === 2) {
+        if (openBtnText) openBtnText.textContent = '2/3 Caught • 1 More Left!';
+        if (openBtnHint) openBtnHint.textContent = 'Almost unlocked! Catch the last blessing! 💖';
+      } else if (blessingsCaught >= 3) {
+        if (openBtnIcon) openBtnIcon.textContent = '🔓';
+        if (openBtnText) openBtnText.textContent = '✨ All Blessings Caught! ✨';
+        if (openBtnHint) openBtnHint.textContent = '🎉 Opening Mannu & Sulav\'s Invitation...';
+        if (countBadge) {
+          countBadge.textContent = '3/3 🎉';
+          countBadge.classList.remove('bg-[#8B1220]');
+          countBadge.classList.add('bg-emerald-600');
+        }
+
+        // Start audio immediately within user touch gesture!
+        startAmbientMusic();
+
+        // When all 3 are caught: open card!
+        setTimeout(() => {
+          openInvitation();
+        }, 250);
+      }
+    }
+
+    if (orb1) orb1.addEventListener('click', (e) => { e.stopPropagation(); catchBlessing(orb1, hud1, '🌸'); });
+    if (orb2) orb2.addEventListener('click', (e) => { e.stopPropagation(); catchBlessing(orb2, hud2, '💍'); });
+    if (orb3) orb3.addEventListener('click', (e) => { e.stopPropagation(); catchBlessing(orb3, hud3, '💖'); });
+
+    // Floating audio button toggle (Plays ONLY "Bardali" song)
     document.getElementById('music-toggle').addEventListener('click', () => {
-      initAudio();
       if (isPlaying) {
         stopAmbientMusic();
       } else {
@@ -1867,7 +2112,6 @@
       if (
         e.target.closest('#open-btn') ||
         e.target.closest('#music-toggle') ||
-        e.target.closest('#love-btn') ||
         e.target.closest('a') ||
         e.target.closest('button')
       ) {
@@ -1876,38 +2120,7 @@
       spawnTapHeart(e.clientX, e.clientY);
     });
 
-    // Temple Bell Ring & Blessings button handler
-    let loveCount = 48;
-    const loveBtn = document.getElementById('love-btn');
-    const loveText = document.getElementById('love-count-text');
-    const bellIcon = document.getElementById('bell-icon');
 
-    loveBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      loveCount++;
-      loveText.textContent = `Ring Bell • ${loveCount} Loves!`;
-
-      // Animate swinging bell
-      if (bellIcon) {
-        bellIcon.classList.remove('swinging-bell');
-        void bellIcon.offsetWidth; // trigger reflow
-        bellIcon.classList.add('swinging-bell');
-      }
-
-      // Play temple bell chime
-      initAudio();
-      playTempleBell();
-
-      const rect = loveBtn.getBoundingClientRect();
-      const originX = rect.left + rect.width / 2;
-      const originY = rect.top;
-
-      for (let i = 0; i < 15; i++) {
-        setTimeout(() => {
-          spawnTapHeart(originX + (Math.random() - 0.5) * 55, originY + (Math.random() - 0.5) * 20);
-        }, i * 50);
-      }
-    });
 
     // ----------------------------------------------------
     // 7. Countdown Timer (Targets Reception: Nov 28, 2026 3:30 PM, then Wedding: Dec 3, 2026)
@@ -2042,15 +2255,6 @@ END:VCALENDAR`;
       isModalOpen = true;
       welcomeModalShown = true;
 
-      // Play joyful greeting chime
-      initAudio();
-      playTempleBell();
-      setTimeout(() => {
-        playChimeNote(1046.50, 0, 0.8);
-        playChimeNote(1318.51, 100, 1.0);
-        playChimeNote(1567.98, 200, 1.2);
-      }, 150);
-
       // Reveal modal with spring animation
       welcomeModal.classList.remove('opacity-0', 'pointer-events-none');
       welcomeModalCard.classList.remove('scale-90', 'translate-y-8');
@@ -2113,13 +2317,6 @@ END:VCALENDAR`;
     if (journeyCar) {
       journeyCar.addEventListener('click', (e) => {
         e.stopPropagation();
-        initAudio();
-        // Cheerful multi-tone wedding car horn arpeggio
-        playChimeNote(784.00, 0, 0.35);   // G5
-        playChimeNote(987.77, 80, 0.45);  // B5
-        playChimeNote(1318.51, 160, 0.55); // E6
-        playChimeNote(1567.98, 240, 0.7);  // G6
-
         // Playful hop animation
         journeyCar.style.animationPlayState = 'paused';
         journeyCar.style.transition = 'transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
