@@ -546,12 +546,18 @@
       transform: scale(1) translateY(0);
     }
   </style>
+  <script src="https://www.youtube.com/iframe_api"></script>
 </head>
 
 <body class="antialiased selection:bg-[#F9E2E5] selection:text-[#9B1D2C]">
 
   <!-- Hadaka.jp Minimalist Scroll Progress Indicator -->
   <div id="scroll-progress-bar"></div>
+  <!-- Hidden YouTube Audio Player: "Sadhai Bhari" by Abhaya and the Steam Engines (T36r-O5k8Tc) -->
+  <div id="youtube-audio-container" style="position: fixed; width: 1px; height: 1px; bottom: -50px; left: -50px; opacity: 0; pointer-events: none; overflow: hidden;">
+    <div id="yt-player"></div>
+  </div>
+
 
   <!-- Atmospheric Full-Screen Wedding Background Layer -->
   <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
@@ -758,9 +764,14 @@
   </div>
 
   <!-- Bottom Right: Floating Music Toggle Button with Rotating Lotus Disc -->
-  <div class="fixed bottom-5 right-5 z-40 relative" id="music-container">
-    <button id="music-toggle" aria-label="Toggle ambient music"
-      class="bg-white/95 backdrop-blur-md p-3 rounded-full shadow-xl border border-[#CCD8CC] flex items-center gap-2 hover:bg-[#FAFBF9] transition">
+  <div class="fixed bottom-5 right-5 z-40 flex items-center gap-2" id="music-container">
+    <!-- Song Title Badge Pill -->
+    <div id="song-title-pill" class="hidden sm:flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-[#D4AF37] shadow-lg text-[10px] font-bold text-[#8B1220]">
+      <span class="animate-pulse">🎵</span>
+      <span>Sadhai Bhari &bull; Abhaya</span>
+    </div>
+    <button id="music-toggle" aria-label="Toggle wedding song: Sadhai Bhari" title="Song: Sadhai Bhari - Abhaya and the Steam Engines"
+      class="bg-white/95 backdrop-blur-md p-3 rounded-full shadow-xl border-2 border-[#D4AF37] flex items-center gap-2 hover:bg-[#FAFBF9] transition transform hover:scale-105 active:scale-95">
       <!-- Rotating Lotus Mandala Vinyl Disc -->
       <div id="sound-indicator" class="relative w-6 h-6 flex items-center justify-center">
         <svg id="music-disc" class="w-6 h-6 text-[#9B1D2C] animate-spin" viewBox="0 0 24 24" fill="currentColor">
@@ -1350,11 +1361,57 @@
   <!-- ============================================== -->
   <script>
     // ----------------------------------------------------
-    // 1. Web Audio Synthesizer (Harp, Satin Whoosh & Temple Bell)
+    // 1. YouTube Audio Player ("Sadhai Bhari" - ID: T36r-O5k8Tc) & Audio Synthesizer
     // ----------------------------------------------------
-    let audioCtx = null;
+    const YOUTUBE_VIDEO_ID = 'T36r-O5k8Tc';
+    let ytPlayer = null;
+    let isYtReady = false;
     let isPlaying = false;
     let synthInterval = null;
+    let audioCtx = null;
+
+    // Load YouTube IFrame Player for "Sadhai Bhari"
+    window.onYouTubeIframeAPIReady = function() {
+      try {
+        ytPlayer = new YT.Player('yt-player', {
+          height: '1',
+          width: '1',
+          videoId: YOUTUBE_VIDEO_ID,
+          playerVars: {
+            autoplay: 0,
+            controls: 0,
+            loop: 1,
+            playlist: YOUTUBE_VIDEO_ID,
+            playsinline: 1,
+            enablejsapi: 1,
+            rel: 0
+          },
+          events: {
+            onReady: function(e) {
+              isYtReady = true;
+              if (isPlaying) {
+                try { e.target.playVideo(); } catch(err){}
+              }
+            },
+            onStateChange: function(e) {
+              // When song ends, loop automatically
+              if (e.data === 0) { // YT.PlayerState.ENDED
+                try { ytPlayer.playVideo(); } catch(err){}
+              }
+              if (e.data === 1) { // YT.PlayerState.PLAYING
+                isPlaying = true;
+                updateMusicUI();
+              } else if (e.data === 2) { // YT.PlayerState.PAUSED
+                isPlaying = false;
+                updateMusicUI();
+              }
+            }
+          }
+        });
+      } catch (err) {
+        console.warn('YouTube API init notice:', err);
+      }
+    };
 
     function initAudio() {
       if (!audioCtx) {
@@ -1428,7 +1485,7 @@
         filter.connect(gain);
         gain.connect(audioCtx.destination);
         whiteNoise.start();
-      } catch (e) { }
+      } catch (e) {}
     }
 
     // Grand Fairytale Opening Arpeggio with High Sparkle Bells
@@ -1439,38 +1496,68 @@
       chord.forEach((freq, idx) => {
         playChimeNote(freq, idx * 95, 2.0);
       });
-      // Celestial twinkle sparkle notes
       setTimeout(() => {
         playChimeNote(1567.98, 0, 1.4);
         playChimeNote(2093.00, 110, 1.8);
       }, 760);
     }
 
-    // Gentle looping ambient chords
+    // Start playing the wedding song: "Sadhai Bhari" by Abhaya and the Steam Engines
     function startAmbientMusic() {
       isPlaying = true;
       updateMusicUI();
-      const progression = [
-        [261.63, 329.63, 392.00], // C
-        [220.00, 261.63, 329.63], // Am
-        [174.61, 220.00, 261.63], // F
-        [196.00, 246.94, 293.66]  // G
-      ];
-      let step = 0;
-      synthInterval = setInterval(() => {
-        if (!isPlaying) return;
-        const currentChord = progression[step % progression.length];
-        currentChord.forEach((freq, idx) => {
-          playChimeNote(freq * 1.5, idx * 220, 2.8);
-        });
-        step++;
-        spawnMusicNote();
-      }, 2800);
+
+      // Play official YouTube track "Sadhai Bhari"
+      if (ytPlayer && typeof ytPlayer.playVideo === 'function') {
+        try {
+          ytPlayer.playVideo();
+          if (!synthInterval) {
+            synthInterval = setInterval(() => {
+              if (isPlaying) spawnMusicNote();
+            }, 2000);
+          }
+          return;
+        } catch (err) {
+          console.warn('Playing fallback:', err);
+        }
+      }
+
+      // Elegant fallback chords if YouTube is loading or offline
+      if (!synthInterval) {
+        const progression = [
+          [261.63, 329.63, 392.00], // C
+          [220.00, 261.63, 329.63], // Am
+          [174.61, 220.00, 261.63], // F
+          [196.00, 246.94, 293.66]  // G
+        ];
+        let step = 0;
+        synthInterval = setInterval(() => {
+          if (!isPlaying) return;
+          if (ytPlayer && isYtReady) {
+            try {
+              ytPlayer.playVideo();
+              return;
+            } catch(e) {}
+          }
+          const currentChord = progression[step % progression.length];
+          currentChord.forEach((freq, idx) => {
+            playChimeNote(freq * 1.5, idx * 220, 2.8);
+          });
+          step++;
+          spawnMusicNote();
+        }, 2800);
+      }
     }
 
     function stopAmbientMusic() {
       isPlaying = false;
-      if (synthInterval) clearInterval(synthInterval);
+      if (ytPlayer && typeof ytPlayer.pauseVideo === 'function') {
+        try { ytPlayer.pauseVideo(); } catch(err){}
+      }
+      if (synthInterval) {
+        clearInterval(synthInterval);
+        synthInterval = null;
+      }
       updateMusicUI();
     }
 
