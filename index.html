@@ -692,7 +692,7 @@
 
   <!-- Hadaka.jp Minimalist Scroll Progress Indicator -->
   <div id="scroll-progress-bar"></div>
-  <!-- Hidden YouTube Audio Player: "https://youtu.be/OfutLHeiWa0" (Starts at 1:00 min) -->
+  <!-- Hidden YouTube Audio Player: "https://youtu.be/OfutLHeiWa0" (Starts at 1:26 min) -->
   <div id="youtube-audio-container"
     style="position: fixed; width: 200px; height: 200px; bottom: -500px; right: -500px; opacity: 0.001; pointer-events: none; z-index: -9999; overflow: hidden;">
     <div id="yt-player"></div>
@@ -1174,8 +1174,7 @@
         </h1>
       </div>
 
-      <p class="font-cormorant italic text-lg text-[#5A6B5D] mt-2 relative z-10">Together with our families, invite you
-        to celebrate our wedding.</p>
+      <p class="font-cormorant italic text-lg text-[#5A6B5D] mt-2 relative z-10">Together with our families, invite you to celebrate our wedding.</p>
 
       <!-- Red & Sage Divider with Floating Sparkles -->
       <!-- Rich Wedding Floral Garland Swag Divider -->
@@ -1531,10 +1530,10 @@
   <!-- ============================================== -->
   <script>
     // ----------------------------------------------------
-    // 1. YouTube Audio Player: OfutLHeiWa0 (Starts at 1:00 min)
+    // 1. YouTube Audio Player: OfutLHeiWa0 (Starts at 1:26 min)
     // ----------------------------------------------------
     const YOUTUBE_VIDEO_ID = 'OfutLHeiWa0';
-    const SONG_START_SECONDS = 60; // 1:00 min
+    const SONG_START_SECONDS = 86; // 1:26 min
     let ytPlayer = null;
     let isYtReady = false;
     let isPlaying = false;
@@ -1892,7 +1891,7 @@
         }
       }, 550);
 
-      // 4. Play YouTube wedding song: OfutLHeiWa0 from 1:00 min (immediate start)
+      // 4. Play YouTube wedding song: OfutLHeiWa0 from 1:26 min (immediate start)
       startAmbientMusic();
 
       // 5. Fade out and remove gatefold from DOM flow so user can scroll freely
@@ -1908,7 +1907,7 @@
     if (openBtn) openBtn.addEventListener('click', openInvitation);
     if (ribbonCenter) ribbonCenter.addEventListener('click', openInvitation);
 
-    // Floating audio button toggle (Plays YouTube OfutLHeiWa0 from 1:00 min)
+    // Floating audio button toggle (Plays YouTube OfutLHeiWa0 from 1:26 min)
     const toggleAudioPlayState = () => {
       if (isPlaying) {
         stopAmbientMusic();
