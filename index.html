@@ -200,6 +200,7 @@
       0% {
         background-position: -200% center;
       }
+
       100% {
         background-position: 200% center;
       }
@@ -216,52 +217,89 @@
 
     /* Counter-Rotating Sacred Mandala Layer */
     @keyframes mandalaCounterSpin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(-360deg); }
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(-360deg);
+      }
     }
+
     .mandala-spin-reverse {
       animation: mandalaCounterSpin 50s linear infinite;
     }
 
     /* Subtle Floral Breathing Motion */
     @keyframes floralBreathe {
-      0%, 100% { transform: scale(1) rotate(0deg); }
-      50% { transform: scale(1.05) rotate(1.8deg); }
+
+      0%,
+      100% {
+        transform: scale(1) rotate(0deg);
+      }
+
+      50% {
+        transform: scale(1.05) rotate(1.8deg);
+      }
     }
+
     .floral-breathe {
       animation: floralBreathe 4.5s ease-in-out infinite;
     }
 
     /* Rings 3D Floating Motion */
     @keyframes ringsFloat {
-      0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
-      50% { transform: translateY(-5px) rotate(-2.5deg) scale(1.04); }
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(0deg) scale(1);
+      }
+
+      50% {
+        transform: translateY(-5px) rotate(-2.5deg) scale(1.04);
+      }
     }
+
     .rings-float {
       animation: ringsFloat 3.6s ease-in-out infinite;
     }
 
     /* Countdown Jewels Golden Aura Pulse */
     @keyframes jewelGlow {
-      0%, 100% {
+
+      0%,
+      100% {
         box-shadow: 0 4px 14px rgba(212, 175, 55, 0.18), inset 0 0 10px rgba(255, 255, 255, 0.1);
         border-color: rgba(212, 175, 55, 0.55);
       }
+
       50% {
         box-shadow: 0 8px 26px rgba(212, 175, 55, 0.5), inset 0 0 16px rgba(255, 215, 0, 0.25);
         border-color: rgba(212, 175, 55, 1);
       }
     }
+
     .jewel-glow {
       animation: jewelGlow 3.2s ease-in-out infinite;
     }
 
     /* Dangling Bell Clapper Sway */
     @keyframes bellClapperSway {
-      0%, 100% { transform: rotate(0deg); }
-      25% { transform: rotate(-22deg); }
-      75% { transform: rotate(22deg); }
+
+      0%,
+      100% {
+        transform: rotate(0deg);
+      }
+
+      25% {
+        transform: rotate(-22deg);
+      }
+
+      75% {
+        transform: rotate(22deg);
+      }
     }
+
     .bell-clapper {
       transform-origin: top center;
       animation: bellClapperSway 1.8s ease-in-out infinite;
@@ -269,18 +307,22 @@
 
     /* Golden Pulse Glow for Badges */
     @keyframes badgeGlowPulse {
-      0%, 100% {
+
+      0%,
+      100% {
         box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.5);
       }
+
       50% {
         box-shadow: 0 0 0 8px rgba(212, 175, 55, 0);
       }
     }
+
     .badge-pulse {
       animation: badgeGlowPulse 2.8s infinite;
     }
 
-        /* Golden Shimmer on Couple's Names */
+    /* Golden Shimmer on Couple's Names */
     @keyframes textShimmer {
       0% {
         background-position: -200% 0;
@@ -457,33 +499,41 @@
         transform: translateY(0) scale(1);
         opacity: 1;
       }
+
       18% {
         transform: translateY(-3px) rotate(-1.5deg) scale(1.03);
       }
+
       36% {
         transform: translateY(1.5px) rotate(1deg) scale(1);
       }
+
       54% {
         transform: translateY(-3px) rotate(-1.5deg) scale(1.03);
       }
+
       72% {
         transform: translateY(1.5px) rotate(1deg) scale(1);
       }
+
       88% {
         left: 82%;
         transform: translateY(-6px) scale(1.25) rotate(0deg);
         opacity: 1;
       }
+
       93% {
         left: 85%;
         transform: translateY(-3px) scale(0.9);
         opacity: 0;
       }
+
       94% {
         left: -3%;
         opacity: 0;
         transform: translateY(0) scale(1);
       }
+
       100% {
         left: 0%;
         opacity: 1;
@@ -492,10 +542,13 @@
     }
 
     @keyframes exhaustPuff {
-      0%, 100% {
+
+      0%,
+      100% {
         transform: scale(0.9) translateX(0);
         opacity: 0.7;
       }
+
       50% {
         transform: scale(1.25) translateX(-4px);
         opacity: 1;
@@ -630,7 +683,6 @@
       opacity: 1;
       transform: scale(1) translateY(0);
     }
-
   </style>
   <!-- YouTube IFrame API for Wedding Song -->
   <script src="https://www.youtube.com/iframe_api"></script>
@@ -641,7 +693,8 @@
   <!-- Hadaka.jp Minimalist Scroll Progress Indicator -->
   <div id="scroll-progress-bar"></div>
   <!-- Hidden YouTube Audio Player: "https://youtu.be/OfutLHeiWa0" (Starts at 1:00 min) -->
-  <div id="youtube-audio-container" style="position: fixed; width: 200px; height: 200px; bottom: -500px; right: -500px; opacity: 0.001; pointer-events: none; z-index: -9999; overflow: hidden;">
+  <div id="youtube-audio-container"
+    style="position: fixed; width: 200px; height: 200px; bottom: -500px; right: -500px; opacity: 0.001; pointer-events: none; z-index: -9999; overflow: hidden;">
     <div id="yt-player"></div>
   </div>
 
@@ -653,7 +706,9 @@
       style="background-image: url('images/wedding-bg.jpg'); filter: saturate(1.2) contrast(1.08);">
     </div>
     <!-- Soft Auspicious Gradient Overlay for Maximum Readability & Warmth -->
-    <div class="absolute inset-0 bg-gradient-to-b from-[#FAFBF9]/80 via-[#FAFBF9]/60 to-[#FAFBF9]/88 backdrop-blur-[0.5px]"></div>
+    <div
+      class="absolute inset-0 bg-gradient-to-b from-[#FAFBF9]/80 via-[#FAFBF9]/60 to-[#FAFBF9]/88 backdrop-blur-[0.5px]">
+    </div>
   </div>
 
   <!-- Ambient Gentle Petals Canvas in Background -->
@@ -680,7 +735,8 @@
       <div id="left-gate"
         class="gate-left relative w-1/2 h-full bg-[#FAFBF9] border-r border-[#CCD8CC] shadow-xl flex flex-col justify-between p-6 overflow-hidden">
         <!-- Royal Wedding Floral Texture Overlay -->
-        <div class="absolute inset-0 bg-cover bg-center opacity-[0.16] pointer-events-none" style="background-image: url('images/wedding-bg.jpg');"></div>
+        <div class="absolute inset-0 bg-cover bg-center opacity-[0.16] pointer-events-none"
+          style="background-image: url('images/wedding-bg.jpg');"></div>
 
         <!-- Sacred Background Watermark Corner -->
         <svg class="absolute -left-12 -top-12 w-48 h-48 opacity-10 text-[#688A68] pointer-events-none"
@@ -723,7 +779,8 @@
       <div id="right-gate"
         class="gate-right relative w-1/2 h-full bg-[#FAFBF9] border-l border-[#CCD8CC] shadow-xl flex flex-col justify-between items-end p-6 overflow-hidden">
         <!-- Royal Wedding Floral Texture Overlay -->
-        <div class="absolute inset-0 bg-cover bg-center opacity-[0.16] pointer-events-none" style="background-image: url('images/wedding-bg.jpg');"></div>
+        <div class="absolute inset-0 bg-cover bg-center opacity-[0.16] pointer-events-none"
+          style="background-image: url('images/wedding-bg.jpg');"></div>
 
         <!-- Sacred Background Watermark Corner -->
         <svg class="absolute -right-12 -top-12 w-48 h-48 opacity-10 text-[#9B1D2C] pointer-events-none"
@@ -875,16 +932,19 @@
     <div class="absolute inset-2 border border-[#D4AF37]/35 rounded-2xl pointer-events-none z-20"></div>
     <!-- Left & Right Cascading Wedding Floral Side Garlands -->
     <div class="absolute top-0 bottom-0 left-0 w-8 sm:w-10 pointer-events-none z-15 bg-repeat-y bg-contain opacity-95"
-      style="background-image: url('images/floral-garland-side.jpg'); mix-blend-mode: multiply; filter: contrast(1.15) saturate(1.25);"></div>
-    <div class="absolute top-0 bottom-0 right-0 w-8 sm:w-10 pointer-events-none z-15 bg-repeat-y bg-contain opacity-95 transform scale-x-[-1]"
-      style="background-image: url('images/floral-garland-side.jpg'); mix-blend-mode: multiply; filter: contrast(1.15) saturate(1.25);"></div>
+      style="background-image: url('images/floral-garland-side.jpg'); mix-blend-mode: multiply; filter: contrast(1.15) saturate(1.25);">
+    </div>
+    <div
+      class="absolute top-0 bottom-0 right-0 w-8 sm:w-10 pointer-events-none z-15 bg-repeat-y bg-contain opacity-95 transform scale-x-[-1]"
+      style="background-image: url('images/floral-garland-side.jpg'); mix-blend-mode: multiply; filter: contrast(1.15) saturate(1.25);">
+    </div>
 
 
     <!-- Ornate Wedding Floral Corner Ornaments (Top-Left & Top-Right) -->
     <div class="absolute top-0 left-0 w-28 h-28 pointer-events-none z-20 floral-breathe">
       <svg viewBox="0 0 120 120" fill="none" class="w-full h-full drop-shadow-sm">
         <!-- Golden Branch & Swirls -->
-        <path d="M0,0 Q60,10 70,70 Q20,60 0,0" fill="none" stroke="#D4AF37" stroke-width="1.2" opacity="0.8"/>
+        <path d="M0,0 Q60,10 70,70 Q20,60 0,0" fill="none" stroke="#D4AF37" stroke-width="1.2" opacity="0.8" />
         <!-- Red Blooming Roses -->
         <circle cx="28" cy="28" r="14" fill="#8B1220" />
         <circle cx="28" cy="28" r="10" fill="#A51C30" />
@@ -898,17 +958,17 @@
         <circle cx="22" cy="58" r="9" fill="#8B1220" />
         <circle cx="22" cy="58" r="6" fill="#A51C30" />
         <!-- Emerald & Sage Leaves -->
-        <path d="M35,10 Q50,0 45,18 Z" fill="#2D6A4F" opacity="0.85"/>
-        <path d="M10,35 Q0,50 18,45 Z" fill="#1E5631" opacity="0.85"/>
-        <path d="M48,42 Q60,35 55,50 Z" fill="#406A4A" opacity="0.8"/>
+        <path d="M35,10 Q50,0 45,18 Z" fill="#2D6A4F" opacity="0.85" />
+        <path d="M10,35 Q0,50 18,45 Z" fill="#1E5631" opacity="0.85" />
+        <path d="M48,42 Q60,35 55,50 Z" fill="#406A4A" opacity="0.8" />
         <!-- Gold Sparkle Star -->
-        <path d="M72,48 L74,54 L80,56 L74,58 L72,64 L70,58 L64,56 L70,54 Z" fill="#D4AF37"/>
+        <path d="M72,48 L74,54 L80,56 L74,58 L72,64 L70,58 L64,56 L70,54 Z" fill="#D4AF37" />
       </svg>
     </div>
 
     <div class="absolute top-0 right-0 w-28 h-28 pointer-events-none z-20 transform scale-x-[-1] floral-breathe">
       <svg viewBox="0 0 120 120" fill="none" class="w-full h-full drop-shadow-sm">
-        <path d="M0,0 Q60,10 70,70 Q20,60 0,0" fill="none" stroke="#D4AF37" stroke-width="1.2" opacity="0.8"/>
+        <path d="M0,0 Q60,10 70,70 Q20,60 0,0" fill="none" stroke="#D4AF37" stroke-width="1.2" opacity="0.8" />
         <circle cx="28" cy="28" r="14" fill="#8B1220" />
         <circle cx="28" cy="28" r="10" fill="#A51C30" />
         <circle cx="28" cy="28" r="6" fill="#D92534" />
@@ -918,10 +978,10 @@
         <circle cx="58" cy="22" r="3" fill="#FFF" />
         <circle cx="22" cy="58" r="9" fill="#8B1220" />
         <circle cx="22" cy="58" r="6" fill="#A51C30" />
-        <path d="M35,10 Q50,0 45,18 Z" fill="#2D6A4F" opacity="0.85"/>
-        <path d="M10,35 Q0,50 18,45 Z" fill="#1E5631" opacity="0.85"/>
-        <path d="M48,42 Q60,35 55,50 Z" fill="#406A4A" opacity="0.8"/>
-        <path d="M72,48 L74,54 L80,56 L74,58 L72,64 L70,58 L64,56 L70,54 Z" fill="#D4AF37"/>
+        <path d="M35,10 Q50,0 45,18 Z" fill="#2D6A4F" opacity="0.85" />
+        <path d="M10,35 Q0,50 18,45 Z" fill="#1E5631" opacity="0.85" />
+        <path d="M48,42 Q60,35 55,50 Z" fill="#406A4A" opacity="0.8" />
+        <path d="M72,48 L74,54 L80,56 L74,58 L72,64 L70,58 L64,56 L70,54 Z" fill="#D4AF37" />
       </svg>
     </div>
 
@@ -929,9 +989,11 @@
     <div class="w-full overflow-hidden pointer-events-none relative z-25">
       <svg class="w-full h-12 toran-sway" viewBox="0 0 400 48" fill="none" xmlns="http://www.w3.org/2000/svg">
         <!-- Golden Garland Cord with Beads -->
-        <path d="M-10,6 Q45,28 100,6 Q150,28 200,6 Q250,28 300,6 Q355,28 410,6" stroke="#D4AF37" stroke-width="2" fill="none" />
-        <path d="M-10,10 Q45,32 100,10 Q150,32 200,10 Q250,32 300,10 Q355,32 410,10" stroke="#E67E22" stroke-width="1.2" stroke-dasharray="3 3" fill="none" />
-        
+        <path d="M-10,6 Q45,28 100,6 Q150,28 200,6 Q250,28 300,6 Q355,28 410,6" stroke="#D4AF37" stroke-width="2"
+          fill="none" />
+        <path d="M-10,10 Q45,32 100,10 Q150,32 200,10 Q250,32 300,10 Q355,32 410,10" stroke="#E67E22" stroke-width="1.2"
+          stroke-dasharray="3 3" fill="none" />
+
         <!-- Sacred Mango Leaves (Aam Patta) -->
         <polygon points="45,22 41,34 49,34" fill="#2D6A4F" />
         <polygon points="150,22 146,34 154,34" fill="#1E5631" />
@@ -953,32 +1015,34 @@
 
         <!-- Hanging Golden Temple Bells with Red Ribbon -->
         <g transform="translate(45, 20)">
-          <path d="M-4,0 L4,0 L6,8 L-6,8 Z" fill="#D4AF37" stroke="#996515" stroke-width="0.8"/>
+          <path d="M-4,0 L4,0 L6,8 L-6,8 Z" fill="#D4AF37" stroke="#996515" stroke-width="0.8" />
           <circle cx="0" cy="9" r="2" fill="#8B1220" class="bell-clapper" />
         </g>
         <g transform="translate(150, 20)">
-          <path d="M-4,0 L4,0 L6,8 L-6,8 Z" fill="#D4AF37" stroke="#996515" stroke-width="0.8"/>
+          <path d="M-4,0 L4,0 L6,8 L-6,8 Z" fill="#D4AF37" stroke="#996515" stroke-width="0.8" />
           <circle cx="0" cy="9" r="2" fill="#8B1220" />
         </g>
         <g transform="translate(250, 20)">
-          <path d="M-4,0 L4,0 L6,8 L-6,8 Z" fill="#D4AF37" stroke="#996515" stroke-width="0.8"/>
+          <path d="M-4,0 L4,0 L6,8 L-6,8 Z" fill="#D4AF37" stroke="#996515" stroke-width="0.8" />
           <circle cx="0" cy="9" r="2" fill="#8B1220" />
         </g>
         <g transform="translate(355, 20)">
-          <path d="M-4,0 L4,0 L6,8 L-6,8 Z" fill="#D4AF37" stroke="#996515" stroke-width="0.8"/>
+          <path d="M-4,0 L4,0 L6,8 L-6,8 Z" fill="#D4AF37" stroke="#996515" stroke-width="0.8" />
           <circle cx="0" cy="9" r="2" fill="#8B1220" />
         </g>
       </svg>
     </div>
 
     <!-- 1. HERO SECTION: SAVE THE DATE -->
-    <header
-      class="relative px-6 pt-8 pb-10 text-center overflow-hidden bg-transparent">
-      
+    <header class="relative px-6 pt-8 pb-10 text-center overflow-hidden bg-transparent">
+
       <!-- Vibrant Wedding Floral Mandala Halo Backdrop -->
-      <div class="absolute top-2 left-1/2 -translate-x-1/2 w-96 h-96 rounded-full opacity-55 pointer-events-none bg-cover bg-center"
+      <div
+        class="absolute top-2 left-1/2 -translate-x-1/2 w-96 h-96 rounded-full opacity-55 pointer-events-none bg-cover bg-center"
         style="background-image: url('images/floral-card-bg.jpg'); filter: saturate(1.3) contrast(1.15);"></div>
-      <div class="absolute top-4 left-1/2 -translate-x-1/2 w-72 h-72 rounded-full bg-gradient-to-b from-[#FFFDF8]/70 via-[#FFF8E7]/50 to-transparent pointer-events-none"></div>
+      <div
+        class="absolute top-4 left-1/2 -translate-x-1/2 w-72 h-72 rounded-full bg-gradient-to-b from-[#FFFDF8]/70 via-[#FFF8E7]/50 to-transparent pointer-events-none">
+      </div>
 
       <!-- Layered Dual-Rotating Palace Sacred Mandalas (Motion Graphic) -->
       <div class="absolute top-14 left-1/2 -translate-x-1/2 w-80 h-80 opacity-[0.08] pointer-events-none z-0">
@@ -999,12 +1063,15 @@
       </div>
       <!-- Inner Counter-Rotating Golden Palace Mandala (Mesmerizing Depth Motion) -->
       <div class="absolute top-24 left-1/2 -translate-x-1/2 w-60 h-60 opacity-[0.14] pointer-events-none z-0">
-        <svg class="w-full h-full mandala-spin-reverse text-[#D4AF37]" viewBox="0 0 100 100" fill="none" stroke="currentColor">
+        <svg class="w-full h-full mandala-spin-reverse text-[#D4AF37]" viewBox="0 0 100 100" fill="none"
+          stroke="currentColor">
           <circle cx="50" cy="50" r="46" stroke-width="0.8" stroke-dasharray="2 2" />
           <circle cx="50" cy="50" r="38" stroke-width="1" />
           <circle cx="50" cy="50" r="28" stroke-width="0.7" />
-          <path d="M50 12 C54 28 64 36 80 40 C64 44 54 52 50 68 C46 52 36 44 20 40 C36 36 46 28 50 12 Z" stroke-width="0.9" />
-          <path d="M50 12 C54 28 64 36 80 40 C64 44 54 52 50 68 C46 52 36 44 20 40 C36 36 46 28 50 12 Z" stroke-width="0.9" transform="rotate(45 50 50)" />
+          <path d="M50 12 C54 28 64 36 80 40 C64 44 54 52 50 68 C46 52 36 44 20 40 C36 36 46 28 50 12 Z"
+            stroke-width="0.9" />
+          <path d="M50 12 C54 28 64 36 80 40 C64 44 54 52 50 68 C46 52 36 44 20 40 C36 36 46 28 50 12 Z"
+            stroke-width="0.9" transform="rotate(45 50 50)" />
         </svg>
       </div>
 
@@ -1083,19 +1150,22 @@
         <!-- Auspicious Floral Wreath Crown -->
         <div class="flex items-center justify-center gap-2 mb-1">
           <span class="text-base select-none">🌸</span>
-          <p class="text-[11px] tracking-[0.35em] uppercase text-[#8B1220] font-bold drop-shadow-sm bg-[#FFFDF8]/90 px-3 py-0.5 rounded-full border border-[#D4AF37] badge-pulse">
+          <p
+            class="text-[11px] tracking-[0.35em] uppercase text-[#8B1220] font-bold drop-shadow-sm bg-[#FFFDF8]/90 px-3 py-0.5 rounded-full border border-[#D4AF37] badge-pulse">
             ✦ शुभ विवाह ✦
           </p>
           <span class="text-base select-none">🌸</span>
         </div>
 
-        <h1 class="font-cormorant text-5xl sm:text-6xl font-normal tracking-wide leading-[1.08] my-2 drop-shadow-[0_2px_8px_rgba(139,18,32,0.22)]">
+        <h1
+          class="font-cormorant text-5xl sm:text-6xl font-normal tracking-wide leading-[1.08] my-2 drop-shadow-[0_2px_8px_rgba(139,18,32,0.22)]">
           <span class="block font-medium gold-sheen-title">
             Mannu Shrestha
           </span>
           <span class="flex items-center justify-center gap-3 my-1 font-serif">
             <span class="h-[1px] w-8 bg-gradient-to-r from-transparent to-[#D4AF37]"></span>
-            <span class="text-3xl italic text-[#D4AF37] font-cormorant drop-shadow-sm font-semibold animate-pulse">&amp;</span>
+            <span
+              class="text-3xl italic text-[#D4AF37] font-cormorant drop-shadow-sm font-semibold animate-pulse">&amp;</span>
             <span class="h-[1px] w-8 bg-gradient-to-l from-transparent to-[#D4AF37]"></span>
           </span>
           <span class="block font-medium gold-sheen-title">
@@ -1104,7 +1174,8 @@
         </h1>
       </div>
 
-      <p class="font-cormorant italic text-lg text-[#5A6B5D] mt-2 relative z-10">Together with our families, invite you to celebrate our wedding.</p>
+      <p class="font-cormorant italic text-lg text-[#5A6B5D] mt-2 relative z-10">Together with our families, invite you
+        to celebrate our wedding.</p>
 
       <!-- Red & Sage Divider with Floating Sparkles -->
       <!-- Rich Wedding Floral Garland Swag Divider -->
@@ -1119,7 +1190,8 @@
       <!-- Quick Date Badges in Regal Crimson & Emerald with Gold Trims -->
       <div class="space-y-2 mt-4 relative z-10 max-w-xs mx-auto">
         <!-- Reception Badge in Royal Crimson -->
-        <div class="w-full bg-gradient-to-r from-[#8B1220] via-[#A51C30] to-[#8B1220] px-4 py-2 rounded-2xl border-2 border-[#D4AF37] shadow-md hover:shadow-lg transition transform hover:scale-[1.02] duration-200">
+        <div
+          class="w-full bg-gradient-to-r from-[#8B1220] via-[#A51C30] to-[#8B1220] px-4 py-2 rounded-2xl border-2 border-[#D4AF37] shadow-md hover:shadow-lg transition transform hover:scale-[1.02] duration-200">
           <p class="text-[11px] tracking-wider text-white uppercase font-bold flex items-center justify-between">
             <span class="flex items-center gap-1.5">
               <span class="text-xs">🌹</span>
@@ -1131,7 +1203,8 @@
         </div>
 
         <!-- Wedding Day Badge in Royal Emerald -->
-        <div class="w-full bg-gradient-to-r from-[#1E5631] via-[#2D6A4F] to-[#1E5631] px-4 py-2 rounded-2xl border-2 border-[#D4AF37] shadow-md hover:shadow-lg transition transform hover:scale-[1.02] duration-200">
+        <div
+          class="w-full bg-gradient-to-r from-[#1E5631] via-[#2D6A4F] to-[#1E5631] px-4 py-2 rounded-2xl border-2 border-[#D4AF37] shadow-md hover:shadow-lg transition transform hover:scale-[1.02] duration-200">
           <p class="text-[11px] tracking-wider text-white uppercase font-bold flex items-center justify-between">
             <span class="flex items-center gap-1.5">
               <span class="text-xs">🪔</span>
@@ -1161,23 +1234,31 @@
 
       <div class="grid grid-cols-4 gap-2.5 max-w-xs mx-auto reveal-on-scroll delay-150">
         <!-- Days: Royal Crimson Jewel -->
-        <div class="bg-gradient-to-br from-[#8B1220] to-[#600C16] text-white rounded-2xl py-3 px-1 text-center border-2 border-[#D4AF37] shadow-md transform hover:-translate-y-1 transition duration-300 reveal-pop delay-75 jewel-glow">
-          <span id="days" class="font-cormorant text-3xl font-bold text-[#F9D77E] block leading-none drop-shadow-sm">00</span>
+        <div
+          class="bg-gradient-to-br from-[#8B1220] to-[#600C16] text-white rounded-2xl py-3 px-1 text-center border-2 border-[#D4AF37] shadow-md transform hover:-translate-y-1 transition duration-300 reveal-pop delay-75 jewel-glow">
+          <span id="days"
+            class="font-cormorant text-3xl font-bold text-[#F9D77E] block leading-none drop-shadow-sm">00</span>
           <span class="text-[9px] uppercase tracking-wider text-white/90 font-bold mt-1 block">Days</span>
         </div>
         <!-- Hours: Royal Emerald Jewel -->
-        <div class="bg-gradient-to-br from-[#1E5631] to-[#11381F] text-white rounded-2xl py-3 px-1 text-center border-2 border-[#D4AF37] shadow-md transform hover:-translate-y-1 transition duration-300 reveal-pop delay-150 jewel-glow">
-          <span id="hours" class="font-cormorant text-3xl font-bold text-[#F9D77E] block leading-none drop-shadow-sm">00</span>
+        <div
+          class="bg-gradient-to-br from-[#1E5631] to-[#11381F] text-white rounded-2xl py-3 px-1 text-center border-2 border-[#D4AF37] shadow-md transform hover:-translate-y-1 transition duration-300 reveal-pop delay-150 jewel-glow">
+          <span id="hours"
+            class="font-cormorant text-3xl font-bold text-[#F9D77E] block leading-none drop-shadow-sm">00</span>
           <span class="text-[9px] uppercase tracking-wider text-white/90 font-bold mt-1 block">Hours</span>
         </div>
         <!-- Minutes: Saffron Marigold Jewel -->
-        <div class="bg-gradient-to-br from-[#D35400] to-[#8E3200] text-white rounded-2xl py-3 px-1 text-center border-2 border-[#D4AF37] shadow-md transform hover:-translate-y-1 transition duration-300 reveal-pop delay-225 jewel-glow">
-          <span id="minutes" class="font-cormorant text-3xl font-bold text-[#FFF3CD] block leading-none drop-shadow-sm">00</span>
+        <div
+          class="bg-gradient-to-br from-[#D35400] to-[#8E3200] text-white rounded-2xl py-3 px-1 text-center border-2 border-[#D4AF37] shadow-md transform hover:-translate-y-1 transition duration-300 reveal-pop delay-225 jewel-glow">
+          <span id="minutes"
+            class="font-cormorant text-3xl font-bold text-[#FFF3CD] block leading-none drop-shadow-sm">00</span>
           <span class="text-[9px] uppercase tracking-wider text-white/90 font-bold mt-1 block">Mins</span>
         </div>
         <!-- Seconds: Deep Royal Wine Jewel -->
-        <div class="bg-gradient-to-br from-[#6C1D45] to-[#400E27] text-white rounded-2xl py-3 px-1 text-center border-2 border-[#D4AF37] shadow-md transform hover:-translate-y-1 transition duration-300 reveal-pop delay-300 jewel-glow">
-          <span id="seconds" class="font-cormorant text-3xl font-bold text-[#F9D77E] block leading-none drop-shadow-sm">00</span>
+        <div
+          class="bg-gradient-to-br from-[#6C1D45] to-[#400E27] text-white rounded-2xl py-3 px-1 text-center border-2 border-[#D4AF37] shadow-md transform hover:-translate-y-1 transition duration-300 reveal-pop delay-300 jewel-glow">
+          <span id="seconds"
+            class="font-cormorant text-3xl font-bold text-[#F9D77E] block leading-none drop-shadow-sm">00</span>
           <span class="text-[9px] uppercase tracking-wider text-white/90 font-bold mt-1 block">Secs</span>
         </div>
       </div>
@@ -1223,18 +1304,22 @@
         </div>
 
         <!-- Wedding Reception Venue Showcase: Prem Banquet Dhulikhel -->
-        <div class="relative w-full h-44 rounded-2xl overflow-hidden mt-5 border-2 border-[#CCD8CC] shadow-md group/venue">
+        <div
+          class="relative w-full h-44 rounded-2xl overflow-hidden mt-5 border-2 border-[#CCD8CC] shadow-md group/venue">
           <!-- Real Banquet Hall Photo with Warm Glow -->
-          <img src="images/reception-venue.jpg" alt="Prem Banquet Reception Hall" 
+          <img src="images/reception-venue.jpg" alt="Prem Banquet Reception Hall"
             class="w-full h-full object-cover group-hover/venue:scale-105 transition-transform duration-700 ease-out" />
-          
+
           <!-- Romantic Amber & Crimson Gradient Overlay -->
           <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent"></div>
 
           <!-- Top Venue Badge with Pulsing Diya / Location Pin -->
           <div class="absolute top-2.5 left-2.5">
-            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/55 backdrop-blur-md text-white text-[10px] font-semibold border border-white/20">
-              <span class="relative flex h-2.5 w-2.5"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF4500] opacity-75"></span><span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#FF4500]"></span></span>
+            <span
+              class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/55 backdrop-blur-md text-white text-[10px] font-semibold border border-white/20">
+              <span class="relative flex h-2.5 w-2.5"><span
+                  class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF4500] opacity-75"></span><span
+                  class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#FF4500]"></span></span>
               <span>Reception Celebration</span>
             </span>
           </div>
@@ -1302,7 +1387,8 @@
       </div>
 
       <!-- VENUE CARD 2: WEDDING DAY (SMART PALACE CHUCHEPATI CHABAHIL) -->
-      <div class="bg-white/95 backdrop-blur-md rounded-3xl p-6 text-center relative overflow-hidden group border-2 border-[#D4AF37]/60 shadow-[0_12px_30px_-8px_rgba(30,86,49,0.2)] hover:border-[#1E5631] transition-all duration-300 reveal-slide-right delay-150">
+      <div
+        class="bg-white/95 backdrop-blur-md rounded-3xl p-6 text-center relative overflow-hidden group border-2 border-[#D4AF37]/60 shadow-[0_12px_30px_-8px_rgba(30,86,49,0.2)] hover:border-[#1E5631] transition-all duration-300 reveal-slide-right delay-150">
         <!-- Event Ribbon Badge -->
         <div
           class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EDF3ED] border border-[#CCD8CC] text-[#486848] text-[10px] uppercase tracking-widest font-bold mb-3">
@@ -1326,18 +1412,22 @@
         </div>
 
         <!-- Wedding Day Mandap Showcase: Smart Palace Chabahil -->
-        <div class="relative w-full h-44 rounded-2xl overflow-hidden mt-5 border-2 border-[#CCD8CC] shadow-md group/venue">
+        <div
+          class="relative w-full h-44 rounded-2xl overflow-hidden mt-5 border-2 border-[#CCD8CC] shadow-md group/venue">
           <!-- Real Sacred Vivaha Mandap Photo with Silk Drapes & Marigolds -->
-          <img src="images/wedding-mandap.jpg" alt="Smart Palace Wedding Mandap" 
+          <img src="images/wedding-mandap.jpg" alt="Smart Palace Wedding Mandap"
             class="w-full h-full object-cover group-hover/venue:scale-105 transition-transform duration-700 ease-out" />
-          
+
           <!-- Sacred Emerald & Crimson Gradient Overlay -->
           <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent"></div>
 
           <!-- Top Venue Badge with Pulsing Mandap Flame -->
           <div class="absolute top-2.5 left-2.5">
-            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/55 backdrop-blur-md text-white text-[10px] font-semibold border border-white/20">
-              <span class="relative flex h-2.5 w-2.5"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#D4AF37] opacity-75"></span><span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#D4AF37]"></span></span>
+            <span
+              class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/55 backdrop-blur-md text-white text-[10px] font-semibold border border-white/20">
+              <span class="relative flex h-2.5 w-2.5"><span
+                  class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#D4AF37] opacity-75"></span><span
+                  class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#D4AF37]"></span></span>
               <span>Vivaha Ceremony Mandap</span>
             </span>
           </div>
@@ -1397,7 +1487,7 @@
     <!-- Bottom Ornate Floral Corner Clusters (Bottom-Left & Bottom-Right) -->
     <div class="absolute bottom-0 left-0 w-28 h-28 pointer-events-none z-20 transform scale-y-[-1]">
       <svg viewBox="0 0 120 120" fill="none" class="w-full h-full drop-shadow-sm">
-        <path d="M0,0 Q60,10 70,70 Q20,60 0,0" fill="none" stroke="#D4AF37" stroke-width="1.2" opacity="0.8"/>
+        <path d="M0,0 Q60,10 70,70 Q20,60 0,0" fill="none" stroke="#D4AF37" stroke-width="1.2" opacity="0.8" />
         <circle cx="28" cy="28" r="14" fill="#8B1220" />
         <circle cx="28" cy="28" r="10" fill="#A51C30" />
         <circle cx="28" cy="28" r="6" fill="#D92534" />
@@ -1407,16 +1497,16 @@
         <circle cx="58" cy="22" r="3" fill="#FFF" />
         <circle cx="22" cy="58" r="9" fill="#8B1220" />
         <circle cx="22" cy="58" r="6" fill="#A51C30" />
-        <path d="M35,10 Q50,0 45,18 Z" fill="#2D6A4F" opacity="0.85"/>
-        <path d="M10,35 Q0,50 18,45 Z" fill="#1E5631" opacity="0.85"/>
-        <path d="M48,42 Q60,35 55,50 Z" fill="#406A4A" opacity="0.8"/>
-        <path d="M72,48 L74,54 L80,56 L74,58 L72,64 L70,58 L64,56 L70,54 Z" fill="#D4AF37"/>
+        <path d="M35,10 Q50,0 45,18 Z" fill="#2D6A4F" opacity="0.85" />
+        <path d="M10,35 Q0,50 18,45 Z" fill="#1E5631" opacity="0.85" />
+        <path d="M48,42 Q60,35 55,50 Z" fill="#406A4A" opacity="0.8" />
+        <path d="M72,48 L74,54 L80,56 L74,58 L72,64 L70,58 L64,56 L70,54 Z" fill="#D4AF37" />
       </svg>
     </div>
 
     <div class="absolute bottom-0 right-0 w-28 h-28 pointer-events-none z-20 transform scale-x-[-1] scale-y-[-1]">
       <svg viewBox="0 0 120 120" fill="none" class="w-full h-full drop-shadow-sm">
-        <path d="M0,0 Q60,10 70,70 Q20,60 0,0" fill="none" stroke="#D4AF37" stroke-width="1.2" opacity="0.8"/>
+        <path d="M0,0 Q60,10 70,70 Q20,60 0,0" fill="none" stroke="#D4AF37" stroke-width="1.2" opacity="0.8" />
         <circle cx="28" cy="28" r="14" fill="#8B1220" />
         <circle cx="28" cy="28" r="10" fill="#A51C30" />
         <circle cx="28" cy="28" r="6" fill="#D92534" />
@@ -1426,10 +1516,10 @@
         <circle cx="58" cy="22" r="3" fill="#FFF" />
         <circle cx="22" cy="58" r="9" fill="#8B1220" />
         <circle cx="22" cy="58" r="6" fill="#A51C30" />
-        <path d="M35,10 Q50,0 45,18 Z" fill="#2D6A4F" opacity="0.85"/>
-        <path d="M10,35 Q0,50 18,45 Z" fill="#1E5631" opacity="0.85"/>
-        <path d="M48,42 Q60,35 55,50 Z" fill="#406A4A" opacity="0.8"/>
-        <path d="M72,48 L74,54 L80,56 L74,58 L72,64 L70,58 L64,56 L70,54 Z" fill="#D4AF37"/>
+        <path d="M35,10 Q50,0 45,18 Z" fill="#2D6A4F" opacity="0.85" />
+        <path d="M10,35 Q0,50 18,45 Z" fill="#1E5631" opacity="0.85" />
+        <path d="M48,42 Q60,35 55,50 Z" fill="#406A4A" opacity="0.8" />
+        <path d="M72,48 L74,54 L80,56 L74,58 L72,64 L70,58 L64,56 L70,54 Z" fill="#D4AF37" />
       </svg>
     </div>
 
@@ -1459,11 +1549,11 @@
             return data.title;
           }
         }
-      } catch (e) {}
+      } catch (e) { }
       return 'Wedding Celebration Song';
     }
 
-    window.onYouTubeIframeAPIReady = function() {
+    window.onYouTubeIframeAPIReady = function () {
       try {
         ytPlayer = new YT.Player('yt-player', {
           height: '200',
@@ -1480,13 +1570,13 @@
             start: SONG_START_SECONDS
           },
           events: {
-            onReady: function(e) {
+            onReady: function (e) {
               isYtReady = true;
               try {
                 e.target.unMute();
                 e.target.setVolume(100);
                 e.target.seekTo(SONG_START_SECONDS, true);
-              } catch(err) {}
+              } catch (err) { }
               if (pendingPlay || isPlaying) {
                 try {
                   e.target.seekTo(SONG_START_SECONDS, true);
@@ -1497,7 +1587,7 @@
               }
               updateMusicUI();
             },
-            onStateChange: function(e) {
+            onStateChange: function (e) {
               if (e.data === 1) { // YT.PlayerState.PLAYING
                 isPlaying = true;
                 updateMusicUI();
@@ -1508,10 +1598,10 @@
                 try {
                   ytPlayer.seekTo(SONG_START_SECONDS, true);
                   ytPlayer.playVideo();
-                } catch (err) {}
+                } catch (err) { }
               }
             },
-            onError: function(e) {
+            onError: function (e) {
               console.warn('YouTube Player notice (code ' + e.data + ')');
             }
           }
@@ -2092,7 +2182,7 @@ END:VCALENDAR`;
         journeyCar.style.animationPlayState = 'paused';
         journeyCar.style.transition = 'transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
         journeyCar.style.transform = 'scale(1.5) translateY(-14px) rotate(-8deg)';
-        
+
         setTimeout(() => {
           journeyCar.style.transform = 'scale(1) translateY(0) rotate(0deg)';
           setTimeout(() => {
@@ -2187,7 +2277,8 @@ END:VCALENDAR`;
     <div id="welcome-modal-card"
       class="relative w-full max-w-sm bg-gradient-to-b from-[#FFFFFF] via-[#FAFBF9] to-[#F4F8F4] rounded-3xl p-6 sm:p-7 text-center border-2 border-[#D4AF37]/60 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.35)] transform scale-90 translate-y-8 transition-all duration-500 cubic-bezier(0.16,1,0.3,1) z-10 overflow-hidden">
       <!-- Romantic Wedding Floral Overlay inside Modal -->
-      <div class="absolute inset-0 bg-cover bg-center opacity-[0.14] pointer-events-none" style="background-image: url('images/wedding-bg.jpg');"></div>
+      <div class="absolute inset-0 bg-cover bg-center opacity-[0.14] pointer-events-none"
+        style="background-image: url('images/wedding-bg.jpg');"></div>
 
       <!-- Top Decorative Glow -->
       <div
