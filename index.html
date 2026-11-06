@@ -631,134 +631,19 @@
       transform: scale(1) translateY(0);
     }
 
-    /* =================================================== */
-    /* MINI-GAME: CATCH 3 BLESSINGS TO UNLOCK             */
-    /* =================================================== */
-    @keyframes floatOrb1 {
-      0%, 100% {
-        transform: translate(0, 0) scale(1) rotate(0deg);
-      }
-      33% {
-        transform: translate(25px, -22px) scale(1.08) rotate(8deg);
-      }
-      66% {
-        transform: translate(-22px, 18px) scale(0.96) rotate(-8deg);
-      }
-    }
-
-    @keyframes floatOrb2 {
-      0%, 100% {
-        transform: translate(0, 0) scale(1) rotate(0deg);
-      }
-      33% {
-        transform: translate(-28px, 24px) scale(1.06) rotate(-10deg);
-      }
-      66% {
-        transform: translate(25px, -20px) scale(0.95) rotate(10deg);
-      }
-    }
-
-    @keyframes floatOrb3 {
-      0%, 100% {
-        transform: translate(0, 0) scale(1) rotate(0deg);
-      }
-      33% {
-        transform: translate(24px, 25px) scale(1.05) rotate(12deg);
-      }
-      66% {
-        transform: translate(-25px, -22px) scale(0.98) rotate(-6deg);
-      }
-    }
-
-    .game-target-orb {
-      position: absolute;
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      user-select: none;
-      box-shadow: 0 8px 24px rgba(139, 18, 32, 0.28), 0 0 16px rgba(212, 175, 55, 0.45);
-      border: 2px solid #D4AF37;
-      background: radial-gradient(circle at 35% 35%, #FFFFFF 0%, #FFF8E7 45%, #FDE49B 100%);
-      transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
-      z-index: 45;
-      touch-action: manipulation;
-    }
-
-    .game-target-orb:hover, .game-target-orb:active {
-      transform: scale(1.28) !important;
-    }
-
-    .game-orb-1 {
-      top: 15%;
-      left: 8%;
-      animation: floatOrb1 5.2s ease-in-out infinite;
-    }
-
-    .game-orb-2 {
-      top: 20%;
-      right: 8%;
-      animation: floatOrb2 6.0s ease-in-out infinite;
-    }
-
-    .game-orb-3 {
-      bottom: 18%;
-      left: 43%;
-      animation: floatOrb3 5.5s ease-in-out infinite;
-    }
-
-    .game-orb-caught {
-      transform: scale(0) rotate(180deg) !important;
-      opacity: 0 !important;
-      pointer-events: none !important;
-      transition: transform 0.4s ease-in, opacity 0.3s ease !important;
-    }
-
-    @keyframes lockWiggle {
-      0%, 100% { transform: translateX(0); }
-      15%, 45%, 75% { transform: translateX(-6px) rotate(-1.5deg); }
-      30%, 60%, 90% { transform: translateX(6px) rotate(1.5deg); }
-    }
-
-    .shake-locked {
-      animation: lockWiggle 0.45s cubic-bezier(0.36, 0.07, 0.19, 0.97) !important;
-    }
-
-    @keyframes orbHighlightPulse {
-      0%, 100% {
-        box-shadow: 0 8px 24px rgba(139, 18, 32, 0.28), 0 0 16px rgba(212, 175, 55, 0.45);
-        transform: scale(1);
-      }
-      50% {
-        box-shadow: 0 0 35px rgba(212, 175, 55, 1), 0 0 50px rgba(139, 18, 32, 0.75);
-        transform: scale(1.35);
-      }
-    }
-
-    .orb-locked-highlight {
-      animation: orbHighlightPulse 0.6s ease-in-out 3 !important;
-    }
   </style>
+  <!-- YouTube IFrame API for Wedding Song -->
+  <script src="https://www.youtube.com/iframe_api"></script>
 </head>
 
 <body class="antialiased selection:bg-[#F9E2E5] selection:text-[#9B1D2C]">
 
   <!-- Hadaka.jp Minimalist Scroll Progress Indicator -->
   <div id="scroll-progress-bar"></div>
-  <!-- High-Fidelity Native Audio & Media Player ("Bardali" by Sushant KC) -->
-  <audio id="wedding-audio" preload="auto" loop playsinline>
-    <source src="audio/bardali.mp3" type="audio/mpeg">
-    <source src="audio/bardali.m4a" type="audio/mp4">
-    <source src="audio/bardali.mp4" type="audio/mp4">
-    <source src="audio/Sushant KC - Bardali ft. Indrakala Rai (Official Music Video).mp4" type="audio/mp4">
-  </audio>
-  <video id="wedding-media" preload="auto" loop playsinline style="position: fixed; z-index: -9999; bottom: 0; right: 0; width: 1px; height: 1px; opacity: 0.001; pointer-events: none;">
-    <source src="audio/bardali.mp4" type="video/mp4">
-    <source src="audio/Sushant KC - Bardali ft. Indrakala Rai (Official Music Video).mp4" type="video/mp4">
-  </video>
+  <!-- Hidden YouTube Audio Player: "Newa Boucha Wa Manicha" (https://youtu.be/d9aC_kqaJm8) -->
+  <div id="youtube-audio-container" style="position: fixed; width: 200px; height: 200px; bottom: -500px; right: -500px; opacity: 0.001; pointer-events: none; z-index: -9999; overflow: hidden;">
+    <div id="yt-player"></div>
+  </div>
 
 
   <!-- Atmospheric Full-Screen Wedding Background Layer -->
@@ -790,39 +675,6 @@
         class="absolute inset-y-0 left-1/2 -translate-x-1/2 w-0 bg-gradient-to-r from-transparent via-[#FFF3D1] to-transparent opacity-0 z-30 pointer-events-none">
       </div>
 
-      <!-- Mini-Game: Catch 3 Blessings to Unlock Invitation (Mandatory to Open) -->
-      <div id="minigame-hud" class="absolute top-5 inset-x-4 z-40 flex flex-col items-center pointer-events-auto transition-transform">
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/95 backdrop-blur-md border-2 border-[#D4AF37] shadow-xl text-[11px] font-bold text-[#8B1220] transition-all">
-          <span class="animate-bounce">🎮</span>
-          <span>Catch 3 Blessings to Unlock!</span>
-          <!-- Blessing Checkmarks -->
-          <div class="flex items-center gap-2 ml-1 bg-[#8B1220]/10 px-2.5 py-0.5 rounded-full">
-            <span id="game-target-1-icon" class="opacity-35 transition-all text-xs" title="Sacred Rose">🌸</span>
-            <span id="game-target-2-icon" class="opacity-35 transition-all text-xs" title="Wedding Ring">💍</span>
-            <span id="game-target-3-icon" class="opacity-35 transition-all text-xs" title="Love Knot">💖</span>
-          </div>
-          <span id="blessing-count-badge" class="ml-1 bg-[#8B1220] text-white text-[10px] font-black px-2 py-0.5 rounded-full shadow-sm">0/3</span>
-        </div>
-        <p id="minigame-subtext" class="text-[10px] text-white font-medium drop-shadow-md mt-1.5 bg-black/60 px-3.5 py-0.5 rounded-full flex items-center gap-1.5">
-          <span>🔒 Card Locked: Tap all 3 floating blessings to open!</span>
-        </p>
-        <!-- Floating Lock Notification Toast -->
-        <div id="game-locked-banner" class="opacity-0 pointer-events-none transition-all duration-300 transform -translate-y-2 mt-2 px-4 py-1.5 rounded-full bg-[#8B1220] text-[#FFF9E6] border border-[#D4AF37] shadow-2xl text-[11px] font-bold flex items-center gap-1.5">
-          <span>🔒</span>
-          <span id="game-locked-banner-text">Catch all 3 blessings to unlock the card! 🌸💍💖</span>
-        </div>
-      </div>
-
-      <!-- 3 Floating Interactive Blessing Target Orbs -->
-      <div id="game-orb-1" class="game-target-orb game-orb-1" title="Tap to catch Sacred Rose!">
-        <span class="text-2xl select-none">🌸</span>
-      </div>
-      <div id="game-orb-2" class="game-target-orb game-orb-2" title="Tap to catch Wedding Ring!">
-        <span class="text-2xl select-none">💍</span>
-      </div>
-      <div id="game-orb-3" class="game-target-orb game-orb-3" title="Tap to catch Love Knot!">
-        <span class="text-2xl select-none">💖</span>
-      </div>
 
       <!-- Left Gate Panel -->
       <div id="left-gate"
@@ -966,16 +818,16 @@
           </svg>
         </div>
 
-        <!-- Tap To Open CTA Container (Locked until 3 blessings caught) -->
+        <!-- Tap To Open CTA Container -->
         <div id="open-btn-container" class="flex flex-col items-center mt-2 z-10">
           <button id="open-btn"
-            class="relative bg-gradient-to-r from-white via-[#FFF5F6] to-white text-[#9B1D2C] border-2 border-[#9B1D2C]/40 text-xs font-bold tracking-[0.16em] uppercase py-2.5 px-6 rounded-full shadow-2xl hover:shadow-[#9B1D2C]/20 hover:scale-105 active:scale-95 transition-all duration-300 flex items-center gap-2">
-            <span id="open-btn-icon" class="text-sm">🔒</span>
-            <span id="open-btn-text">Catch 3 Blessings to Unlock</span>
-            <span id="open-btn-subicon" class="text-xs">🌸</span>
+            class="relative bg-gradient-to-r from-white via-[#FFF5F6] to-white text-[#9B1D2C] border-2 border-[#9B1D2C]/40 text-xs font-bold tracking-[0.25em] uppercase py-2.5 px-6 rounded-full shadow-2xl hover:shadow-[#9B1D2C]/20 hover:scale-105 active:scale-95 transition-all duration-300 flex items-center gap-2">
+            <span class="animate-pulse text-sm">✨</span>
+            <span>Tap to Open</span>
+            <span class="animate-pulse text-sm">✨</span>
           </button>
-          <p id="open-btn-hint" class="text-[9px] uppercase tracking-wider text-[#5A6B5D] font-bold mt-1.5 transition-colors">
-            Tap the 3 floating blessings 🌸 💍 💖
+          <p class="text-[9px] uppercase tracking-widest text-[#5A6B5D] font-medium mt-1.5 animate-bounce">
+            With Love &amp; Auspicious Blessings
           </p>
         </div>
       </div>
@@ -990,12 +842,12 @@
 
   <!-- Bottom Right: Floating Music Toggle Button with Rotating Lotus Disc -->
   <div class="fixed bottom-5 right-5 z-40 flex items-center gap-2" id="music-container">
-    <!-- Song Title Badge Pill (Plays Local MP3 Audio) -->
-    <div id="song-title-pill" title="Click to play / pause Bardali" class="hidden sm:flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-[#D4AF37] shadow-lg text-[10px] font-bold text-[#8B1220] hover:bg-[#FAFBF9] hover:scale-105 active:scale-95 transition-all cursor-pointer select-none">
+    <!-- Song Title Badge Pill (Plays YouTube Audio: Newa Boucha Wa Manicha) -->
+    <div id="song-title-pill" title="Click to play / pause Newa Boucha Wa Manicha" class="hidden sm:flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-[#D4AF37] shadow-lg text-[10px] font-bold text-[#8B1220] hover:bg-[#FAFBF9] hover:scale-105 active:scale-95 transition-all cursor-pointer select-none">
       <span class="animate-pulse">🎵</span>
-      <span>Bardali &bull; Sushant KC</span>
+      <span id="song-pill-label">Newa Boucha Wa Manicha</span>
     </div>
-    <button id="music-toggle" aria-label="Toggle wedding song: Bardali" title="Song: Bardali - Sushant KC & Indrakala Rai"
+    <button id="music-toggle" aria-label="Toggle wedding song: Newa Boucha Wa Manicha" title="Song: Newa Boucha Wa Manicha (Young Newari Music Band)"
       class="bg-white/95 backdrop-blur-md p-3 rounded-full shadow-xl border-2 border-[#D4AF37] flex items-center gap-2 hover:bg-[#FAFBF9] transition transform hover:scale-105 active:scale-95">
       <!-- Rotating Lotus Mandala Vinyl Disc -->
       <div id="sound-indicator" class="relative w-6 h-6 flex items-center justify-center">
@@ -1257,9 +1109,7 @@
         </h1>
       </div>
 
-      <p class="font-cormorant italic text-lg text-[#5A6B5D] mt-2 relative z-10">Together with their families, invite
-        you to celebrate
-        their wedding.</p>
+      <p class="font-cormorant italic text-lg text-[#5A6B5D] mt-2 relative z-10">Together with our families, invite you to celebrate our wedding.</p>
 
       <!-- Red & Sage Divider with Floating Sparkles -->
       <!-- Rich Wedding Floral Garland Swag Divider -->
@@ -1596,85 +1446,111 @@
   <!-- ============================================== -->
   <script>
     // ----------------------------------------------------
-    // 1. High-Fidelity Audio Player ("Bardali" by Sushant KC)
+    // 1. YouTube Audio Player: "Newa Boucha Wa Manicha" (d9aC_kqaJm8)
     // ----------------------------------------------------
-    const weddingAudio = document.getElementById('wedding-audio');
-    const weddingMedia = document.getElementById('wedding-media');
+    const YOUTUBE_VIDEO_ID = 'd9aC_kqaJm8';
+    let ytPlayer = null;
+    let isYtReady = false;
     let isPlaying = false;
+    let pendingPlay = false;
     let musicNotesInterval = null;
 
-    if (weddingAudio) {
-      weddingAudio.volume = 1.0;
-      weddingAudio.addEventListener('play', () => { isPlaying = true; updateMusicUI(); });
-      weddingAudio.addEventListener('pause', () => { if (!weddingMedia || weddingMedia.paused) { isPlaying = false; updateMusicUI(); } });
-      weddingAudio.addEventListener('ended', () => { weddingAudio.currentTime = 0; weddingAudio.play().catch(e => {}); });
-    }
-    if (weddingMedia) {
-      weddingMedia.volume = 1.0;
-      weddingMedia.addEventListener('play', () => { isPlaying = true; updateMusicUI(); });
-      weddingMedia.addEventListener('pause', () => { if (!weddingAudio || weddingAudio.paused) { isPlaying = false; updateMusicUI(); } });
-      weddingMedia.addEventListener('ended', () => { weddingMedia.currentTime = 0; weddingMedia.play().catch(e => {}); });
-    }
-
-    // Pre-warm audio and media on first user gesture
-    function primeAudioOnGesture() {
-      if (weddingAudio && weddingAudio.paused && !isPlaying) {
-        weddingAudio.load();
-      }
-      if (weddingMedia && weddingMedia.paused && !isPlaying) {
-        weddingMedia.load();
-      }
-    }
-    window.addEventListener('click', primeAudioOnGesture, { once: true });
-    window.addEventListener('touchstart', primeAudioOnGesture, { once: true, passive: true });
-
-    // Play "Bardali" with dual audio/media fallback
-    function startAmbientMusic() {
-      let started = false;
-
-      // 1. Try standard audio element first
-      if (weddingAudio) {
-        weddingAudio.volume = 1.0;
-        const p1 = weddingAudio.play();
-        if (p1 !== undefined) {
-          p1.then(() => {
-            started = true;
-            isPlaying = true;
-            updateMusicUI();
-          }).catch(err => {
-            console.warn('Audio element notice, falling back to media:', err);
-            // 2. If audio container has video stream, media element plays it directly!
-            if (weddingMedia && !started) {
-              weddingMedia.volume = 1.0;
-              weddingMedia.play().then(() => {
+    window.onYouTubeIframeAPIReady = function() {
+      try {
+        ytPlayer = new YT.Player('yt-player', {
+          height: '200',
+          width: '200',
+          videoId: YOUTUBE_VIDEO_ID,
+          playerVars: {
+            autoplay: 0,
+            controls: 0,
+            loop: 1,
+            playlist: YOUTUBE_VIDEO_ID,
+            playsinline: 1,
+            enablejsapi: 1,
+            rel: 0
+          },
+          events: {
+            onReady: function(e) {
+              isYtReady = true;
+              try {
+                e.target.unMute();
+                e.target.setVolume(100);
+              } catch(err) {}
+              if (pendingPlay || isPlaying) {
+                try {
+                  e.target.playVideo();
+                } catch (err) {
+                  console.warn('YouTube play on ready notice:', err);
+                }
+              }
+            },
+            onStateChange: function(e) {
+              if (e.data === 1) { // YT.PlayerState.PLAYING
                 isPlaying = true;
                 updateMusicUI();
-              }).catch(e => console.warn('Media play notice:', e));
+              } else if (e.data === 2) { // YT.PlayerState.PAUSED
+                isPlaying = false;
+                updateMusicUI();
+              } else if (e.data === 0) { // YT.PlayerState.ENDED
+                try {
+                  ytPlayer.playVideo();
+                } catch (err) {}
+              }
+            },
+            onError: function(e) {
+              console.warn('YouTube Player notice (code ' + e.data + ')');
             }
-          });
+          }
+        });
+      } catch (err) {
+        console.warn('YouTube API init notice:', err);
+      }
+    };
+
+    // If YT API already initialized
+    if (window.YT && window.YT.Player) {
+      window.onYouTubeIframeAPIReady();
+    }
+
+    function startAmbientMusic() {
+      isPlaying = true;
+      pendingPlay = true;
+      updateMusicUI();
+
+      if (ytPlayer && isYtReady && typeof ytPlayer.playVideo === 'function') {
+        try {
+          ytPlayer.unMute();
+          ytPlayer.setVolume(100);
+          ytPlayer.playVideo();
+        } catch (err) {
+          console.warn('YouTube playVideo notice:', err);
         }
-      } else if (weddingMedia) {
-        weddingMedia.volume = 1.0;
-        weddingMedia.play().then(() => {
-          isPlaying = true;
-          updateMusicUI();
-        }).catch(e => console.warn(e));
       }
     }
 
     function stopAmbientMusic() {
-      if (weddingAudio) weddingAudio.pause();
-      if (weddingMedia) weddingMedia.pause();
       isPlaying = false;
+      pendingPlay = false;
       updateMusicUI();
+
+      if (ytPlayer && typeof ytPlayer.pauseVideo === 'function') {
+        try {
+          ytPlayer.pauseVideo();
+        } catch (err) {
+          console.warn('YouTube pauseVideo notice:', err);
+        }
+      }
     }
 
     function updateMusicUI() {
       const musicDisc = document.getElementById('music-disc');
       const musicMutedIcon = document.getElementById('music-icon-muted');
+      const songPillLabel = document.getElementById('song-pill-label');
       if (isPlaying) {
         if (musicDisc) musicDisc.style.animationPlayState = 'running';
         if (musicMutedIcon) musicMutedIcon.classList.add('hidden');
+        if (songPillLabel) songPillLabel.textContent = 'Playing: Newa Boucha Wa Manicha';
         if (!musicNotesInterval) {
           musicNotesInterval = setInterval(() => {
             if (isPlaying) spawnMusicNote();
@@ -1683,6 +1559,7 @@
       } else {
         if (musicDisc) musicDisc.style.animationPlayState = 'paused';
         if (musicMutedIcon) musicMutedIcon.classList.remove('hidden');
+        if (songPillLabel) songPillLabel.textContent = 'Music Paused • Tap to Play';
         if (musicNotesInterval) {
           clearInterval(musicNotesInterval);
           musicNotesInterval = null;
@@ -1881,84 +1758,12 @@
     const ribbonCenter = document.getElementById('ribbon-center');
     const mainInvitation = document.getElementById('main-invitation');
     let hasOpened = false;
-    let lockPromptTimeout = null;
 
-    // Mini-game progress state
-    let blessingsCaught = 0;
-    const orb1 = document.getElementById('game-orb-1');
-    const orb2 = document.getElementById('game-orb-2');
-    const orb3 = document.getElementById('game-orb-3');
-    const hud1 = document.getElementById('game-target-1-icon');
-    const hud2 = document.getElementById('game-target-2-icon');
-    const hud3 = document.getElementById('game-target-3-icon');
-    const countBadge = document.getElementById('blessing-count-badge');
-    const openBtnIcon = document.getElementById('open-btn-icon');
-    const openBtnText = document.getElementById('open-btn-text');
-    const openBtnHint = document.getElementById('open-btn-hint');
-
-    // Friendly feedback when user tries to open before catching all 3 blessings
-    function showMiniGameLockedHint() {
-      const remaining = Math.max(0, 3 - blessingsCaught);
-      const banner = document.getElementById('game-locked-banner');
-      const bannerText = document.getElementById('game-locked-banner-text');
-
-      if (banner && bannerText) {
-        bannerText.textContent = remaining > 1 
-          ? `Catch ${remaining} more blessings to unlock! 🌸💍💖`
-          : `Catch the last blessing to unlock! 💖`;
-        banner.classList.remove('opacity-0', '-translate-y-2', 'pointer-events-none');
-        banner.classList.add('opacity-100', 'translate-y-0');
-
-        if (lockPromptTimeout) clearTimeout(lockPromptTimeout);
-        lockPromptTimeout = setTimeout(() => {
-          banner.classList.add('opacity-0', '-translate-y-2', 'pointer-events-none');
-          banner.classList.remove('opacity-100', 'translate-y-0');
-        }, 2200);
-      }
-
-      // Wiggle HUD, Open Button & Ribbon
-      const wiggleTargets = [document.getElementById('minigame-hud'), openBtn, ribbonCenter];
-      wiggleTargets.forEach(el => {
-        if (!el) return;
-        el.classList.remove('shake-locked');
-        void el.offsetWidth; // force browser layout recalculation for repeat animation
-        el.classList.add('shake-locked');
-        setTimeout(() => el.classList.remove('shake-locked'), 500);
-      });
-
-      // Highlight uncollected floating orbs with pulsating gold halo
-      [orb1, orb2, orb3].forEach(orb => {
-        if (orb && !orb.classList.contains('game-orb-caught')) {
-          orb.classList.remove('orb-locked-highlight');
-          void orb.offsetWidth;
-          orb.classList.add('orb-locked-highlight');
-          setTimeout(() => orb.classList.remove('orb-locked-highlight'), 1800);
-        }
-      });
-    }
-
-    function handleCardOpenAttempt(e) {
+    function openInvitation(e) {
       if (e) {
         e.stopPropagation();
       }
       if (hasOpened) return;
-
-      // MANDATORY GAME GATE: Without playing and catching all 3 blessings, card cannot open!
-      if (blessingsCaught < 3) {
-        showMiniGameLockedHint();
-        return;
-      }
-
-      openInvitation();
-    }
-
-    function openInvitation() {
-      if (hasOpened) return;
-      // Safety guard: Must have all 3 blessings
-      if (blessingsCaught < 3) {
-        showMiniGameLockedHint();
-        return;
-      }
       hasOpened = true;
 
       // 1. Untie the silk ribbon & burst the wax seal
@@ -1977,10 +1782,10 @@
         }
       }, 550);
 
-      // 4. Play song ONLY: "Bardali" by Sushant KC (immediate start)
+      // 4. Play YouTube wedding song: "Newa Boucha Wa Manicha" (immediate start)
       startAmbientMusic();
 
-      // 6. Fade out and remove gatefold from DOM flow so user can scroll freely
+      // 5. Fade out and remove gatefold from DOM flow so user can scroll freely
       setTimeout(() => {
         gatefoldCover.style.opacity = '0';
         gatefoldCover.style.pointerEvents = 'none';
@@ -1990,68 +1795,10 @@
       }, 1400);
     }
 
-    openBtn.addEventListener('click', handleCardOpenAttempt);
-    ribbonCenter.addEventListener('click', handleCardOpenAttempt);
+    if (openBtn) openBtn.addEventListener('click', openInvitation);
+    if (ribbonCenter) ribbonCenter.addEventListener('click', openInvitation);
 
-    // ----------------------------------------------------
-    // Mini-Game: Catch 3 Blessings Implementation
-    // ----------------------------------------------------
-    function catchBlessing(orbElement, hudElement, symbol) {
-      if (!orbElement || orbElement.classList.contains('game-orb-caught')) return;
-
-      // Mark caught visually
-      orbElement.classList.add('game-orb-caught');
-      if (hudElement) {
-        hudElement.classList.remove('opacity-35');
-        hudElement.classList.add('opacity-100', 'scale-125');
-      }
-
-      // Burst sparkles at touch point
-      const rect = orbElement.getBoundingClientRect();
-      const originX = rect.left + rect.width / 2;
-      const originY = rect.top + rect.height / 2;
-      for (let i = 0; i < 10; i++) {
-        setTimeout(() => {
-          spawnTapHeart(originX + (Math.random() - 0.5) * 45, originY + (Math.random() - 0.5) * 45);
-        }, i * 25);
-      }
-
-      blessingsCaught++;
-
-      // Update HUD and Open Button State
-      if (countBadge) countBadge.textContent = `${blessingsCaught}/3`;
-
-      if (blessingsCaught === 1) {
-        if (openBtnText) openBtnText.textContent = '1/3 Caught • 2 Left!';
-        if (openBtnHint) openBtnHint.textContent = 'Catch 2 more blessings floating around! 💍 💖';
-      } else if (blessingsCaught === 2) {
-        if (openBtnText) openBtnText.textContent = '2/3 Caught • 1 More Left!';
-        if (openBtnHint) openBtnHint.textContent = 'Almost unlocked! Catch the last blessing! 💖';
-      } else if (blessingsCaught >= 3) {
-        if (openBtnIcon) openBtnIcon.textContent = '🔓';
-        if (openBtnText) openBtnText.textContent = '✨ All Blessings Caught! ✨';
-        if (openBtnHint) openBtnHint.textContent = '🎉 Opening Mannu & Sulav\'s Invitation...';
-        if (countBadge) {
-          countBadge.textContent = '3/3 🎉';
-          countBadge.classList.remove('bg-[#8B1220]');
-          countBadge.classList.add('bg-emerald-600');
-        }
-
-        // Start audio immediately within user touch gesture!
-        startAmbientMusic();
-
-        // When all 3 are caught: open card!
-        setTimeout(() => {
-          openInvitation();
-        }, 250);
-      }
-    }
-
-    if (orb1) orb1.addEventListener('click', (e) => { e.stopPropagation(); catchBlessing(orb1, hud1, '🌸'); });
-    if (orb2) orb2.addEventListener('click', (e) => { e.stopPropagation(); catchBlessing(orb2, hud2, '💍'); });
-    if (orb3) orb3.addEventListener('click', (e) => { e.stopPropagation(); catchBlessing(orb3, hud3, '💖'); });
-
-    // Floating audio button toggle (Plays ONLY local "Bardali" MP3)
+    // Floating audio button toggle (Plays YouTube "Newa Boucha Wa Manicha")
     const toggleAudioPlayState = () => {
       if (isPlaying) {
         stopAmbientMusic();
